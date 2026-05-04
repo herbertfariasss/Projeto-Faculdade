@@ -1,0 +1,58 @@
+.js-box {
+  margin-top: 5%;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  position: absolute;
+  top: 116%;
+  left: 25%;
+
+  /* Fundo com mais contraste + efeito vidro */
+  background-color: rgba(15, 15, 35, 0.85);   /* Roxo-azulado escuro com boa opacidade */
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);        /* Essencial para Safari */
+
+  /* Borda clara e sutil (o segredo do glass) */
+  border: 1px solid rgba(255, 255, 255, 0.18);
+
+  color: white;
+  display: inline-block;
+  padding: 12px 20px;
+  border-radius: 16px;
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  cursor: pointer;
+
+  /* Sombra extra para destacar do fundo */
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6),
+              inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.js-box:hover {
+  transform: scale(1.05);
+  filter: brightness(1.1);
+}
+
+.cabecalho-js {
+  /* novo wrapper */
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 12px;
+  background: linear-gradient(90deg, #8b5cf6, #3b82f6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: bold;
+}
+
+.textoJS {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: "Syne";
+  color: #ffffff;
+  margin-top: -10px;
+  text-align: left;
+}
