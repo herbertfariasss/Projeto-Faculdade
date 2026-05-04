@@ -1,0 +1,51 @@
+.linha-cabecalho {
+    border: none;
+    background-color: #5B21F447;
+    margin: 5px 0;
+    width: 2px;
+    height: 40px;
+}
+
+.linha-curso {
+    border: none;
+    margin: 40px auto;
+    width: 45%;
+    position: absolute;
+    top: 80%;
+    left: 28%;
+    background-color: transparent;
+}
+
+.linha-sobre {
+    border: none;
+    background-color: transparent;
+    margin: 40px auto;
+    width: 45%;
+    height: 2px;
+    position: absolute;
+    top: 180%;
+    left: 28%;
+}
+
+.sobre {
+    font-family: 'Syne';
+    position: absolute;
+    top: 197%;
+}
+
+.linha-contato {
+    border: none;
+    background-color: transparent;
+    margin: 40px auto;
+    width: 45%;
+    height: 2px;
+    position: absolute;
+    top: 280%;
+    left: 28%;
+}
+
+.contato {
+    font-family: 'Syne';
+    position: absolute;
+    top: 297%;
+}

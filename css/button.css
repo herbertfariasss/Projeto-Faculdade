@@ -1,0 +1,106 @@
+html {
+    scroll-behavior: smooth;
+}
+
+*
+body::before,
+body::after {
+  content: '';
+  position: fixed;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.botoesinicial {
+  display: flex;
+  justify-content: center;
+  gap: 19px; /*Espaçamento entre os botoes */
+  margin-top: 0px;
+  position: absolute;
+  top: 260%;
+}
+
+/* Estilo Base para os dois botões */
+.btn-roxo, .btn-contorno {
+    display: inline-block;
+    padding: 12px 85px;
+    border-radius: 10px;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease; /* Faz a animação ser suave */
+    cursor: pointer;
+}
+
+/* Botao roxo */
+.btn-roxo {
+background-color: #5B21F447;
+color: #fff;
+border: 2px solid #5B21F447;   
+
+}
+/* Trilha de Curso */
+.btn-contorno {
+  background-color: transparent;
+  color: white;
+  border: 1px solid #333;
+}
+/* animação mouse roxo*/
+.btn-roxo:hover, .btn-contorno:hover {
+    transform: scale(1.1); /* Aumenta o texto ao passar o mouse */
+    filter: brightness(1.1);/ /* Brilha o texto */
+}
+.btn-contorno:hover {
+    background-color: rgba(255, 255, 255, 0.1); /* Fundo levemente branco ao tocar */
+}
+
+
+
+.btn-inscricao {
+    display: inline-block;
+    padding: 12px 28px;
+    border-radius: 10px;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease; /* Faz a animação ser suave */
+    cursor: pointer;
+    background-color: #5B21F447;
+    color: #fff;
+    border: 2px solid #5B21F447; 
+}
+
+.btn-inscricao:hover {
+    transform: scale(1.1); /* Aumenta o texto ao passar o mouse */
+    filter: brightness(1.1);/* Brilha o texto */
+}
+
+/* -------------------- */
+/* ==================== LIGHT / WHITE MODE ==================== */
+:root {
+  --bg-color: #080810;
+  --text-color: #ffffff;
+  --header-bg: linear-gradient(90deg, rgba(91, 33, 244, 0.35), rgba(26, 108, 246, 0.28));
+  --accent: #7c5cfc;
+}
+
+.light-mode {
+  --bg-color: #f8f9ff;
+  --text-color: #1a1a2e;
+  --header-bg: linear-gradient(90deg, rgba(124, 92, 252, 0.25), rgba(59, 130, 246, 0.25));
+  --accent: #5b21f4;
+}
+
+/* Aplicando as variáveis */
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+header, .cabecalho, footer {
+  background: var(--header-bg);
+  color: var(--text-color);
+  transition: all 0.4s ease;
+}
