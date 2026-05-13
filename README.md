@@ -28,9 +28,9 @@ O objetivo deste projeto foi praticar conceitos de desenvolvimento web utilizand
 
 ## 📸 Preview do projeto
 
-<img width="100%" src="./assets/preview.png">
+<img width="100%" src="img/preview.png">
 
-> Adicione aqui um print do projeto e renomeie a imagem para `preview.png`
+
 
 ---
 
