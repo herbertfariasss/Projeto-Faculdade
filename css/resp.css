@@ -1,95 +1,358 @@
-/* ====================== RESPONSIVIDADE ====================== */
 
-
-
-@media (max-width: 1600px) and (min-width: 900px) {
-  .html-box {
-    left: 28%;
-  }
-  .js-box {
-    left: 21%;
-  }
+ 
+.textoIntro,
+.textoIntro2,
+.textoIntro3,
+.O_Curso,
+.aprender,
+.linha-curso,
+.linha-sobre,
+.linha-contato,
+.sobre,
+.contato,
+.botoesinicial,
+.html-box,ssdssd
+.css-box,
+.js-box,
+.py-box,
+.vid {
+  position: static !important;
+  top: auto !important;
+  left: auto !important;
+  margin-top: 0 !important;
 }
+ 
 
+ 
+html {
+  overflow-x: hidden !important;
+  max-width: 100% !important;
+}
+ 
+body {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  overflow-x: hidden !important;
+  width: 100% !important;
+}
+ 
+* {
+  box-sizing: border-box !important;
+}
+ 
 
-/* Estilos para telas grandes (computador) - já é o padrão */
-@media (min-width: 1200px) {
+ 
+.vid {
+  order: 2 !important;
+  width: 100% !important;
+  max-width: 700px !important;
+  margin: 0 auto 40px !important;
+}
+ 
+
+header,
+.cabecalho   { order: 0 !important; }
+.container   { order: 1 !important; }
+.vid         { order: 2 !important; }
+hr#Cursos,
+.linha-curso { order: 3 !important; }
+.O_Curso     { order: 4 !important; }
+.aprender    { order: 5 !important; }
+.html-box,
+.css-box,
+.js-box,
+.py-box      { order: 6 !important; }
+hr#Sobre,
+.linha-sobre { order: 7 !important; }
+.sobre       { order: 8 !important; }
+hr#Contato,
+.linha-contato { order: 9 !important; }
+.contato     { order: 10 !important; }
+footer       { order: 11 !important; }
+ 
+
+ 
+.container {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  text-align: center !important;
+  width: 100% !important;
+  max-width: 1200px !important;
+  max-height: none !important;
+  padding: 120px 24px 40px !important;
+  gap: 16px !important;   /* espaço entre textoIntro, textoIntro2, textoIntro3 */
+}
+ 
+
+.textoIntro,
+.textoIntro2,
+.textoIntro3 {
+  width: 100% !important;
+  display: block !important;
+}
+ 
+
+ 
+.textoIntro {
+  font-size: clamp(1.8rem, 5vw, 2.5rem) !important;
+  margin: 0 !important;
+}
+ 
+.textoIntro2 {
+  font-size: clamp(1.3rem, 3.5vw, 2rem) !important;
+  text-align: center !important;
+  margin: 0 !important;
+}
+ 
+.textoIntro3 {
+  font-size: clamp(0.85rem, 2vw, 1rem) !important;
+  text-align: center !important;
+  margin: 0 !important;
+}
+ 
+/* ──────────────────────────────────────────
+   5. VÍDEO — responsivo
+   ────────────────────────────────────────── */
+ 
+.vid {
+  width: 100% !important;
+  max-width: 700px !important;
+  margin: 8px auto !important;
+}
+ 
+.vid iframe {
+  width: 100% !important;
+  height: auto !important;
+  aspect-ratio: 16 / 9 !important;
+  border-radius: 10px !important;
+}
+ 
+/* ──────────────────────────────────────────
+   6. BOTÕES
+   ────────────────────────────────────────── */
+ 
+.botoesinicial {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  justify-content: center !important;
+  gap: 16px !important;
+  margin: 8px 0 !important;
+  width: 100% !important;
+}
+ 
+/* ──────────────────────────────────────────
+   7. SEÇÃO DE CURSOS — títulos e grid
+   ────────────────────────────────────────── */
+ 
+.O_Curso {
+  margin: 40px 0 4px !important;
+  text-align: center !important;
+}
+ 
+.aprender {
+  margin: 0 0 24px !important;
+  text-align: center !important;
+  font-size: clamp(1.2rem, 3vw, 1.8rem) !important;
+  font-family: 'Syne';
+}
+ 
+.linha-curso,
+.linha-sobre,
+.linha-contato {
+  width: 60% !important;
+  height: 1px !important;
+  background-color: rgba(124, 92, 252, 0.3) !important;
+  margin: 32px auto !important;
+  display: block !important;
+}
+ 
+/* ── CARDS DE CURSO — layout zig-zag ── */
+.html-box,
+.css-box,
+.js-box,
+.py-box {
+  width: 280px !important;
+  height: auto !important;
+  margin: 12px 0 !important;   /* espaço vertical entre cards */
+}
+ 
+/* Zig-zag: desloca alternadamente para esquerda e direita */
+.html-box { transform: translateX(-80px) !important; }
+.css-box  { transform: translateX( 80px) !important; }
+.js-box   { transform: translateX(-80px) !important; }
+.py-box   { transform: translateX( 80px) !important; }
+ 
+/* ──────────────────────────────────────────
+   8. SOBRE e CONTATO
+   ────────────────────────────────────────── */
+ 
+.sobre,
+.contato {
+  text-align: center !important;
+  margin: 16px 0 !important;
+  font-size: clamp(1.4rem, 4vw, 2rem) !important;
+}
+ 
+/* ──────────────────────────────────────────
+   9. FOOTER
+   ────────────────────────────────────────── */
+ 
+footer {
+  margin-top: 0 !important;
+  width: 100% !important;
+  padding: 20px !important;
+}
+ 
+/* ──────────────────────────────────────────
+   10. MEDIA QUERIES
+   ────────────────────────────────────────── */
+ 
+/* ── DESKTOP (padrão acima de 1024px) ── */
+@media (min-width: 1025px) {
+  /* Container em duas colunas */
   .container {
-    padding: 140px 20px 100px;
+    flex-direction: row !important;
+    flex-wrap: wrap !important;
+    align-items: flex-start !important;
+    text-align: left !important;
+    justify-content: space-between !important;
+    padding-top: 140px !important;
+    gap: 0 !important;
+  }
+ 
+  /* Coluna ESQUERDA: textoIntro + textoIntro3 + botões — todos juntos */
+  .textoIntro {
+    width: 48% !important;
+    text-align: left !important;
+    padding-top: 20px !important;
+  }
+ 
+  .textoIntro3 {
+    width: 48% !important;
+    text-align: left !important;
+    padding-top: 16px !important;   /* logo abaixo do título, sem sumir */
+  }
+ 
+  .botoesinicial {
+    width: 48% !important;
+    justify-content: flex-start !important;
+    padding-top: 20px !important;
+  }
+ 
+  /* Coluna DIREITA: textoIntro2 (azul) centralizado verticalmente */
+  .textoIntro2 {
+    width: 48% !important;
+    text-align: left !important;
+    align-self: center !important;
+    padding-top: 0 !important;
+  }
+ 
+  .vid {
+    max-width: 520px !important;
   }
 }
-
-/* Tablet - telas médias */
+ 
+/* ── TABLET (768px – 1024px) ── */
 @media (max-width: 1024px) and (min-width: 768px) {
   .container {
-    padding: 120px 30px 80px;
+    padding: 110px 32px 48px !important;
   }
-
-  .textoIntro  { font-size: 2.4em; }
-  .textoIntro2 { font-size: 1.9em; }
-  .textoIntro3 { font-size: 1em; }
-
-  #Cursos {
-    padding-top: 480px;
-    grid-template-columns: repeat(2, 1fr);   /* 2 boxes por linha */
+ 
+  .btn-roxo,
+  .btn-contorno {
+    padding: 12px 48px !important;
   }
 }
-
-/* Celular - telas pequenas */
+ 
+/* ── MOBILE (abaixo de 767px) ── */
 @media (max-width: 767px) {
-  .cabecalho {
-    padding: 1rem 0;
-  }
-
+ 
+  /* Header empilha em coluna */
   .container-header {
-    flex-direction: column;
-    gap: 15px;
-    text-align: center;
+    flex-direction: column !important;
+    gap: 12px !important;
+    padding: 8px 16px !important;
   }
-
-  .nav {
-    flex-direction: column;
-    gap: 12px;
+ 
+  .linha-cabecalho {
+    display: none !important; /* esconde a linha vertical do header no mobile */
   }
-
+ 
   .logo {
-    width: 140px;
+    width: 120px !important;
   }
-
+ 
+  .nav {
+    flex-direction: row !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    gap: 8px 16px !important;
+    margin-right: 0 !important;
+  }
+ 
+  .nav a {
+    font-size: 0.95rem !important;
+  }
+ 
+  /* Container hero em coluna centralizado */
   .container {
-    padding: 100px 20px 60px;
-    text-align: center;
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+    padding: 100px 16px 40px !important;
   }
-
-  .textoIntro  { font-size: 2.1em; top: 70px; }
-  .textoIntro2 { font-size: 1.65em; top: 150px; }
-  .textoIntro3 { font-size: 0.95em; top: 260px; }
-
-  #Cursos {
-    padding-top: 420px;
-    grid-template-columns: 1fr;   /* 1 box por linha no celular */
-    gap: 20px;
-  }
-
-  .html-box, .css-box, .js-box, .py-box {
-    width: 100%;
-    max-width: 340px;
-    height: auto;
-    padding: 18px 20px;
-  }
-
+ 
+  /* Botões empilhados */
   .botoesinicial {
-    flex-direction: column;
-    gap: 12px;
+    flex-direction: column !important;
+    align-items: center !important;
+    width: 100% !important;
   }
-
-  footer {
-    padding: 20px 10px;
+ 
+  .btn-roxo,
+  .btn-contorno {
+    width: 100% !important;
+    max-width: 320px !important;
+    padding: 12px 24px !important;
+    text-align: center !important;
   }
+ 
+  /* Cards de curso em coluna única, zig-zag menor no mobile */
+  .html-box,
+  .css-box,
+  .js-box,
+  .py-box {
+    width: 85% !important;
+    max-width: 360px !important;
+  }
+ 
+  .html-box { transform: translateX(-16px) !important; }
+  .css-box  { transform: translateX( 16px) !important; }
+  .js-box   { transform: translateX(-16px) !important; }
+  .py-box   { transform: translateX( 16px) !important; }
 }
-
-/* Ajustes finos para telas muito pequenas */
+ 
+/* ── MOBILE PEQUENO (abaixo de 480px) ── */
 @media (max-width: 480px) {
-  .textoIntro  { font-size: 1.9em; }
-  .textoIntro2 { font-size: 1.45em; }
+  .textoIntro  { font-size: 1.6rem !important; }
+  .textoIntro2 { font-size: 1.2rem !important; }
+  .textoIntro3 { font-size: 0.82rem !important; }
+ 
+  .nav a { font-size: 0.85rem !important; }
+}
+ 
+/* ── HOVER dos cards — mantém zig-zag + animação ── */
+.html-box:hover { transform: translateX(-80px) scale(1.05) !important; filter: brightness(1.1) !important; }
+.css-box:hover  { transform: translateX( 80px) scale(1.05) !important; filter: brightness(1.1) !important; }
+.js-box:hover   { transform: translateX(-80px) scale(1.05) !important; filter: brightness(1.1) !important; }
+.py-box:hover   { transform: translateX( 80px) scale(1.05) !important; filter: brightness(1.1) !important; }
+ 
+/* Mobile: hover sem deslocamento lateral */
+@media (max-width: 767px) {
+  .html-box:hover { transform: translateX(-16px) scale(1.05) !important; filter: brightness(1.1) !important; }
+  .css-box:hover  { transform: translateX( 16px) scale(1.05) !important; filter: brightness(1.1) !important; }
+  .js-box:hover   { transform: translateX(-16px) scale(1.05) !important; filter: brightness(1.1) !important; }
+  .py-box:hover   { transform: translateX( 16px) scale(1.05) !important; filter: brightness(1.1) !important; }
 }

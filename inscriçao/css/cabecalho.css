@@ -1,21 +1,19 @@
 header {
   background: linear-gradient(
     90deg,
-    rgba(91, 33, 244, 0.28),
+    rgba(243, 238, 238, 0.28),
     rgba(26, 108, 246, 0.22)
   );
   color: #fff;
   width: 100%;
   margin-bottom: -6%;
-  /* Isso faz o header ficar fixo no topo ao rolar */
   position: fixed;
-
-  z-index: 100; /* Garante que fique acima de tudo */
-  backdrop-filter: blur(10px); /* Opcional: deixa mais moderno (efeito vidro) */
+  z-index: 100;
+  backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
 }
-
-.cabecalho {   /* ou header se preferir usar a tag */
+ 
+.cabecalho {
   background: linear-gradient(
     90deg,
     rgba(91, 33, 244, 0.35),
@@ -23,35 +21,37 @@ header {
   );
   padding: 1.2rem 0;
   width: 100%;
-
   position: sticky;
   top: 0;
   z-index: 1000;
-
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
 }
-
+ 
 .logo {
   width: 15%;
   height: 15%;
   object-fit: contain;
 }
-
+ 
 .nav {
   display: flex;
-  text-align: left;
-  align-items: left;
+  align-items: center;
   margin-right: 2%;
 }
-
+ 
 .nav a {
   margin-left: 10px;
   font-size: 1.1em;
   text-decoration: none;
   color: white;
   font-family: "Syne";
+  background: rgb(57, 2, 145);
+  padding: 8px 20px;
+  border: rgb(85, 3, 179);
+  border-radius: 8px;
+  
 }
 
 .container-header {
@@ -61,4 +61,37 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  padding: 0 24px;
+}
+ 
+@media (max-width: 768px) {
+  .logo {
+    width: 100px;
+    height: auto;
+  }
+ 
+  .nav a {
+    font-size: 0.95em;
+    margin-left: 8px;
+  }
+ 
+  .container-header {
+    padding: 0 16px;
+  }
+}
+ 
+
+@media (max-width: 480px) {
+  .logo {
+    width: 80px;
+  }
+ 
+  .nav a {
+    font-size: 0.85em;
+    margin-left: 6px;
+  }
+ 
+  .cabecalho {
+    padding: 0.8rem 0;
+  }
 }
