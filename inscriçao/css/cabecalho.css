@@ -94,4 +94,62 @@ header {
   .cabecalho {
     padding: 0.8rem 0;
   }
+  html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  .container-header {
+    padding: 0 12px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+}
+
+
+
+/* CSS MOBILE/HAMBURGUER  */
+
+/* Botão hambúrguer  */
+.hamburger {
+  display: none;
+  background: rgb(57, 2, 145);
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-size: 1.4rem;
+  padding: 6px 12px;
+  cursor: pointer;
+}
+
+/* Menu mobile  */
+.mobile-menu {
+  display: none;
+  flex-direction: column;
+  padding: 8px 24px 16px;
+}
+
+.mobile-menu a {
+  color: white;
+  text-decoration: none;
+  font-family: "Syne";
+  font-size: 1rem;
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+/* No mobile: esconde nav desktop, mostra hambúrguer */
+@media (max-width: 768px) {
+  .nav {
+    display: none;
+  }
+
+  .hamburger {
+    display: block;
+  }
+}
+
+/*  menu aberto */
+.mobile-menu.open {
+  display: flex;
 }

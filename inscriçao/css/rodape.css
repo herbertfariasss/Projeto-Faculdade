@@ -1,18 +1,12 @@
 footer {
-    background: linear-gradient(
-    90deg,
-    rgba(91, 33, 244, 0.28),
-    rgba(26, 108, 246, 0.22)
-  );
+  background: linear-gradient(90deg, rgba(91, 33, 244, 0.28), rgba(26, 108, 246, 0.22));
   color: #fff;
   padding-top: 10px;
   padding-bottom: 20px;
   text-align: center;
   width: 100%;
-
-
   z-index: 100;
-  margin-top: 50%;  
+  margin-top: auto;
 }
 
 .copyright {
