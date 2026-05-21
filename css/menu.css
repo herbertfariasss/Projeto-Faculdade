@@ -1,47 +1,62 @@
+/**
+ * menu.css — Linhas divisórias e títulos de seção (index.html)
+ *
+ * Ligado aos elementos:
+ *   .linha-cabecalho  → <hr> entre logo e menu no header
+ *   .linha-curso      → <hr id="Cursos"> antes da seção de cursos
+ *   .linha-sobre      → <hr id="Sobre"> na seção sobre
+ *   .linha-contato    → <hr> antes do título contato
+ *   .sobre / .contato → títulos das seções
+ */
+
+/* Barra vertical roxa no cabeçalho (entre logo e links) */
 .linha-cabecalho {
-    border: none;
-    background-color: #5B21F447;
-    margin: 5px 0;
-    width: 2px;
-    height: 40px;
+  border: none;
+  background-color: #5B21F447;
+  margin: 5px 0;
+  width: 2px;
+  height: 40px;
 }
 
+/* Linha horizontal antes de "O CURSO" — id Cursos é âncora do menu */
 .linha-curso {
-    border: none;
-    margin: 40px auto;
-    width: 45%;
-    position: absolute;
-    top: 80%;
-    left: 28%;
-    background-color: transparent;
+  border: none;
+  margin: 40px auto;
+  width: 45%;
+  height: 1px;
+  background-color: rgba(124, 92, 252, 0.3);
+  display: block;
 }
 
+/* Linha na seção Sobre Nós */
 .linha-sobre {
-    border: none;
-    background-color: transparent;
-    margin: 0 auto;
-    width: 45%;
-    height: 2px;
-    position: relative;
+  border: none;
+  background-color: transparent;
+  margin: 0 auto;
+  width: 45%;
+  height: 2px;
+  position: relative;
 }
 
 .sobre {
-    font-family: 'Syne';
-    position: relative;
-    margin: 0;
+  font-family: 'Syne';
+  position: relative;
+  margin: 0;
 }
 
+/* Linha antes da área de contato */
 .linha-contato {
-    border: none;
-    background-color: transparent;
-    margin: 0 auto;
-    width: 45%;
-    height: 2px;
-    position: relative;
+  border: none;
+  background-color: transparent;
+  margin: 0 auto;
+  width: 45%;
+  height: 2px;
+  position: relative;
 }
 
+/* Título CONTATO — id="Contato" no HTML para âncora do menu */
 .contato {
-    font-family: 'Syne';
-    position: relative;
-    margin: 48px 0 24px;
+  font-family: 'Syne';
+  position: relative;
+  margin: 48px 0 24px;
 }

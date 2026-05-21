@@ -1,9 +1,17 @@
+<!--
+  inscricao.html — Tela de Login e Cadastro
+  Pasta: inscriçao/
+  Volta para o site: link "../index.html"
+  Scripts: cabecalho.js (menu mobile) + auth.js (login/cadastro no localStorage)
+  CSS: rodape.css, cabecalho.css, fundo.css, cadastronavs.css (nessa ordem no <head>)
+-->
 <!doctype html>
 <html lang="pt-br">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Cadastro — Tech Cursos</title>
+    <!-- Rodapé primeiro; fundo e formulário por cima -->
     <link rel="stylesheet" href="css/rodape.css" />
     <link rel="stylesheet" href="css/cabecalho.css" />
     <link rel="stylesheet" href="css/fundo.css" />
@@ -18,12 +26,14 @@
     />
   </head>
   <body>
+    <!-- Cabeçalho: logo e link Início → index.html da raiz do projeto -->
     <header class="cabecalho">
       <div class="container-header">
         <img src="../img/LOGOO.png" alt="logo da marca" class="logo" />
         <nav class="nav">
           <a href="../index.html">Inicio</a>
         </nav>
+        <!-- Menu hambúrguer só aparece no mobile (cabecalho.css + cabecalho.js) -->
         <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Abrir menu">
           &#9776;
         </button>
@@ -33,59 +43,64 @@
       </div>
     </header>
 
-    <div class="boxform">
-      
+    <!-- Área central: flex:1 centraliza .boxform entre header e footer (fundo.css) -->
+    <main class="conteudo-login">
+      <div class="boxform">
 
-      <div id="aba-login">
-        <div class="Formulario">
-          <div class="logintxt"><h1>Login</h1></div>
-          <br><br>
+        <!-- ABA LOGIN — visível por padrão; auth.js valida #usuario e #senha -->
+        <div id="aba-login">
+          <div class="Formulario">
+            <div class="logintxt"><h1>Login</h1></div>
+            <br><br>
 
-          <label for="usuario">Nome de Usuário</label>
-          <br><br>
-          <input type="text" id="usuario" placeholder="Digite seu nome de usuário" autocomplete="username">
-          <br><br>
+            <label for="usuario">Nome de Usuário</label>
+            <br><br>
+            <input type="text" id="usuario" placeholder="Digite seu nome de usuário" autocomplete="username">
+            <br><br>
 
-          <label for="senha">Senha</label>
-          <br><br>
-          <input type="password" id="senha" placeholder="Digite sua senha" autocomplete="current-password">
-          <br><br>
+            <label for="senha">Senha</label>
+            <br><br>
+            <input type="password" id="senha" placeholder="Digite sua senha" autocomplete="current-password">
+            <br><br>
 
-          <p id="erro-msg" class="msg-erro" hidden></p>
+            <!-- Mensagem de erro — preenchida por auth.js (mostrarMensagem) -->
+            <p id="erro-msg" class="msg-erro" hidden></p>
+          </div>
+
+          <button type="button" id="btn-login" onclick="fazerLogin()">Entrar</button>
+          <p class="trocar-aba">Não tem conta? <a href="#" onclick="mostrarAba('registro'); return false;">Criar conta</a></p>
         </div>
 
-        <button type="button" id="btn-login" onclick="fazerLogin()">Entrar</button>
-        <p class="trocar-aba">Não tem conta? <a href="#" onclick="mostrarAba('registro'); return false;">Criar conta</a></p>
-      </div>
+        <!-- ABA REGISTRO — hidden até clicar em "Criar conta" (mostrarAba no auth.js) -->
+        <div id="aba-registro" hidden>
+          <div class="Formulario">
+            <div class="logintxt"><h1>Criar conta</h1></div>
+            <br><br>
 
-      <div id="aba-registro" hidden>
-        <div class="Formulario">
-          <div class="logintxt"><h1>Criar conta</h1></div>
-          <br><br>
+            <label for="novo-usuario">Nome de Usuário</label>
+            <br><br>
+            <input type="text" id="novo-usuario" placeholder="Escolha um nome de usuário" autocomplete="username">
+            <br><br>
 
-          <label for="novo-usuario">Nome de Usuário</label>
-          <br><br>
-          <input type="text" id="novo-usuario" placeholder="Escolha um nome de usuário" autocomplete="username">
-          <br><br>
+            <label for="nova-senha">Senha</label>
+            <br><br>
+            <input type="password" id="nova-senha" placeholder="Crie uma senha" autocomplete="new-password">
+            <br><br>
 
-          <label for="nova-senha">Senha</label>
-          <br><br>
-          <input type="password" id="nova-senha" placeholder="Crie uma senha" autocomplete="new-password">
-          <br><br>
+            <label for="confirmar-senha">Confirmar Senha</label>
+            <br><br>
+            <input type="password" id="confirmar-senha" placeholder="Repita a senha" autocomplete="new-password">
+            <br><br>
 
-          <label for="confirmar-senha">Confirmar Senha</label>
-          <br><br>
-          <input type="password" id="confirmar-senha" placeholder="Repita a senha" autocomplete="new-password">
-          <br><br>
+            <p id="erro-registro" class="msg-erro" hidden></p>
+            <p id="sucesso-registro" class="msg-sucesso" hidden></p>
+          </div>
 
-          <p id="erro-registro" class="msg-erro" hidden></p>
-          <p id="sucesso-registro" class="msg-sucesso" hidden></p>
+          <button type="button" id="btn-registro" onclick="registrarUsuario()">Cadastrar</button>
+          <p class="trocar-aba">Já tem conta? <a href="#" onclick="mostrarAba('login'); return false;">Entrar</a></p>
         </div>
-
-        <button type="button" id="btn-registro" onclick="registrarUsuario()">Cadastrar</button>
-        <p class="trocar-aba">Já tem conta? <a href="#" onclick="mostrarAba('login'); return false;">Entrar</a></p>
       </div>
-    </div>
+    </main>
 
     <footer>
       <h5 class="copyright">

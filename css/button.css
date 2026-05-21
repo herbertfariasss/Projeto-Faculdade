@@ -1,83 +1,87 @@
+/**
+ * button.css — Botões da página principal (index.html)
+ *
+ * Classes usadas no HTML:
+ *   .botoesinicial  → container dos botões no hero
+ *   .btn-roxo       → "Cursos Gratuitos" (link externo YouTube)
+ *   .btn-contorno   → "Trilha de Cursos" (âncora #Cursos)
+ *   .btn-inscricao  → "Login" no cabeçalho → inscriçao/inscricao.html
+ *
+ * Também define variáveis CSS para modo claro (.light-mode) — opcional, não ativo por padrão
+ */
+
 html {
-    scroll-behavior: smooth;
+  scroll-behavior: smooth;
 }
 
-*
-body::before,
-body::after {
-  content: '';
-  position: fixed;
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 0;
-}
-
+/* Container flex dos dois botões do hero (dentro de .hero-textos) */
 .botoesinicial {
   display: flex;
   justify-content: center;
-  gap: 19px; /*Espaçamento entre os botoes */
-  margin-top: 0px;
-  position: absolute;
-  top: 260%;
+  gap: 19px;
+  margin-top: 0;
 }
 
-/* Estilo Base para os dois botões */
-.btn-roxo, .btn-contorno {
-    display: inline-block;
-    padding: 12px 85px;
-    border-radius: 10px;
-    font-family: 'Syne', system-ui, sans-serif;
-    font-weight: 600;
-    text-decoration: none;
-    transition: all 0.3s ease; /* Faz a animação ser suave */
-    cursor: pointer;
+/* Estilo base compartilhado pelos botões roxo e contorno */
+.btn-roxo,
+.btn-contorno {
+  display: inline-block;
+  padding: 12px 85px;
+  border-radius: 10px;
+  font-family: 'Syne', system-ui, sans-serif;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  cursor: pointer;
 }
 
-/* Botao roxo */
+/* Botão preenchido roxo translúcido */
 .btn-roxo {
-background-color: #5B21F447;
-color: #fff;
-border: 2px solid #5B21F447;   
-
+  background-color: #5B21F447;
+  color: #fff;
+  border: 2px solid #5B21F447;
 }
-/* Trilha de Curso */
+
+/* Botão só com borda — leva à seção #Cursos */
 .btn-contorno {
   background-color: transparent;
   color: white;
   border: 1px solid #333;
 }
-/* animação mouse roxo*/
-.btn-roxo:hover, .btn-contorno:hover {
-    transform: scale(1.1); /* Aumenta o texto ao passar o mouse */
-    filter: brightness(1.1);/ /* Brilha o texto */
-}
+
+/* Efeito hover: leve zoom e brilho */
+.btn-roxo:hover,
 .btn-contorno:hover {
-    background-color: rgba(255, 255, 255, 0.1); /* Fundo levemente branco ao tocar */
+  transform: scale(1.1);
+  filter: brightness(1.1);
 }
 
+.btn-contorno:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
 
-
+/* Botão Login no cabeçalho — mesmo visual do .btn-roxo, menor padding */
 .btn-inscricao {
-    display: inline-block;
-    padding: 12px 28px;
-    border-radius: 10px;
-    font-family: 'Syne', system-ui, sans-serif;
-    font-weight: 600;
-    text-decoration: none;
-    transition: all 0.3s ease; /* Faz a animação ser suave */
-    cursor: pointer;
-    background-color: #5B21F447;
-    color: #fff;
-    border: 2px solid #5B21F447; 
+  display: inline-block;
+  padding: 12px 28px;
+  border-radius: 10px;
+  font-family: 'Syne', system-ui, sans-serif;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  background-color: #5B21F447;
+  color: #fff;
+  border: 2px solid #5B21F447;
 }
 
 .btn-inscricao:hover {
-    transform: scale(1.1); /* Aumenta o texto ao passar o mouse */
-    filter: brightness(1.1);/* Brilha o texto */
+  transform: scale(1.1);
+  filter: brightness(1.1);
 }
 
-/* -------------------- */
-/* ==================== LIGHT / WHITE MODE ==================== */
+/* ========== MODO CLARO (opcional) ========== */
+/* Adicione class="light-mode" no <body> para ativar */
 :root {
   --bg-color: #080810;
   --text-color: #ffffff;
@@ -92,14 +96,15 @@ border: 2px solid #5B21F447;
   --accent: #5b21f4;
 }
 
-/* Aplicando as variáveis */
 body {
   background-color: var(--bg-color);
   color: var(--text-color);
   transition: background-color 0.4s ease, color 0.4s ease;
 }
 
-header, .cabecalho, footer {
+header,
+.cabecalho,
+footer {
   background: var(--header-bg);
   color: var(--text-color);
   transition: all 0.4s ease;

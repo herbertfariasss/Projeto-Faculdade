@@ -1,51 +1,51 @@
-/* Cabeçalho genérico (tag header) com fundo translúcido e efeito blur */
+/**
+ * cabecalho.css — Cabeçalho da página de login (inscricao.html)
+ *
+ * HTML: <header class="cabecalho"> com .container-header, .nav, .hamburger, .mobile-menu
+ * JS: cabecalho.js → toggleMenu() adiciona classe .open no #mobile-menu
+ * Logo: ../img/LOGOO.png (pasta img na raiz do projeto)
+ */
+
+/* Estilo genérico da tag header */
 header {
-  background: linear-gradient(
-    90deg,
-    rgba(243, 238, 238, 0.28),
-    rgba(26, 108, 246, 0.22)
-  );
+  background: linear-gradient(90deg, rgba(243, 238, 238, 0.28), rgba(26, 108, 246, 0.22));
   color: #fff;
   width: 100%;
-  margin-bottom: -6%;
-  position: fixed;
+  margin-bottom: 0;
+  position: sticky;
+  top: 0;
   z-index: 100;
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
 }
 
-/* Barra superior principal: fixa no topo, gradiente e sombra */
+/* Barra superior — sticky para participar do flex do body (centralizar formulário) */
 .cabecalho {
-  background: linear-gradient(
-    90deg,
-    rgba(91, 33, 244, 0.35),
-    rgba(26, 108, 246, 0.28)
-  );
-  padding: 1.2rem ;
+  background: linear-gradient(90deg, rgba(91, 33, 244, 0.35), rgba(26, 108, 246, 0.28));
+  padding: 1.2rem;
   width: 100%;
-  position: fixed;
+  position: sticky;
   top: 0;
   z-index: 1000;
+  flex-shrink: 0;
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
 }
 
-/* Tamanho e proporção da logo no cabeçalho */
 .logo {
   width: 15%;
   height: 15%;
   object-fit: contain;
 }
 
-/* Container da navegação desktop (links alinhados à direita) */
 .nav {
   display: flex;
   align-items: center;
   margin-right: 2%;
 }
 
-/* Estilo dos links do menu desktop (botão roxo arredondado) */
+/* Link "Inicio" estilizado como botão roxo */
 .nav a {
   margin-left: 10px;
   font-size: 1.1em;
@@ -58,7 +58,6 @@ header {
   border-radius: 8px;
 }
 
-/* Layout interno do cabeçalho: logo, nav e hambúrguer em linha */
 .container-header {
   max-width: 1200px;
   width: 100%;
@@ -69,7 +68,6 @@ header {
   padding: 0 24px;
 }
 
-/* Tablet: reduz logo, links e padding do cabeçalho */
 @media (max-width: 768px) {
   .logo {
     width: 100px;
@@ -86,7 +84,6 @@ header {
   }
 }
 
-/* Celular: cabeçalho mais compacto e evita rolagem horizontal */
 @media (max-width: 480px) {
   .logo {
     width: 80px;
@@ -101,7 +98,8 @@ header {
     padding: 0.8rem 0;
   }
 
-  html, body {
+  html,
+  body {
     max-width: 100%;
     overflow-x: hidden;
   }
@@ -113,7 +111,7 @@ header {
   }
 }
 
-/* Botão hambúrguer (ícone ☰) — oculto no desktop, visível no mobile */
+/* Botão ☰ — visível só no mobile */
 .hamburger {
   display: none;
   background: rgb(57, 2, 145);
@@ -125,14 +123,13 @@ header {
   cursor: pointer;
 }
 
-/* Menu dropdown mobile (lista vertical de links) */
+/* Menu dropdown abaixo do header */
 .mobile-menu {
   display: none;
   flex-direction: column;
   padding: 8px 24px 16px;
 }
 
-/* Links individuais dentro do menu mobile */
 .mobile-menu a {
   color: white;
   text-decoration: none;
@@ -142,7 +139,6 @@ header {
   border-bottom: 1px solid rgba(255, 255, 255, 0.15);
 }
 
-/* Mobile: esconde nav desktop e exibe o botão hambúrguer */
 @media (max-width: 768px) {
   .nav {
     display: none;
@@ -153,7 +149,7 @@ header {
   }
 }
 
-/* Estado aberto do menu mobile (ativado pelo JavaScript) */
+/* Classe adicionada pelo cabecalho.js ao abrir o menu */
 .mobile-menu.open {
   display: flex;
 }

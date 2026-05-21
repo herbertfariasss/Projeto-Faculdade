@@ -1,5 +1,20 @@
+/**
+ * resp.css — Layout responsivo da página principal (index.html)
+ *
+ * IMPORTANTE: carregado por ÚLTIMO no <head> — usa !important para sobrescrever
+ * styles.css, button.css e *-box.css.
+ *
+ * Funções:
+ *   1. Ordenar seções no mobile (flex order no body)
+ *   2. Resetar position:absolute antigo dos cards
+ *   3. Grid do hero (textos | vídeo) e empilhar no celular
+ *   4. Cards em zig-zag (translateX) em desktop
+ *   5. Media queries: desktop (1025px+), tablet, mobile
+ */
 
- 
+/* ========== RESET DE POSICIONAMENTO ANTIGO ========== */
+/* Garante que nada fique com position:absolute quebrando o layout */
+.hero,
 .textoIntro,
 .textoIntro2,
 .textoIntro3,
@@ -12,6 +27,7 @@
 .contato,
 .botoesinicial,
 .secao-sobre,
+.cursos-cards,
 .html-box,
 .css-box,
 .js-box,
@@ -44,43 +60,43 @@ body {
  
 
  
-.vid {
-  order: 2 !important;
-  width: 100% !important;
-  max-width: 700px !important;
-  margin: 0 auto 40px !important;
-}
- 
-
+/* ========== ORDEM DAS SEÇÕES NO BODY (flex column) ========== */
+/* body é flex column — order define a sequência visual em telas pequenas */
 header,
 .cabecalho    { order: 0 !important; }
-.container    { order: 1 !important; }
-.vid          { order: 2 !important; }
-.botoesinicial { order: 3 !important; }
+.hero         { order: 1 !important; }
 hr#Cursos,
-.linha-curso  { order: 4 !important; }
-.O_Curso      { order: 5 !important; }
-.aprender     { order: 6 !important; }
-.html-box,
-.css-box,
-.js-box,
-.py-box       { order: 7 !important; }
-.secao-sobre  { order: 8 !important; }
-.contato      { order: 9 !important; }
-footer        { order: 10 !important; }
- 
+.linha-curso  { order: 2 !important; }
+.O_Curso      { order: 3 !important; }
+.aprender     { order: 4 !important; }
+.cursos-cards  { order: 5 !important; }
+.cursos-cards .html-box,
+.cursos-cards .css-box,
+.cursos-cards .js-box,
+.cursos-cards .py-box { order: unset !important; }
+.secao-sobre  { order: 6 !important; }
+.contato      { order: 7 !important; }
+footer        { order: 8 !important; }
 
- 
-.container {
-  display: flex !important;
-  flex-direction: column !important;
-  align-items: center !important;
-  text-align: center !important;
+/* ========== HERO — textos à esquerda, vídeo à direita ========== */
+.hero {
   width: 100% !important;
   max-width: 1200px !important;
-  max-height: none !important;
-  padding: 120px 24px 40px !important;
-  gap: 16px !important;   /* espaço entre textoIntro, textoIntro2, textoIntro3 */
+  padding: 12px 24px 36px !important;
+}
+
+.hero-inner {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr) !important;
+  gap: 32px 48px !important;
+  align-items: center !important;
+}
+
+.hero-textos {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-start !important;
+  text-align: left !important;
 }
  
 
@@ -99,9 +115,9 @@ footer        { order: 10 !important; }
 }
  
 .textoIntro2 {
-  font-size: clamp(1.3rem, 3.5vw, 2rem) !important;
-  text-align: center !important;
-  margin: 0 !important;
+  font-size: clamp(1.2rem, 2.8vw, 1.85rem) !important;
+  text-align: left !important;
+  margin: 16px 0 0 !important;
 }
  
 .textoIntro3 {
@@ -114,29 +130,25 @@ footer        { order: 10 !important; }
    5. VÍDEO — responsivo
    ────────────────────────────────────────── */
  
-.vid {
+.hero .vid {
   width: 100% !important;
-  max-width: 700px !important;
-  margin: 8px auto !important;
+  max-width: 100% !important;
+  margin: 0 !important;
 }
- 
-.vid iframe {
+
+.hero .vid iframe {
   width: 100% !important;
   height: auto !important;
   aspect-ratio: 16 / 9 !important;
-  border-radius: 10px !important;
+  border-radius: 12px !important;
 }
- 
-/* ──────────────────────────────────────────
-   6. BOTÕES
-   ────────────────────────────────────────── */
- 
-.botoesinicial {
+
+.hero-textos .botoesinicial {
   display: flex !important;
   flex-wrap: wrap !important;
-  justify-content: center !important;
+  justify-content: flex-start !important;
   gap: 16px !important;
-  margin: 8px 0 !important;
+  margin-top: 28px !important;
   width: 100% !important;
 }
  
@@ -166,7 +178,21 @@ footer        { order: 10 !important; }
   display: block !important;
 }
  
+.cursos-cards {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  width: 100% !important;
+  max-width: 900px !important;
+  margin: 0 auto 48px !important;
+  gap: 8px !important;
+}
+
 /* ── CARDS DE CURSO — layout zig-zag ── */
+.cursos-cards .html-box,
+.cursos-cards .css-box,
+.cursos-cards .js-box,
+.cursos-cards .py-box,
 .html-box,
 .css-box,
 .js-box,
@@ -177,9 +203,13 @@ footer        { order: 10 !important; }
 }
  
 /* Zig-zag: desloca alternadamente para esquerda e direita */
+.cursos-cards .html-box,
 .html-box { transform: translateX(-80px) !important; }
+.cursos-cards .css-box,
 .css-box  { transform: translateX( 80px) !important; }
+.cursos-cards .js-box,
 .js-box   { transform: translateX(-80px) !important; }
+.cursos-cards .py-box,
 .py-box   { transform: translateX( 80px) !important; }
  
 /* ──────────────────────────────────────────
@@ -225,57 +255,41 @@ footer {
    10. MEDIA QUERIES
    ────────────────────────────────────────── */
  
-/* ── DESKTOP (padrão acima de 1024px) ── */
+/* ========== DESKTOP — acima de 1024px ========== */
 @media (min-width: 1025px) {
-  /* Container em duas colunas */
-  .container {
-    flex-direction: row !important;
-    flex-wrap: wrap !important;
-    align-items: flex-start !important;
-    text-align: left !important;
-    justify-content: space-between !important;
-    padding-top: 140px !important;
-    gap: 0 !important;
+  .hero {
+    padding-top: 16px !important;
   }
- 
-  /* Coluna ESQUERDA: textoIntro + botões */
-  .textoIntro {
-    width: 48% !important;
-    text-align: left !important;
+
+  .hero-inner {
+    grid-template-columns: minmax(0, 1.05fr) minmax(280px, 1fr) !important;
+    gap: 40px 56px !important;
   }
- 
-  .botoesinicial {
-    width: 48% !important;
-    justify-content: flex-start !important;
-    padding-top: 20px !important;
-  }
- 
-  /* Coluna DIREITA: textoIntro2 (azul) centralizado verticalmente */
+
+  .textoIntro,
   .textoIntro2 {
-    width: 48% !important;
+    width: 100% !important;
     text-align: left !important;
-    align-self: center !important;
-    padding-top: 0 !important;
-  }
- 
-  .vid {
-    max-width: 520px !important;
   }
 }
  
 /* ── TABLET (768px – 1024px) ── */
 @media (max-width: 1024px) and (min-width: 768px) {
-  .container {
-    padding: 110px 32px 48px !important;
+  .hero {
+    padding: 12px 32px 36px !important;
   }
- 
+
+  .hero-inner {
+    gap: 28px 32px !important;
+  }
+
   .btn-roxo,
   .btn-contorno {
     padding: 12px 48px !important;
   }
 }
  
-/* ── MOBILE (abaixo de 767px) ── */
+/* ========== MOBILE — abaixo de 767px (hero em coluna, cards menores) ========== */
 @media (max-width: 767px) {
  
   /* Header empilha em coluna */
@@ -305,19 +319,29 @@ footer {
     font-size: 0.95rem !important;
   }
  
-  /* Container hero em coluna centralizado */
-  .container {
-    flex-direction: column !important;
+  .hero {
+    padding: 8px 16px 32px !important;
+  }
+
+  .hero-inner {
+    grid-template-columns: 1fr !important;
+    gap: 28px !important;
+  }
+
+  .hero-textos {
     align-items: center !important;
     text-align: center !important;
-    padding: 100px 16px 40px !important;
   }
- 
-  /* Botões empilhados */
-  .botoesinicial {
+
+  .textoIntro,
+  .textoIntro2 {
+    text-align: center !important;
+  }
+
+  .hero-textos .botoesinicial {
     flex-direction: column !important;
     align-items: center !important;
-    width: 100% !important;
+    justify-content: center !important;
   }
  
   .btn-roxo,

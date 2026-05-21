@@ -1,10 +1,22 @@
-// ============================================
-//  AUTH.JS — Autenticação local com localStorage
-// ============================================
+/**
+ * auth.js — Sistema de login/cadastro local (sem servidor)
+ *
+ * Usado em: inscriçao/inscricao.html (botões onclick e links "Criar conta"/"Entrar")
+ * Armazena dados no navegador:
+ *   - localStorage.usuarios → lista de { usuario, senha }
+ *   - localStorage.authToken → nome do usuário logado
+ *   - sessionStorage.redirectAfterLogin → URL para voltar após login
+ *
+ * Usuário padrão na primeira visita: admin / admin
+ */
 
+// Página de login (caminho relativo dentro da pasta inscriçao/)
 const PAGINA_LOGIN = 'inscricao.html';
+
+// Conta criada automaticamente se não existir nada no localStorage
 const USUARIOS_PADRAO = [{ usuario: 'admin', senha: 'admin' }];
 
+/** Lê usuários do localStorage ou cria a lista padrão */
 function carregarUsuarios() {
   const salvos = localStorage.getItem('usuarios');
   if (salvos) return JSON.parse(salvos);
@@ -12,23 +24,32 @@ function carregarUsuarios() {
   return USUARIOS_PADRAO;
 }
 
+/** Salva a lista completa de usuários no localStorage */
 function salvarUsuarios(lista) {
   localStorage.setItem('usuarios', JSON.stringify(lista));
 }
 
+/** Retorna true se authToken existir (usuário logado) */
 function isLoggedIn() {
   return localStorage.getItem('authToken') !== null;
 }
 
+/** Nome do usuário logado (valor do authToken) */
 function getUsuarioLogado() {
   return localStorage.getItem('authToken');
 }
 
+/** Remove sessão e volta para a tela de login */
 function fazerLogout() {
   localStorage.removeItem('authToken');
   window.location.href = PAGINA_LOGIN;
 }
 
+/**
+ * Redireciona para conteúdo protegido.
+ * Se não logado: guarda destino e manda para login.
+ * (Pode ser chamado de outras páginas no futuro)
+ */
 function acessarConteudo(urlDestino) {
   if (isLoggedIn()) {
     window.location.href = urlDestino;
@@ -38,6 +59,7 @@ function acessarConteudo(urlDestino) {
   }
 }
 
+/** Bloqueia página se não estiver logado (uso em páginas restritas) */
 function exigirLogin() {
   if (!isLoggedIn()) {
     sessionStorage.setItem('redirectAfterLogin', window.location.href);
@@ -45,6 +67,7 @@ function exigirLogin() {
   }
 }
 
+/** Exibe ou esconde mensagens de erro/sucesso (#erro-msg, #erro-registro, etc.) */
 function mostrarMensagem(el, texto, visivel) {
   if (!el) return;
   if (visivel) {
@@ -56,6 +79,10 @@ function mostrarMensagem(el, texto, visivel) {
   }
 }
 
+/**
+ * Login — ligado ao botão #btn-login e Enter no teclado.
+ * Valida contra a lista em localStorage.usuarios
+ */
 function fazerLogin() {
   const usuario = document.getElementById('usuario').value.trim();
   const senha = document.getElementById('senha').value.trim();
@@ -81,6 +108,10 @@ function fazerLogin() {
   }
 }
 
+/**
+ * Cadastro — ligado ao botão #btn-registro.
+ * Campos: #novo-usuario, #nova-senha, #confirmar-senha
+ */
 function registrarUsuario() {
   const usuario = document.getElementById('novo-usuario').value.trim();
   const senha = document.getElementById('nova-senha').value.trim();
@@ -127,6 +158,11 @@ function registrarUsuario() {
   }, 1500);
 }
 
+/**
+ * Troca entre abas Login e Criar conta (inscricao.html).
+ * Liga: links em .trocar-aba → mostrarAba('login'|'registro')
+ * Controla: #aba-login e #aba-registro (atributo hidden)
+ */
 function mostrarAba(aba) {
   const abaLogin = document.getElementById('aba-login');
   const abaRegistro = document.getElementById('aba-registro');
@@ -135,18 +171,21 @@ function mostrarAba(aba) {
 
   const loginAtivo = aba === 'login';
 
-  abaLogin.hidden = !loginAtivo;
-  abaRegistro.hidden = loginAtivo;
+  if (abaLogin) abaLogin.hidden = !loginAtivo;
+  if (abaRegistro) abaRegistro.hidden = loginAtivo;
 
-  tabLogin.classList.toggle('ativa', loginAtivo);
-  tabRegistro.classList.toggle('ativa', !loginAtivo);
+  // Abas visuais opcionais (se existirem no HTML no futuro)
+  if (tabLogin) tabLogin.classList.toggle('ativa', loginAtivo);
+  if (tabRegistro) tabRegistro.classList.toggle('ativa', !loginAtivo);
 }
 
+/** Verifica se a aba de login está visível (para tecla Enter) */
 function abaLoginVisivel() {
   const abaLogin = document.getElementById('aba-login');
   return abaLogin && !abaLogin.hidden;
 }
 
+// Enter no teclado envia login ou cadastro conforme a aba aberta
 document.addEventListener('DOMContentLoaded', () => {
   document.addEventListener('keydown', (e) => {
     if (e.key !== 'Enter') return;

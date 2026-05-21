@@ -1,9 +1,18 @@
+<!--
+  index.html — Página principal do site TECH CURSOS
+  Estrutura: cabeçalho → hero (textos + vídeo) → cursos → sobre → contato → rodapé
+  CSS: pasta css/ (styles.css é a base; resp.css sobrescreve por último)
+  JS: js/script.js (rolagem suave do menu)
+  Login: inscriçao/inscricao.html + auth.js
+-->
 <!doctype html>
 <html lang="pt-br">
 
 <head>
   <meta charset="UTF-8" />
+  <!-- Responsivo em celulares e tablets -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Ordem dos CSS: base → componentes → responsivo (resp.css por último) -->
   <link rel="stylesheet" href="css/styles.css" />
   <link rel="stylesheet" href="css/button.css" />
   <link rel="stylesheet" href="css/html-box.css" />
@@ -12,102 +21,124 @@
   <link rel="stylesheet" href="css/js-box.css" />
   <link rel="stylesheet" href="css/resp.css" />
   <link rel="stylesheet" href="css/menu.css" />
+  <!-- Fontes Google usadas em .textoIntro, .nav, títulos (Syne) -->
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
     rel="stylesheet" />
   <title>TECH CURSOS</title>
 </head>
-<!---TESTE-->
 
 <body>
+  <!-- CABEÇALHO: estilizado em styles.css (.cabecalho) e menu.css (.linha-cabecalho) -->
   <header class="cabecalho">
     <div class="container-header">
       <img src="img/LOGOO.png" alt="logo da marca" class="logo" />
+      <!-- Divisor vertical entre logo e menu (menu.css) -->
       <hr class="linha-cabecalho" />
+      <!-- Links âncora (#Home, #Cursos...) — alvo do script.js (rolagem suave) -->
       <nav class="nav">
         <a href="#Home">Video</a>
         <a href="#Cursos">Cursos</a>
         <a href="#Sobre">Sobre</a>
         <a href="#Contato">Contato</a>
       </nav>
+      <!-- Botão Login → página inscriçao/inscricao.html (auth.js) -->
       <section class="menu">
         <a class="btn-inscricao" href="inscriçao/inscricao.html">Login</a>
       </section>
     </div>
   </header>
-  <div class="vid">
-    <iframe width="auto" height="auto" src="https://www.youtube.com/watch?v=8mei6uVttho&t=7s"
-      title="YouTube video player" frameborder="0"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-      allowfullscreen>
-    </iframe>
-  </div>
-  <section id="Home"></section>
-  <div class="container">
-    <h1 class="textoIntro">
-      TECNOLOGIA PARA <span class="destaque-todos">TODOS</span>
-    </h1>
-    <h2 class="textoIntro2">
-      Aprenda programação<br />
-      do zero ao avançado. <br />
-      Domine
-      <span class="Dev">HTML, CSS, JS<br />
-        e Python</span>
-      e se torne um <span class="Dev"><br />Desenvolvedor!</span>
-    </h2>
-  </div>
-  <div class="botoesinicial" style="margin-top: 20px">
-    <a href="https://www.youtube.com/watch?v=ckHP19lJJyA" class="btn-roxo">Cursos Gratuitos</a>
-    <a href="#Cursos" class="btn-contorno">Trilha de Cursos</a>
-  </div>
 
+  <!-- SEÇÃO HERO: id="Home" é o alvo do link "Video" no menu -->
+  <!-- Layout em grid: textos à esquerda, vídeo à direita (styles.css + resp.css) -->
+  <section class="hero" id="Home">
+    <div class="hero-inner">
+      <div class="hero-textos">
+        <h1 class="textoIntro">
+          TECNOLOGIA PARA <span class="destaque-todos">TODOS</span>
+        </h1>
+        <!-- textoIntro2 fica abaixo com margem; .Dev destaca linguagens (styles.css) -->
+        <h2 class="textoIntro2">
+          Aprenda programação<br />
+          do zero ao avançado. <br />
+          Domine
+          <span class="Dev">HTML, CSS, JS<br />
+            e Python</span>
+          e se torne um <span class="Dev"><br />Desenvolvedor!</span>
+        </h2>
+        <!-- Botões: estilos em button.css (.btn-roxo, .btn-contorno) -->
+        <div class="botoesinicial">
+          <a href="https://www.youtube.com/watch?v=ckHP19lJJyA" class="btn-roxo">Cursos Gratuitos</a>
+          <a href="#Cursos" class="btn-contorno">Trilha de Cursos</a>
+        </div>
+      </div>
+      <!-- Vídeo YouTube em embed (não usar URL watch?v= no iframe) -->
+      <div class="vid">
+        <iframe
+          src="https://www.youtube.com/embed/8mei6uVttho?start=7"
+          title="YouTube video player"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen>
+        </iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- SEÇÃO CURSOS: hr com id="Cursos" é âncora do menu e do botão "Trilha de Cursos" -->
   <hr id="Cursos" class="linha-curso" />
   <h1 class="O_Curso">O CURSO</h1>
-  <h1 class="aprender">O que você irá aprender?</h1>
+  <h2 class="aprender">O que você irá aprender?</h2>
 
-  <div class="html-box">
-    <div class="cabecalho-html">
-      <img src="img/apoio/licon1.svg" alt="imagem HTML" />
-      <h4>HTML</h4>
+  <!-- Cards das linguagens: cada um tem CSS próprio (html-box.css, css-box.css, etc.) -->
+  <div class="cursos-cards">
+    <!-- Card HTML — ícone em img/apoio/licon1.svg -->
+    <div class="html-box">
+      <div class="cabecalho-html">
+        <img src="img/apoio/licon1.svg" alt="imagem HTML" />
+        <h4>HTML</h4>
+      </div>
+      <p class="textoHTML">
+        Estruture páginas profissionais do zero<br />
+        com confiança e domínio do HTML. <br />
+      </p>
     </div>
-    <p class="textoHTML">
-      Estruture páginas profissionais do zero<br />
-      com confiança e domínio do HTML. <br />
-    </p>
+
+    <div class="css-box">
+      <div class="cabecalho-css">
+        <img src="img/apoio/licon2.svg" alt="imagem CSS" />
+        <h4>CSS</h4>
+      </div>
+      <p class="textoCSS">
+        Crie designs modernos e responsivos<br />
+        com estilo e profissionalismo.
+      </p>
+    </div>
+
+    <div class="js-box">
+      <div class="cabecalho-js">
+        <img src="img/apoio/licon3.svg" alt="imagem JavaScript" />
+        <h4>JavaScript</h4>
+      </div>
+      <p class="textoJS">
+        Dê vida às suas páginas<br />
+        com interatividade e dinamismo usando JavaScript.
+      </p>
+    </div>
+
+    <div class="py-box">
+      <div class="cabecalho-py">
+        <img src="img/apoio/licon4.svg" alt="imagem Python" />
+        <h4>Python</h4>
+      </div>
+      <p class="textoPY">
+        Aprenda uma das linguagens mais poderosas do mercado<br />
+        e desenvolva aplicações do zero.
+      </p>
+    </div>
   </div>
 
-  <div class="css-box">
-    <div class="cabecalho-css">
-      <img src="img/apoio/licon2.svg" alt="imagem CSS" />
-      <h4>CSS</h4>
-    </div>
-    <p class="textoCSS">
-      Crie designs modernos e responsivos<br />
-      com estilo e profissionalismo.
-    </p>
-  </div>
-
-  <div class="js-box">
-    <div class="cabecalho-js">
-      <img src="img/apoio/licon3.svg" alt="imagem JavaScript" />
-      <h4>JavaScript</h4>
-    </div>
-    <p class="textoJS">
-      Dê vida às suas páginas<br />
-      com interatividade e dinamismo usando JavaScript.
-    </p>
-  </div>
-
-  <div class="py-box">
-    <div class="cabecalho-py">
-      <img src="img/apoio/licon4.svg" alt="imagem Python" />
-      <h4>Python</h4>
-    </div>
-    <p class="textoPY">
-      Aprenda uma das linguagens mais poderosas do mercado<br />
-      e desenvolva aplicações do zero.
-    </p>
-  </div>
+  <!-- SEÇÃO SOBRE: id="Sobre" no hr interno para o link do menu -->
   <section class="secao-sobre">
     <hr id="Sobre" class="linha-sobre" />
 
@@ -121,17 +152,23 @@
       são para você, aprenda a criar sites incríveis e mude
       seu futuro sem se preocupar com mensalidades</h2>
 
-    <hr id="Contato" class="linha-contato" />
+    <hr class="linha-contato" />
   </section>
-  <h1 class="contato">CONTATO</h1>
+
+  <!-- CONTATO: id="Contato" é âncora do link "Contato" no cabeçalho -->
+  <h1 id="Contato" class="contato">CONTATO</h1>
   <br>
   <br>
   <br>
+
+  <!-- Rodapé — mesmo gradiente do header (styles.css footer) -->
   <footer>
     <h5 class="copyright">
       © Projeto Front-End - Herbert, João, Giovanni, Matheus e Caique
     </h5>
   </footer>
+
+  <!-- Interatividade da página principal (âncoras do menu) -->
   <script src="js/script.js"></script>
 </body>
 

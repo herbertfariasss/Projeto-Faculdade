@@ -1,4 +1,11 @@
-/* Rodapé fixo na base da página com fundo em gradiente roxo/azul */
+/**
+ * rodape.css — Rodapé da página de login (inscricao.html)
+ *
+ * HTML: <footer> no final do body
+ * Trabalha junto com fundo.css: body em flex column + footer margin-top: auto
+ *   → empurra o rodapé para o fim da tela enquanto .conteudo-login ocupa o meio
+ */
+
 footer {
   background: linear-gradient(90deg, rgba(91, 33, 244, 0.28), rgba(26, 108, 246, 0.22));
   color: #fff;
@@ -8,9 +15,9 @@ footer {
   width: 100%;
   z-index: 100;
   margin-top: auto;
+  flex-shrink: 0;
 }
 
-/* Texto de copyright centralizado no rodapé */
 .copyright {
   font-family: 'Syne';
   color: grey;

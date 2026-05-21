@@ -1,11 +1,20 @@
-/* Linha com os botões de alternar entre Login e Criar conta */
+/**
+ * cadastronavs.css — Mensagens e abas do formulário (inscricao.html)
+ *
+ * Usado por auth.js:
+ *   .msg-erro / .msg-sucesso → #erro-msg, #erro-registro, #sucesso-registro
+ *   .trocar-aba → links "Criar conta" / "Entrar" (mostrarAba)
+ *
+ * Abas visuais #tab-login e #tab-registro: estilos prontos se forem adicionadas ao HTML
+ */
+
+/* Botões de aba Login | Criar conta (opcional no HTML) */
 .abas-nav {
   display: flex;
   gap: 10px;
   margin-bottom: 8px;
 }
 
-/* Botões das abas (Entrar / Criar conta) — estado padrão */
 #tab-login,
 #tab-registro {
   flex: 1;
@@ -21,7 +30,7 @@
   transition: background 0.2s, color 0.2s, border-color 0.2s;
 }
 
-/* Aba selecionada no momento (classe .ativa aplicada pelo JavaScript) */
+/* Classe .ativa aplicada por auth.js → mostrarAba() */
 #tab-login.ativa,
 #tab-registro.ativa {
   color: #fff;
@@ -29,13 +38,12 @@
   border-color: rgba(91, 33, 244, 0.8);
 }
 
-/* Destaque ao passar o mouse sobre as abas */
 #tab-login:hover,
 #tab-registro:hover {
   border-color: rgba(91, 33, 244, 0.6);
 }
 
-/* Texto auxiliar para trocar de aba ("Não tem conta?" / "Já tem conta?") */
+/* Texto com link para trocar entre login e cadastro */
 .trocar-aba {
   margin-top: 12px;
   text-align: center;
@@ -43,26 +51,24 @@
   color: rgba(255, 255, 255, 0.8);
 }
 
-/* Link clicável dentro do texto de troca de aba */
 .trocar-aba a {
   color: #b794f6;
   text-decoration: none;
   font-weight: 600;
 }
 
-/* Sublinhado do link ao passar o mouse */
 .trocar-aba a:hover {
   text-decoration: underline;
 }
 
-/* Mensagens de erro exibidas pelo auth.js (login e registro) */
+/* Erros de validação e login incorreto */
 .msg-erro {
   color: #ff6b6b;
   font-size: 0.9rem;
   margin: 0;
 }
 
-/* Mensagem de sucesso após criar conta */
+/* Sucesso após cadastrar — auth.js exibe antes do redirect */
 .msg-sucesso {
   color: #6bffb8;
   font-size: 0.9rem;

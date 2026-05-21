@@ -1,20 +1,24 @@
+/**
+ * html-box.css — Card da linguagem HTML (index.html)
+ *
+ * HTML: <div class="html-box"> dentro de <div class="cursos-cards">
+ * Filhos: .cabecalho-html (ícone + título) e .textoHTML (descrição)
+ * Ícone: img/apoio/licon1.svg
+ *
+ * Cards irmãos: css-box.css, js-box.css, py-box.css (mesma estrutura, classes diferentes)
+ * Layout do grupo: resp.css (.cursos-cards — zig-zag em telas grandes)
+ */
+
 .html-box {
   margin-top: 5%;
   flex-direction: column;
   align-items: flex-start;
   gap: 4px;
-  position: absolute;
-  top: 100%;
-  left: 31%;
-  
-  
 
-  /* Fundo com mais contraste + efeito vidro */
-  background-color: rgba(15, 15, 35, 0.85);   /* Roxo-azulado escuro com boa opacidade */
+  /* Efeito glassmorphism (vidro fosco) */
+  background-color: rgba(15, 15, 35, 0.85);
   backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);        /* Essencial para Safari */
-
-  /* Borda clara e sutil (o segredo do glass) */
+  -webkit-backdrop-filter: blur(20px);
   border: 1px solid rgba(255, 255, 255, 0.18);
 
   color: white;
@@ -23,13 +27,10 @@
   border-radius: 16px;
   font-family: 'Segoe UI', system-ui, sans-serif;
   font-weight: 600;
-  text-decoration: none;
   transition: all 0.3s ease;
   cursor: pointer;
-
-  /* Sombra extra para destacar do fundo */
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6),
-              inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
 }
 
 .html-box:hover {
@@ -37,8 +38,8 @@
   filter: brightness(1.1);
 }
 
+/* Cabeçalho do card: ícone SVG + texto "HTML" com gradiente */
 .cabecalho-html {
-  /* novo wrapper */
   display: flex;
   align-items: center;
   justify-content: flex-start;
