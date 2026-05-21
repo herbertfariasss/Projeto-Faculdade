@@ -95,14 +95,12 @@ header {
 }
 
 .container {
-  flex: 1;                 /* Faz o conteúdo crescer e empurrar o footer */
+  flex: 1;
   width: 100%;
   max-width: 1200px;
-  padding-bottom: 1000px;
-  max-height: 120vh;
   margin: 0 auto;
   padding: 0 20px;
-  position: relative;      /* Mantém os absolute filhos dentro dele */
+  position: relative;
 }
 
 .logo {
@@ -145,11 +143,9 @@ footer {
   padding-top: 10px;
   text-align: center;
   width: 100%;
-
-
   z-index: 100;
-  margin-top: 200%;
- font-family: "Syne";
+  margin-top: 40px;
+  font-family: "Syne";
 }
 
 .copyright {
@@ -181,15 +177,28 @@ footer {
 
 
 
+/* Seção "Sobre nós" — bloco próprio abaixo dos cards de curso */
+.secao-sobre {
+  width: 100%;
+  max-width: 900px;
+  margin: 120px auto 60px;
+  padding: 0 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  position: relative;
+}
+
 .textoIntro3 {
   font-family: "Syne";
-  font-size: 1.0em;
-  text-align: left;
-  top: 190%;
-  margin: 30px 0;
-  position: absolute;
+  font-size: 1.1em;
+  text-align: center;
+  margin: 0;
+  position: relative;
   color: #b3b3b3;
-  line-height: 1.3;
+  line-height: 1.6;
+  max-width: 800px;
 }
 
 .destaque-todos {

@@ -11,6 +11,7 @@
 .sobre,
 .contato,
 .botoesinicial,
+.secao-sobre,
 .html-box,
 .css-box,
 .js-box,
@@ -52,24 +53,21 @@ body {
  
 
 header,
-.cabecalho   { order: 0 !important; }
-.container   { order: 1 !important; }
-.vid         { order: 2 !important; }
+.cabecalho    { order: 0 !important; }
+.container    { order: 1 !important; }
+.vid          { order: 2 !important; }
+.botoesinicial { order: 3 !important; }
 hr#Cursos,
-.linha-curso { order: 3 !important; }
-.O_Curso     { order: 4 !important; }
-.aprender    { order: 5 !important; }
+.linha-curso  { order: 4 !important; }
+.O_Curso      { order: 5 !important; }
+.aprender     { order: 6 !important; }
 .html-box,
 .css-box,
 .js-box,
-.py-box      { order: 6 !important; }
-hr#Sobre,
-.linha-sobre { order: 7 !important; }
-.sobre       { order: 8 !important; }
-hr#Contato,
-.linha-contato { order: 9 !important; }
-.contato     { order: 10 !important; }
-footer       { order: 11 !important; }
+.py-box       { order: 7 !important; }
+.secao-sobre  { order: 8 !important; }
+.contato      { order: 9 !important; }
+footer        { order: 10 !important; }
  
 
  
@@ -188,11 +186,29 @@ footer       { order: 11 !important; }
    8. SOBRE e CONTATO
    ────────────────────────────────────────── */
  
+.secao-sobre {
+  width: 100% !important;
+  max-width: 900px !important;
+  margin: 120px auto 60px !important;
+  padding: 0 24px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  gap: 24px !important;
+}
+
 .sobre,
 .contato {
   text-align: center !important;
   margin: 16px 0 !important;
   font-size: clamp(1.4rem, 4vw, 2rem) !important;
+}
+
+.textoIntro3 {
+  text-align: center !important;
+  max-width: 800px !important;
+  margin: 0 !important;
+  padding: 0 16px !important;
 }
  
 /* ──────────────────────────────────────────
@@ -222,17 +238,10 @@ footer {
     gap: 0 !important;
   }
  
-  /* Coluna ESQUERDA: textoIntro + textoIntro3 + botões — todos juntos */
+  /* Coluna ESQUERDA: textoIntro + botões */
   .textoIntro {
     width: 48% !important;
     text-align: left !important;
-    
-  }
- 
-  .textoIntro3 {
-    width: 48% !important;
-    text-align: left !important;
-    padding-top: 16px !important;   /* logo abaixo do título, sem sumir */
   }
  
   .botoesinicial {

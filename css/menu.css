@@ -19,33 +19,29 @@
 .linha-sobre {
     border: none;
     background-color: transparent;
-    margin: 40px auto;
+    margin: 0 auto;
     width: 45%;
     height: 2px;
-    position: absolute;
-    top: 180%;
-    left: 28%;
+    position: relative;
 }
 
 .sobre {
     font-family: 'Syne';
-    position: absolute;
-    top: 197%;
+    position: relative;
+    margin: 0;
 }
 
 .linha-contato {
     border: none;
     background-color: transparent;
-    margin: 40px auto;
+    margin: 0 auto;
     width: 45%;
     height: 2px;
-    position: absolute;
-    top: 280%;
-    left: 28%;
+    position: relative;
 }
 
 .contato {
     font-family: 'Syne';
-    position: absolute;
-    top: 297%;
+    position: relative;
+    margin: 48px 0 24px;
 }
