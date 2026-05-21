@@ -399,16 +399,15 @@ footer {
     width: 80% !important;
     max-width: 180px !important;
     }
-
+  
   .html-box,
   .css-box,
   .js-box,
   .py-box {
     font-size: 0.8rem;
     width: 280px !important;
-    height:  !important;
+    height: auto !important;
     margin: 0px 0 !important;
     padding: 0 10px 0 10px;
     }
-
-}
+  }
