@@ -184,7 +184,7 @@ footer        { order: 8 !important; }
   align-items: center !important;
   width: 100% !important;
   max-width: 900px !important;
-  margin: 0 auto 48px !important;
+  margin: 0 auto 48px ;
   gap: 8px !important;
 }
 
@@ -388,4 +388,27 @@ footer {
   .css-box:hover  { transform: translateX( 16px) scale(1.05) !important; filter: brightness(1.1) !important; }
   .js-box:hover   { transform: translateX(-16px) scale(1.05) !important; filter: brightness(1.1) !important; }
   .py-box:hover   { transform: translateX( 16px) scale(1.05) !important; filter: brightness(1.1) !important; }
+}
+
+@media (max-width: 740px) and (min-width: 360px) {
+  .curso-cards,
+  .html-box,
+  .css-box,
+  .js-box,
+  .py-box {
+    width: 80% !important;
+    max-width: 180px !important;
+    }
+
+  .html-box,
+  .css-box,
+  .js-box,
+  .py-box {
+    font-size: 0.8rem;
+    width: 280px !important;
+    height:  !important;
+    margin: 0px 0 !important;
+    padding: 0 10px 0 10px;
+    }
+
 }

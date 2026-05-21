@@ -1,0 +1,413 @@
+/**
+ * resp.css — Layout responsivo da página principal (index.html)
+ *
+ * IMPORTANTE: carregado por ÚLTIMO no <head> — usa !important para sobrescrever
+ * styles.css, button.css e *-box.css.
+ *
+ * Funções:
+ *   1. Ordenar seções no mobile (flex order no body)
+ *   2. Resetar position:absolute antigo dos cards
+ *   3. Grid do hero (textos | vídeo) e empilhar no celular
+ *   4. Cards em zig-zag (translateX) em desktop
+ *   5. Media queries: desktop (1025px+), tablet, mobile
+ */
+
+/* ========== RESET DE POSICIONAMENTO ANTIGO ========== */
+/* Garante que nada fique com position:absolute quebrando o layout */
+.hero,
+.textoIntro,
+.textoIntro2,
+.textoIntro3,
+.O_Curso,
+.aprender,
+.linha-curso,
+.linha-sobre,
+.linha-contato,
+.sobre,
+.contato,
+.botoesinicial,
+.secao-sobre,
+.cursos-cards,
+.html-box,
+.css-box,
+.js-box,
+.py-box,
+.vid {
+  position: static !important;
+  top: auto !important;
+  left: auto !important;
+  margin-top: 0 !important;
+}
+ 
+
+ 
+html {
+  overflow-x: hidden !important;
+  max-width: 100% !important;
+}
+ 
+body {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  overflow-x: hidden !important;
+  width: 100% !important;
+}
+ 
+* {
+  box-sizing: border-box !important;
+}
+ 
+
+ 
+/* ========== ORDEM DAS SEÇÕES NO BODY (flex column) ========== */
+/* body é flex column — order define a sequência visual em telas pequenas */
+header,
+.cabecalho    { order: 0 !important; }
+.hero         { order: 1 !important; }
+hr#Cursos,
+.linha-curso  { order: 2 !important; }
+.O_Curso      { order: 3 !important; }
+.aprender     { order: 4 !important; }
+.cursos-cards  { order: 5 !important; }
+.cursos-cards .html-box,
+.cursos-cards .css-box,
+.cursos-cards .js-box,
+.cursos-cards .py-box { order: unset !important; }
+.secao-sobre  { order: 6 !important; }
+.contato      { order: 7 !important; }
+footer        { order: 8 !important; }
+
+/* ========== HERO — textos à esquerda, vídeo à direita ========== */
+.hero {
+  width: 100% !important;
+  max-width: 1200px !important;
+  padding: 12px 24px 36px !important;
+}
+
+.hero-inner {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr) !important;
+  gap: 32px 48px !important;
+  align-items: center !important;
+}
+
+.hero-textos {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-start !important;
+  text-align: left !important;
+}
+ 
+
+.textoIntro,
+.textoIntro2,
+.textoIntro3 {
+  width: 100% !important;
+  display: block !important;
+}
+ 
+
+ 
+.textoIntro {
+  font-size: clamp(1.8rem, 5vw, 2.5rem) !important;
+  margin: 0 !important;
+}
+ 
+.textoIntro2 {
+  font-size: clamp(1.2rem, 2.8vw, 1.85rem) !important;
+  text-align: left !important;
+  margin: 16px 0 0 !important;
+}
+ 
+.textoIntro3 {
+  font-size: clamp(0.85rem, 2vw, 1rem) !important;
+  text-align: center !important;
+  margin: 0 !important;
+}
+ 
+/* ──────────────────────────────────────────
+   5. VÍDEO — responsivo
+   ────────────────────────────────────────── */
+ 
+.hero .vid {
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0 !important;
+}
+
+.hero .vid iframe {
+  width: 100% !important;
+  height: auto !important;
+  aspect-ratio: 16 / 9 !important;
+  border-radius: 12px !important;
+}
+
+.hero-textos .botoesinicial {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  justify-content: flex-start !important;
+  gap: 16px !important;
+  margin-top: 28px !important;
+  width: 100% !important;
+}
+ 
+/* ──────────────────────────────────────────
+   7. SEÇÃO DE CURSOS — títulos e grid
+   ────────────────────────────────────────── */
+ 
+.O_Curso {
+  margin: 40px 0 4px !important;
+  text-align: center !important;
+}
+ 
+.aprender {
+  margin: 0 0 24px !important;
+  text-align: center !important;
+  font-size: clamp(1.2rem, 3vw, 1.8rem) !important;
+  font-family: 'Syne';
+}
+ 
+.linha-curso,
+.linha-sobre,
+.linha-contato {
+  width: 60% !important;
+  height: 1px !important;
+  background-color: rgba(124, 92, 252, 0.3) !important;
+  margin: 32px auto !important;
+  display: block !important;
+}
+ 
+.cursos-cards {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  width: 100% !important;
+  max-width: 900px !important;
+  margin: 0 auto 48px ;
+  gap: 8px !important;
+}
+
+/* ── CARDS DE CURSO — layout zig-zag ── */
+.cursos-cards .html-box,
+.cursos-cards .css-box,
+.cursos-cards .js-box,
+.cursos-cards .py-box,
+.html-box,
+.css-box,
+.js-box,
+.py-box {
+  width: 280px !important;
+  height: auto !important;
+  margin: 12px 0 !important;   /* espaço vertical entre cards */
+}
+ 
+/* Zig-zag: desloca alternadamente para esquerda e direita */
+.cursos-cards .html-box,
+.html-box { transform: translateX(-80px) !important; }
+.cursos-cards .css-box,
+.css-box  { transform: translateX( 80px) !important; }
+.cursos-cards .js-box,
+.js-box   { transform: translateX(-80px) !important; }
+.cursos-cards .py-box,
+.py-box   { transform: translateX( 80px) !important; }
+ 
+/* ──────────────────────────────────────────
+   8. SOBRE e CONTATO
+   ────────────────────────────────────────── */
+ 
+.secao-sobre {
+  width: 100% !important;
+  max-width: 900px !important;
+  margin: 120px auto 60px !important;
+  padding: 0 24px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  gap: 24px !important;
+}
+
+.sobre,
+.contato {
+  text-align: center !important;
+  margin: 16px 0 !important;
+  font-size: clamp(1.4rem, 4vw, 2rem) !important;
+}
+
+.textoIntro3 {
+  text-align: center !important;
+  max-width: 800px !important;
+  margin: 0 !important;
+  padding: 0 16px !important;
+}
+ 
+/* ──────────────────────────────────────────
+   9. FOOTER
+   ────────────────────────────────────────── */
+ 
+footer {
+  margin-top: 0 !important;
+  width: 100% !important;
+  padding: 20px !important;
+}
+ 
+/* ──────────────────────────────────────────
+   10. MEDIA QUERIES
+   ────────────────────────────────────────── */
+ 
+/* ========== DESKTOP — acima de 1024px ========== */
+@media (min-width: 1025px) {
+  .hero {
+    padding-top: 16px !important;
+  }
+
+  .hero-inner {
+    grid-template-columns: minmax(0, 1.05fr) minmax(280px, 1fr) !important;
+    gap: 40px 56px !important;
+  }
+
+  .textoIntro,
+  .textoIntro2 {
+    width: 100% !important;
+    text-align: left !important;
+  }
+}
+ 
+/* ── TABLET (768px – 1024px) ── */
+@media (max-width: 1024px) and (min-width: 768px) {
+  .hero {
+    padding: 12px 32px 36px !important;
+  }
+
+  .hero-inner {
+    gap: 28px 32px !important;
+  }
+
+  .btn-roxo,
+  .btn-contorno {
+    padding: 12px 48px !important;
+  }
+}
+ 
+/* ========== MOBILE — abaixo de 767px (hero em coluna, cards menores) ========== */
+@media (max-width: 767px) {
+ 
+  /* Header empilha em coluna */
+  .container-header {
+    flex-direction: column !important;
+    gap: 12px !important;
+    padding: 8px 16px !important;
+  }
+ 
+  .linha-cabecalho {
+    display: none !important; /* esconde a linha vertical do header no mobile */
+  }
+ 
+  .logo {
+    width: 120px !important;
+  }
+ 
+  .nav {
+    flex-direction: row !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    gap: 8px 16px !important;
+    margin-right: 0 !important;
+  }
+ 
+  .nav a {
+    font-size: 0.95rem !important;
+  }
+ 
+  .hero {
+    padding: 8px 16px 32px !important;
+  }
+
+  .hero-inner {
+    grid-template-columns: 1fr !important;
+    gap: 28px !important;
+  }
+
+  .hero-textos {
+    align-items: center !important;
+    text-align: center !important;
+  }
+
+  .textoIntro,
+  .textoIntro2 {
+    text-align: center !important;
+  }
+
+  .hero-textos .botoesinicial {
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+ 
+  .btn-roxo,
+  .btn-contorno {
+    width: 100% !important;
+    max-width: 320px !important;
+    padding: 12px 24px !important;
+    text-align: center !important;
+  }
+ 
+  /* Cards de curso em coluna única, zig-zag menor no mobile */
+  .html-box,
+  .css-box,
+  .js-box,
+  .py-box {
+    width: 85% !important;
+    max-width: 360px !important;
+  }
+ 
+  .html-box { transform: translateX(-16px) !important; }
+  .css-box  { transform: translateX( 16px) !important; }
+  .js-box   { transform: translateX(-16px) !important; }
+  .py-box   { transform: translateX( 16px) !important; }
+}
+ 
+/* ── MOBILE PEQUENO (abaixo de 480px) ── */
+@media (max-width: 480px) {
+  .textoIntro  { font-size: 1.6rem !important; }
+  .textoIntro2 { font-size: 1.2rem !important; }
+  .textoIntro3 { font-size: 0.82rem !important; }
+ 
+  .nav a { font-size: 0.85rem !important; }
+}
+ 
+/* ── HOVER dos cards — mantém zig-zag + animação ── */
+.html-box:hover { transform: translateX(-80px) scale(1.05) !important; filter: brightness(1.1) !important; }
+.css-box:hover  { transform: translateX( 80px) scale(1.05) !important; filter: brightness(1.1) !important; }
+.js-box:hover   { transform: translateX(-80px) scale(1.05) !important; filter: brightness(1.1) !important; }
+.py-box:hover   { transform: translateX( 80px) scale(1.05) !important; filter: brightness(1.1) !important; }
+ 
+/* Mobile: hover sem deslocamento lateral */
+@media (max-width: 767px) {
+  .html-box:hover { transform: translateX(-16px) scale(1.05) !important; filter: brightness(1.1) !important; }
+  .css-box:hover  { transform: translateX( 16px) scale(1.05) !important; filter: brightness(1.1) !important; }
+  .js-box:hover   { transform: translateX(-16px) scale(1.05) !important; filter: brightness(1.1) !important; }
+  .py-box:hover   { transform: translateX( 16px) scale(1.05) !important; filter: brightness(1.1) !important; }
+}
+
+@media (min-width: 360px) {
+  .curso-cards,
+  .html-box,
+  .css-box,
+  .js-box,
+  .py-box {
+    width: 80% !important;
+    max-width: 180px !important;
+    }
+
+  .html-box,
+  .css-box,
+  .js-box,
+  .py-box {
+    font-size: 0.8re,;
+    width: 280px !important;
+    height:  !important;
+    margin: 12px 0 !important;
+    }
+
+}
