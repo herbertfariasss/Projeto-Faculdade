@@ -1,3 +1,4 @@
+/* Rodapé fixo na base da página com fundo em gradiente roxo/azul */
 footer {
   background: linear-gradient(90deg, rgba(91, 33, 244, 0.28), rgba(26, 108, 246, 0.22));
   color: #fff;
@@ -9,6 +10,7 @@ footer {
   margin-top: auto;
 }
 
+/* Texto de copyright centralizado no rodapé */
 .copyright {
   font-family: 'Syne';
   color: grey;

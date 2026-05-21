@@ -1,3 +1,4 @@
+/* Cabeçalho genérico (tag header) com fundo translúcido e efeito blur */
 header {
   background: linear-gradient(
     90deg,
@@ -12,35 +13,39 @@ header {
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
 }
- 
+
+/* Barra superior principal: fixa no topo, gradiente e sombra */
 .cabecalho {
   background: linear-gradient(
     90deg,
     rgba(91, 33, 244, 0.35),
     rgba(26, 108, 246, 0.28)
   );
-  padding: 1.2rem 0;
+  padding: 1.2rem ;
   width: 100%;
-  position: sticky;
+  position: fixed;
   top: 0;
   z-index: 1000;
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
 }
- 
+
+/* Tamanho e proporção da logo no cabeçalho */
 .logo {
   width: 15%;
   height: 15%;
   object-fit: contain;
 }
- 
+
+/* Container da navegação desktop (links alinhados à direita) */
 .nav {
   display: flex;
   align-items: center;
   margin-right: 2%;
 }
- 
+
+/* Estilo dos links do menu desktop (botão roxo arredondado) */
 .nav a {
   margin-left: 10px;
   font-size: 1.1em;
@@ -51,9 +56,9 @@ header {
   padding: 8px 20px;
   border: rgb(85, 3, 179);
   border-radius: 8px;
-  
 }
 
+/* Layout interno do cabeçalho: logo, nav e hambúrguer em linha */
 .container-header {
   max-width: 1200px;
   width: 100%;
@@ -63,37 +68,39 @@ header {
   justify-content: space-between;
   padding: 0 24px;
 }
- 
+
+/* Tablet: reduz logo, links e padding do cabeçalho */
 @media (max-width: 768px) {
   .logo {
     width: 100px;
     height: auto;
   }
- 
+
   .nav a {
     font-size: 0.95em;
     margin-left: 8px;
   }
- 
+
   .container-header {
     padding: 0 16px;
   }
 }
- 
 
+/* Celular: cabeçalho mais compacto e evita rolagem horizontal */
 @media (max-width: 480px) {
   .logo {
     width: 80px;
   }
- 
+
   .nav a {
     font-size: 0.85em;
     margin-left: 6px;
   }
- 
+
   .cabecalho {
     padding: 0.8rem 0;
   }
+
   html, body {
     max-width: 100%;
     overflow-x: hidden;
@@ -106,11 +113,7 @@ header {
   }
 }
 
-
-
-/* CSS MOBILE/HAMBURGUER  */
-
-/* Botão hambúrguer  */
+/* Botão hambúrguer (ícone ☰) — oculto no desktop, visível no mobile */
 .hamburger {
   display: none;
   background: rgb(57, 2, 145);
@@ -122,13 +125,14 @@ header {
   cursor: pointer;
 }
 
-/* Menu mobile  */
+/* Menu dropdown mobile (lista vertical de links) */
 .mobile-menu {
   display: none;
   flex-direction: column;
   padding: 8px 24px 16px;
 }
 
+/* Links individuais dentro do menu mobile */
 .mobile-menu a {
   color: white;
   text-decoration: none;
@@ -138,7 +142,7 @@ header {
   border-bottom: 1px solid rgba(255, 255, 255, 0.15);
 }
 
-/* No mobile: esconde nav desktop, mostra hambúrguer */
+/* Mobile: esconde nav desktop e exibe o botão hambúrguer */
 @media (max-width: 768px) {
   .nav {
     display: none;
@@ -149,7 +153,7 @@ header {
   }
 }
 
-/*  menu aberto */
+/* Estado aberto do menu mobile (ativado pelo JavaScript) */
 .mobile-menu.open {
   display: flex;
 }

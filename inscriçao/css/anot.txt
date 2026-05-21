@@ -1,0 +1,8 @@
+@media (max-width: 480px) {
+  .boxform {
+    padding: 32px 24px; 
+    border-radius: 30px;
+    width: 92%;
+    margin: 100px auto 30px;
+  }
+}

@@ -1,5 +1,70 @@
-* {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
+/* Linha com os botões de alternar entre Login e Criar conta */
+.abas-nav {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+/* Botões das abas (Entrar / Criar conta) — estado padrão */
+#tab-login,
+#tab-registro {
+  flex: 1;
+  height: 42px;
+  color: rgba(255, 255, 255, 0.75);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  font-family: 'Syne', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  background: transparent;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+}
+
+/* Aba selecionada no momento (classe .ativa aplicada pelo JavaScript) */
+#tab-login.ativa,
+#tab-registro.ativa {
+  color: #fff;
+  background: rgba(91, 33, 244, 0.45);
+  border-color: rgba(91, 33, 244, 0.8);
+}
+
+/* Destaque ao passar o mouse sobre as abas */
+#tab-login:hover,
+#tab-registro:hover {
+  border-color: rgba(91, 33, 244, 0.6);
+}
+
+/* Texto auxiliar para trocar de aba ("Não tem conta?" / "Já tem conta?") */
+.trocar-aba {
+  margin-top: 12px;
+  text-align: center;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* Link clicável dentro do texto de troca de aba */
+.trocar-aba a {
+  color: #b794f6;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+/* Sublinhado do link ao passar o mouse */
+.trocar-aba a:hover {
+  text-decoration: underline;
+}
+
+/* Mensagens de erro exibidas pelo auth.js (login e registro) */
+.msg-erro {
+  color: #ff6b6b;
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+/* Mensagem de sucesso após criar conta */
+.msg-sucesso {
+  color: #6bffb8;
+  font-size: 0.9rem;
+  margin: 0;
 }

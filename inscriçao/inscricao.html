@@ -4,10 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Cadastro — Tech Cursos</title>
-    <link rel="stylesheet" href="css/cadastro.css" />
     <link rel="stylesheet" href="css/rodape.css" />
     <link rel="stylesheet" href="css/cabecalho.css" />
     <link rel="stylesheet" href="css/fundo.css" />
+    <link rel="stylesheet" href="css/cadastronavs.css" />
     <link
       href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700&display=swap"
       rel="stylesheet"
@@ -20,39 +20,71 @@
   <body>
     <header class="cabecalho">
       <div class="container-header">
-        <img src="../../img/LOGOO.png" alt="logo da marca" class="logo" />
+        <img src="../img/LOGOO.png" alt="logo da marca" class="logo" />
         <nav class="nav">
-          <a href="../src/index.html">Inicio</a>
+          <a href="../index.html">Inicio</a>
         </nav>
         <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Abrir menu">
           &#9776;
         </button>
       </div>
       <div class="mobile-menu" id="mobile-menu">
-        <a href="../src/index.html">Inicio</a>
+        <a href="../index.html">Inicio</a>
       </div>
     </header>
 
     <div class="boxform">
-      <form>
+      
+
+      <div id="aba-login">
         <div class="Formulario">
           <div class="logintxt"><h1>Login</h1></div>
-          <br><br><br>
-          <label for="NomeDeUsuario">Nome de Usuário</label>
           <br><br>
-          <input type="text" placeholder="Digite seu nome de Usuário">
+
+          <label for="usuario">Nome de Usuário</label>
           <br><br>
-          <label for="Senha">Senha</label>
+          <input type="text" id="usuario" placeholder="Digite seu nome de usuário" autocomplete="username">
           <br><br>
-          <input type="password" placeholder="Digite sua senha">
+
+          <label for="senha">Senha</label>
+          <br><br>
+          <input type="password" id="senha" placeholder="Digite sua senha" autocomplete="current-password">
+          <br><br>
+
+          <p id="erro-msg" class="msg-erro" hidden></p>
         </div>
-        <br>
-        <button class="BotaoEntrar">Entrar</button>
-        <br><br><br>
-        <p class="forgetpasswrd">Esqueceu a sua senha? <a href="#" target="_blank">Clique aqui!</a></p>
-        <br><br>
-        <p class="forgetpasswrd">Ainda não tem uma conta? <a href="#" target="_blank">Criar conta</a></p>
-      </form>
+
+        <button type="button" id="btn-login" onclick="fazerLogin()">Entrar</button>
+        <p class="trocar-aba">Não tem conta? <a href="#" onclick="mostrarAba('registro'); return false;">Criar conta</a></p>
+      </div>
+
+      <div id="aba-registro" hidden>
+        <div class="Formulario">
+          <div class="logintxt"><h1>Criar conta</h1></div>
+          <br><br>
+
+          <label for="novo-usuario">Nome de Usuário</label>
+          <br><br>
+          <input type="text" id="novo-usuario" placeholder="Escolha um nome de usuário" autocomplete="username">
+          <br><br>
+
+          <label for="nova-senha">Senha</label>
+          <br><br>
+          <input type="password" id="nova-senha" placeholder="Crie uma senha" autocomplete="new-password">
+          <br><br>
+
+          <label for="confirmar-senha">Confirmar Senha</label>
+          <br><br>
+          <input type="password" id="confirmar-senha" placeholder="Repita a senha" autocomplete="new-password">
+          <br><br>
+
+          <p id="erro-registro" class="msg-erro" hidden></p>
+          <p id="sucesso-registro" class="msg-sucesso" hidden></p>
+        </div>
+
+        <button type="button" id="btn-registro" onclick="registrarUsuario()">Cadastrar</button>
+        <p class="trocar-aba">Já tem conta? <a href="#" onclick="mostrarAba('login'); return false;">Entrar</a></p>
+      </div>
     </div>
 
     <footer>
@@ -60,8 +92,8 @@
         © Projeto Front-End - Herbert, João, Giovanni, Matheus e Caique.
       </h5>
     </footer>
+
+    <script src="cabecalho.js"></script>
+    <script src="auth.js"></script>
   </body>
-  <script src="cabecalho.js"></script>
-  </body>
-</html>
 </html>
