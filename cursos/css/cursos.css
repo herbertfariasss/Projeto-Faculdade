@@ -1,0 +1,280 @@
+/* ========== BASE ========== */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background-color: #080810;
+  background-image:
+    radial-gradient(circle at 20% 30%, rgba(91, 33, 244, 0.15) 0%, transparent 50%),
+    radial-gradient(circle at 80% 70%, rgba(26, 108, 246, 0.15) 0%, transparent 50%);
+  color: #ffffff;
+  font-family: "Space Grotesk", "Segoe UI", system-ui, sans-serif;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* ========== CABEÇALHO ========== */
+.cabecalho {
+  background: linear-gradient(90deg, rgba(91, 33, 244, 0.35), rgba(26, 108, 246, 0.28));
+  padding: 1rem 0;
+  width: 100%;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
+  flex-shrink: 0;
+  box-sizing: border-box;
+}
+
+.container-header {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  box-sizing: border-box;
+}
+
+.logo { width: 110px; height: auto; object-fit: contain; flex-shrink: 0; }
+
+.linha-cabecalho {
+  border: none;
+  border-left: 1px solid rgba(255,255,255,0.2);
+  height: 32px;
+  margin: 0 4px;
+  flex-shrink: 0;
+}
+
+.nav { display: flex; align-items: center; gap: 14px; margin-left: auto; }
+
+.nav a {
+  font-family: "Syne", sans-serif;
+  color: #fff;
+  text-decoration: none;
+  font-size: 1rem;
+  background: rgb(57, 2, 145);
+  padding: 8px 20px;
+  border-radius: 8px;
+  transition: background 0.2s;
+  white-space: nowrap;
+}
+.nav a:hover { background: rgb(85, 3, 179); }
+
+.menu-usuario {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.saudacao {
+  font-family: "Syne", sans-serif;
+  font-size: 0.95rem;
+  color: rgba(255,255,255,0.75);
+  white-space: nowrap;
+}
+
+.btn-logout {
+  background: transparent;
+  border: 1px solid rgba(124, 92, 252, 0.6);
+  color: #a78bfa;
+  font-family: "Syne", sans-serif;
+  font-size: 0.9rem;
+  padding: 6px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+  white-space: nowrap;
+}
+.btn-logout:hover { background: rgba(124, 92, 252, 0.15); color: #fff; }
+
+/* ========== CONTEÚDO PRINCIPAL ========== */
+.conteudo-cursos {
+  flex: 1;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 48px 24px 64px;
+}
+
+/* ========== HERO DOS CURSOS ========== */
+.cursos-hero {
+  text-align: center;
+  margin-bottom: 56px;
+}
+
+.titulo-cursos {
+  font-family: "Syne", sans-serif;
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  letter-spacing: 0.02em;
+  margin-bottom: 12px;
+}
+
+.destaque { color: #7c5cfc; }
+
+.subtitulo-cursos {
+  font-size: 1.1rem;
+  color: rgba(255,255,255,0.55);
+}
+
+/* ========== GRADE DE CARDS ========== */
+.grade-cursos {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 28px;
+}
+
+/* ========== CARD ========== */
+.card-curso {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 16px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.25s, box-shadow 0.25s;
+}
+.card-curso:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.4);
+}
+
+/* Topo colorido de cada card */
+.card-topo {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 22px 24px;
+}
+.card-topo h2 { font-family: "Syne", sans-serif; font-size: 1.4rem; }
+
+.card-html { background: linear-gradient(135deg, rgba(228,77,38,0.35), rgba(228,77,38,0.1)); }
+.card-css  { background: linear-gradient(135deg, rgba(38,77,228,0.35), rgba(38,77,228,0.1)); }
+.card-js   { background: linear-gradient(135deg, rgba(247,223,30,0.25), rgba(247,223,30,0.06)); }
+.card-py   { background: linear-gradient(135deg, rgba(55,118,171,0.35), rgba(55,118,171,0.1)); }
+
+.card-icone { width: 44px; height: 44px; object-fit: contain; }
+
+/* Corpo do card */
+.card-corpo {
+  padding: 20px 24px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  flex: 1;
+}
+
+.card-corpo p {
+  font-size: 0.95rem;
+  color: rgba(255,255,255,0.65);
+  line-height: 1.55;
+}
+
+/* Lista de módulos */
+.lista-modulos {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.lista-modulos li {
+  font-size: 0.88rem;
+  color: rgba(255,255,255,0.75);
+  padding-left: 18px;
+  position: relative;
+}
+.lista-modulos li::before {
+  content: "▸";
+  position: absolute;
+  left: 0;
+  color: #7c5cfc;
+  font-size: 0.8rem;
+  top: 1px;
+}
+
+/* Rodapé do card */
+.card-rodape {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: auto;
+}
+
+.card-badges {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.badge {
+  font-size: 0.75rem;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.12);
+  color: rgba(255,255,255,0.6);
+  padding: 3px 10px;
+  border-radius: 20px;
+}
+
+.badge-gratis {
+  background: rgba(34, 197, 94, 0.15);
+  border-color: rgba(34, 197, 94, 0.3);
+  color: #4ade80;
+}
+
+.btn-acessar {
+  display: block;
+  width: 100%;
+  text-align: center;
+  background-color: #5B21F4;
+  color: #fff;
+  text-decoration: none;
+  font-family: "Syne", sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  padding: 11px 0;
+  border-radius: 10px;
+  border: 2px solid #5B21F4;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+.btn-acessar:hover { background-color: #7c5cfc; border-color: #7c5cfc; transform: scale(1.02); }
+
+/* ========== RODAPÉ ========== */
+footer {
+  background: linear-gradient(90deg, rgba(91,33,244,0.28), rgba(26,108,246,0.22));
+  color: #fff;
+  padding: 16px 0 12px;
+  text-align: center;
+  width: 100%;
+  flex-shrink: 0;
+  font-family: "Syne", sans-serif;
+}
+.copyright { color: grey; font-size: 0.85rem; }
+
+/* ========== RESPONSIVO ========== */
+@media (max-width: 768px) {
+  .linha-cabecalho { display: none; }
+  .grade-cursos { grid-template-columns: repeat(2, 1fr); }
+  .logo { width: 90px; }
+  .nav a { padding: 7px 14px; font-size: 0.9rem; }
+  .btn-logout { padding: 6px 12px; font-size: 0.82rem; }
+}
+
+@media (max-width: 500px) {
+  .container-header { padding: 0 14px; }
+  .grade-cursos { grid-template-columns: 1fr; }
+  .logo { width: 75px; }
+  .nav a { padding: 6px 10px; font-size: 0.82rem; }
+  .conteudo-cursos { padding: 32px 14px 48px; }
+  .titulo-cursos { font-size: 1.8rem; }
+}

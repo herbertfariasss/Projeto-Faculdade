@@ -60,3 +60,52 @@
   position: relative;
   margin: 48px 0 24px;
 }
+
+/* ========== DROPDOWN DO USUÁRIO NO HEADER ========== */
+.user-dropdown {
+  position: relative;
+}
+
+.btn-usuario {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 0;
+  background: #1a0a3c;
+  border: 1px solid rgba(124, 92, 252, 0.35);
+  border-radius: 10px;
+  overflow: hidden;
+  min-width: 160px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+  z-index: 999;
+}
+
+.dropdown-menu button {
+  display: block;
+  width: 100%;
+  padding: 12px 18px;
+  background: transparent;
+  border: none;
+  color: #c8d6e5;
+  font-family: "Syne", sans-serif;
+  font-size: 0.9rem;
+  text-align: left;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.dropdown-menu button:hover {
+  background: rgba(124, 92, 252, 0.2);
+  color: #fff;
+}
+
+.dropdown-menu button:not(:last-child) {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+}

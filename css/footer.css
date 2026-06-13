@@ -1,0 +1,114 @@
+/* ========== RODAPÉ GLOBAL ========== */
+
+.rod-contato-titulo {
+  text-align: center;
+  padding: 64px 60px 48px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.rod-contato-titulo .contato {
+  font-family: "Syne", sans-serif;
+  font-size: clamp(2rem, 5vw, 3rem);
+  color: #c8d6e5;
+  letter-spacing: 0.08em;
+  margin: 0;
+}
+footer {
+  background-color: #0d1b2a;
+  color: #c8d6e5;
+  width: 100%;
+  margin-top: 60px;
+  font-family: "Syne", sans-serif;
+  box-sizing: border-box;
+}
+
+.rodTopo {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1.2fr;
+  gap: 32px;
+  padding: 48px 60px 40px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  text-align: left;
+  box-sizing: border-box;
+}
+
+.rod-logo {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.rod-nome {
+  font-size: 1.2rem;
+  color: #c8d6e5;
+  margin: 0;
+}
+
+footer strong {
+  color: rgb(82, 64, 163);
+}
+
+.rod-logo p,
+.rodDados p {
+  font-size: 13px;
+  color: #7a8fa6;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.rod1 h3, .rod2 h3, .rodDados h3 {
+  color: #c8d6e5;
+  margin: 0 0 14px 0;
+  font-size: 1rem;
+}
+
+.rod1 ul, .rod2 ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.rod1 ul li a, .rod2 ul li a {
+  color: #7a8fa6;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.2s;
+}
+
+.rod1 ul li a:hover, .rod2 ul li a:hover {
+  color: #c8d6e5;
+}
+
+.rodDados a {
+  color: #7c5cfc;
+  text-decoration: none;
+}
+.rodDados a:hover { color: #a78bfa; }
+
+.rodFinal {
+  padding: 20px 60px;
+  text-align: center;
+  font-size: 12px;
+  color: #4a5e72;
+  margin: 0;
+}
+
+@media (max-width: 900px) {
+  .rodTopo {
+    grid-template-columns: 1fr 1fr;
+    padding: 36px 32px 32px;
+    gap: 24px;
+  }
+}
+
+@media (max-width: 500px) {
+  .rodTopo {
+    grid-template-columns: 1fr;
+    padding: 28px 20px 24px;
+    gap: 20px;
+  }
+  .rodFinal { padding: 16px 20px; }
+}

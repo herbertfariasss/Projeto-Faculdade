@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cadastro — Tech Cursos</title>
+    <link rel="stylesheet" href="css/cadastro.css" />
+    <link rel="stylesheet" href="css/rodape.css" />
+    <link rel="stylesheet" href="css/cabecalho.css" />
+    <link rel="stylesheet" href="css/fundo.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header class="cabecalho">
+      <div class="container-header">
+        <img src="../../img/LOGOO.png" alt="logo da marca" class="logo" />
+        <nav class="nav">
+          <a href="../src/index.html">Inicio</a>
+        </nav>
+        <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Abrir menu">
+          &#9776;
+        </button>
+      </div>
+      <div class="mobile-menu" id="mobile-menu">
+        <a href="../src/index.html">Inicio</a>
+      </div>
+    </header>
+
+    <div class="boxform">
+      <form>
+        <div class="Formulario">
+          <div class="logintxt"><h1>Login</h1></div>
+          <br><br><br>
+          <label for="NomeDeUsuario">Nome de Usuário</label>
+          <br><br>
+          <input type="text" placeholder="Digite seu nome de Usuário">
+          <br><br>
+          <label for="Senha">Senha</label>
+          <br><br>
+          <input type="password" placeholder="Digite sua senha">
+        </div>
+        <br>
+        <button class="BotaoEntrar">Entrar</button>
+        <br><br><br>
+        <p class="forgetpasswrd">Esqueceu a sua senha? <a href="#" target="_blank">Clique aqui!</a></p>
+        <br><br>
+        <p class="forgetpasswrd">Ainda não tem uma conta? <a href="#" target="_blank">Criar conta</a></p>
+      </form>
+    </div>
+
+    <footer>
+      <h5 class="copyright">
+        © Projeto Front-End - Herbert, João, Giovanni, Matheus e Caique.
+      </h5>
+    </footer>
+  </body>
+  <script src="cabecalho.js"></script>
+  </body>
+</html>
+</html>

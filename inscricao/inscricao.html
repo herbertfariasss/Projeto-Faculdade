@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<!--
+  =============================================
+  inscricao.html — Tela de Login e Cadastro
+  =============================================
+  Esta página tem duas "abas" dentro do mesmo arquivo:
+  1. Aba de LOGIN  → o usuário digita usuário e senha
+  2. Aba de CADASTRO → o usuário cria uma nova conta
+
+  Como a troca de abas funciona:
+  → As duas abas existem no HTML ao mesmo tempo
+  → Uma fica visível e a outra fica com "hidden" (escondida)
+  → A função mostrarAba() em auth.js faz essa troca
+
+  Os dados são salvos no localStorage do navegador (sem servidor).
+  Após o login, o usuário é redirecionado para onde estava tentando ir
+  (ou para a página inicial, se veio direto).
+-->
+
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login — Tech Cursos</title>
+
+  <!-- Estilos: carregados nesta ordem específica para que as regras mais
+       específicas (cadastronavs.css) sobreponham as mais gerais (rodape.css) -->
+  <link rel="stylesheet" href="css/rodape.css" />
+  <link rel="stylesheet" href="../css/footer.css" />
+  <link rel="stylesheet" href="css/cabecalho.css" />
+  <link rel="stylesheet" href="css/fundo.css" />
+  <link rel="stylesheet" href="css/cadastronavs.css" />
+
+  <!-- Fontes do Google -->
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+</head>
+
+<body>
+
+  <!-- ==================== CABEÇALHO ==================== -->
+  <header class="cabecalho">
+    <div class="container-header">
+
+      <img src="../img/LOGOO.png" alt="logo da marca" class="logo" />
+
+      <nav class="nav">
+        <!-- Link para voltar à página principal -->
+        <a href="../index.html">Início</a>
+      </nav>
+
+      <!-- Botão hambúrguer: aparece somente no celular (ver cabecalho.css) -->
+      <!-- O onclick chama toggleMenu() definido em cabecalho.js -->
+      <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Abrir menu">
+        &#9776;
+      </button>
+
+    </div>
+
+    <!-- Menu que abre ao clicar no hambúrguer (só no celular) -->
+    <div class="mobile-menu" id="mobile-menu">
+      <a href="../index.html">Início</a>
+    </div>
+  </header>
+  <!-- ==================== FIM DO CABEÇALHO ==================== -->
+
+
+  <!-- ==================== CONTEÚDO PRINCIPAL ==================== -->
+  <!-- A classe "conteudo-login" centraliza o formulário na tela (ver fundo.css) -->
+  <main class="conteudo-login">
+    <div class="boxform">
+
+      <!-- ==================== ABA: LOGIN ==================== -->
+      <!-- Visível por padrão. O "hidden" é removido/adicionado pelo JS -->
+      <div id="aba-login">
+        <div class="Formulario">
+
+          <div class="logintxt"><h1>Login</h1></div>
+          <br><br>
+
+          <!-- Campo: nome de usuário -->
+          <label for="usuario">Nome de Usuário</label>
+          <br><br>
+          <input type="text" id="usuario" placeholder="Digite seu nome de usuário" autocomplete="username" />
+          <br><br>
+
+          <!-- Campo: senha -->
+          <label for="senha">Senha</label>
+          <br><br>
+          <input type="password" id="senha" placeholder="Digite sua senha" autocomplete="current-password" />
+          <br><br>
+
+          <!-- Mensagem de erro: começa invisível, auth.js mostra quando necessário -->
+          <p id="erro-msg" class="msg-erro" hidden></p>
+
+        </div>
+
+        <!-- Botão que chama fazerLogin() definida em auth.js -->
+        <button type="button" id="btn-login" onclick="fazerLogin()">Entrar</button>
+
+        <!-- Link para trocar para a aba de cadastro -->
+        <p class="trocar-aba">
+          Não tem conta?
+          <a href="#" onclick="mostrarAba('registro'); return false;">Criar conta</a>
+        </p>
+      </div>
+      <!-- ==================== FIM DA ABA LOGIN ==================== -->
+
+
+      <!-- ==================== ABA: CADASTRO ==================== -->
+      <!-- "hidden" deixa esta aba invisível até o usuário clicar em "Criar conta" -->
+      <div id="aba-registro" hidden>
+        <div class="Formulario">
+
+          <div class="logintxt"><h1>Criar conta</h1></div>
+          <br><br>
+
+          <!-- Campo: nome de usuário desejado -->
+          <label for="novo-usuario">Nome de Usuário</label>
+          <br><br>
+          <input type="text" id="novo-usuario" placeholder="Escolha um nome de usuário" autocomplete="username" />
+          <br><br>
+
+          <!-- Campo: senha -->
+          <label for="nova-senha">Senha</label>
+          <br><br>
+          <input type="password" id="nova-senha" placeholder="Crie uma senha" autocomplete="new-password" />
+          <br><br>
+
+          <!-- Campo: confirmação de senha (deve ser igual ao campo anterior) -->
+          <label for="confirmar-senha">Confirmar Senha</label>
+          <br><br>
+          <input type="password" id="confirmar-senha" placeholder="Repita a senha" autocomplete="new-password" />
+          <br><br>
+
+          <!-- Mensagem de erro de cadastro -->
+          <p id="erro-registro" class="msg-erro" hidden></p>
+
+          <!-- Mensagem de sucesso: aparece quando a conta é criada com sucesso -->
+          <p id="sucesso-registro" class="msg-sucesso" hidden></p>
+
+        </div>
+
+        <!-- Botão que chama registrarUsuario() definida em auth.js -->
+        <button type="button" id="btn-registro" onclick="registrarUsuario()">Cadastrar</button>
+
+        <!-- Link para voltar para a aba de login -->
+        <p class="trocar-aba">
+          Já tem conta?
+          <a href="#" onclick="mostrarAba('login'); return false;">Entrar</a>
+        </p>
+      </div>
+      <!-- ==================== FIM DA ABA CADASTRO ==================== -->
+
+    </div>
+  </main>
+  <!-- ==================== FIM DO CONTEÚDO ==================== -->
+
+
+  <!-- ==================== RODAPÉ ==================== -->
+  <footer>
+    <div class="rodTopo">
+      <div class="rod-logo">
+        <h3 class="rod-nome">Tech <strong>Cursos</strong></h3>
+        <p>Todo tipo de linguagem na palma da sua mão!</p>
+      </div>
+      <div class="rod1">
+        <h3>Soluções</h3>
+        <ul>
+          <li><a href="#">Trilhas de Aprendizado</a></li>
+          <li><a href="#">Projetos Práticos</a></li>
+          <li><a href="#">Certificados</a></li>
+        </ul>
+      </div>
+      <div class="rod2">
+        <h3>Legal</h3>
+        <ul>
+          <li><a href="#">Termos de Uso</a></li>
+          <li><a href="#">Política de Privacidade</a></li>
+        </ul>
+      </div>
+      <div class="rodDados">
+        <h3>Empresa</h3>
+        <p><strong>CNPJ:</strong> 00.000.000/0000-00</p>
+        <p>Rio de Janeiro, RJ — Brasil</p>
+        <p>suporte <a href="#">@TechCursos.com</a></p>
+      </div>
+    </div>
+    <div class="rodFinal">
+      <p>© Tech Cursos — Devs: Herbert, João, Giovanni, Matheus e Caique.</p>
+    </div>
+  </footer>
+  <!-- ==================== FIM DO RODAPÉ ==================== -->
+
+
+  <!-- ==================== SCRIPTS ==================== -->
+  <!-- cabecalho.js: controla o menu hambúrguer no celular -->
+  <script src="cabecalho.js"></script>
+
+  <!-- auth.js: sistema de login, cadastro, logout e proteção de páginas -->
+  <script src="auth.js"></script>
+
+</body>
+</html>

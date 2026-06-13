@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<!--
+  =============================================
+  cursos.html — Página de Cursos
+  =============================================
+  Esta página só pode ser acessada por usuários LOGADOS.
+  Se o usuário não estiver logado, ele é redirecionado
+  automaticamente para a página de login.
+
+  O controle de acesso é feito pelo auth.js no final desta página.
+-->
+
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cursos — Tech Cursos</title>
+
+  <!-- Estilos desta página -->
+  <link rel="stylesheet" href="css/cursos.css" />
+  <link rel="stylesheet" href="../css/footer.css" />
+
+  <!-- Fontes do Google -->
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+</head>
+
+<body>
+
+  <!-- ==================== CABEÇALHO ==================== -->
+  <header class="cabecalho">
+    <div class="container-header">
+
+      <!-- Logo -->
+      <img src="../img/LOGOO.png" alt="logo da marca" class="logo" />
+
+      <!-- Menu: mostra o nome do usuário e o botão de voltar -->
+      <nav class="nav">
+        <!-- O nome do usuário é preenchido pelo JavaScript abaixo -->
+        <span class="saudacao" id="saudacao"></span>
+        <a href="../index.html">Início</a>
+      </nav>
+
+    </div>
+  </header>
+  <!-- ==================== FIM DO CABEÇALHO ==================== -->
+
+
+  <!-- ==================== CONTEÚDO PRINCIPAL ==================== -->
+  <main class="conteudo-cursos">
+
+    <!-- Título da página -->
+    <div class="cursos-hero">
+      <h1 class="titulo-cursos">TRILHA DE <span class="destaque">CURSOS</span></h1>
+      <p class="subtitulo-cursos">Escolha seu caminho e comece a aprender agora</p>
+    </div>
+
+    <!-- Grade com os 4 cards de curso -->
+    <div class="grade-cursos">
+
+      <!-- ===== CARD: HTML ===== -->
+      <div class="card-curso">
+
+        <!-- Topo colorido do card com ícone e nome -->
+        <div class="card-topo card-html">
+          <img src="../img/apoio/licon1.svg" alt="HTML" class="card-icone" />
+          <h2>HTML</h2>
+        </div>
+
+        <!-- Corpo do card com descrição e módulos -->
+        <div class="card-corpo">
+          <p>Aprenda a estruturar páginas web do zero com semântica e boas práticas.</p>
+
+          <!-- Lista dos módulos do curso -->
+          <ul class="lista-modulos">
+            <li>Módulo 1 — Estrutura básica</li>
+            <li>Módulo 2 — Tags semânticas</li>
+            <li>Módulo 3 — Formulários</li>
+            <li>Módulo 4 — Acessibilidade</li>
+          </ul>
+
+          <!-- Rodapé do card: badges e botão -->
+          <div class="card-rodape">
+            <div class="card-badges">
+              <span class="badge">4 módulos</span>
+              <span class="badge badge-gratis">Gratuito</span>
+            </div>
+            <!-- Leva para a página de aulas de HTML -->
+            <a href="aulas/html.html" class="btn-acessar">Acessar</a>
+          </div>
+        </div>
+
+      </div>
+      <!-- ===== FIM CARD HTML ===== -->
+
+
+      <!-- ===== CARD: CSS ===== -->
+      <div class="card-curso">
+
+        <div class="card-topo card-css">
+          <img src="../img/apoio/licon2.svg" alt="CSS" class="card-icone" />
+          <h2>CSS</h2>
+        </div>
+
+        <div class="card-corpo">
+          <p>Crie layouts modernos, responsivos e animações profissionais.</p>
+
+          <ul class="lista-modulos">
+            <li>Módulo 1 — Seletores e propriedades</li>
+            <li>Módulo 2 — Flexbox e Grid</li>
+            <li>Módulo 3 — Responsividade</li>
+            <li>Módulo 4 — Animações e transições</li>
+          </ul>
+
+          <div class="card-rodape">
+            <div class="card-badges">
+              <span class="badge">4 módulos</span>
+              <span class="badge badge-gratis">Gratuito</span>
+            </div>
+            <a href="aulas/css.html" class="btn-acessar">Acessar</a>
+          </div>
+        </div>
+
+      </div>
+      <!-- ===== FIM CARD CSS ===== -->
+
+
+      <!-- ===== CARD: JAVASCRIPT ===== -->
+      <div class="card-curso">
+
+        <div class="card-topo card-js">
+          <img src="../img/apoio/licon3.svg" alt="JavaScript" class="card-icone" />
+          <h2>JavaScript</h2>
+        </div>
+
+        <div class="card-corpo">
+          <p>Dê vida às suas páginas com interatividade, lógica e dinamismo.</p>
+
+          <ul class="lista-modulos">
+            <li>Módulo 1 — Fundamentos</li>
+            <li>Módulo 2 — DOM e eventos</li>
+            <li>Módulo 3 — Funções e arrays</li>
+            <li>Módulo 4 — Fetch e APIs</li>
+          </ul>
+
+          <div class="card-rodape">
+            <div class="card-badges">
+              <span class="badge">4 módulos</span>
+              <span class="badge badge-gratis">Gratuito</span>
+            </div>
+            <a href="aulas/javascript.html" class="btn-acessar">Acessar</a>
+          </div>
+        </div>
+
+      </div>
+      <!-- ===== FIM CARD JAVASCRIPT ===== -->
+
+
+      <!-- ===== CARD: PYTHON ===== -->
+      <div class="card-curso">
+
+        <div class="card-topo card-py">
+          <img src="../img/apoio/licon4.svg" alt="Python" class="card-icone" />
+          <h2>Python</h2>
+        </div>
+
+        <div class="card-corpo">
+          <p>Domine uma das linguagens mais requisitadas do mercado tech.</p>
+
+          <ul class="lista-modulos">
+            <li>Módulo 1 — Introdução ao Python</li>
+            <li>Módulo 2 — Estruturas de dados</li>
+            <li>Módulo 3 — Funções e OOP</li>
+            <li>Módulo 4 — Projetos práticos</li>
+          </ul>
+
+          <div class="card-rodape">
+            <div class="card-badges">
+              <span class="badge">4 módulos</span>
+              <span class="badge badge-gratis">Gratuito</span>
+            </div>
+            <a href="aulas/python.html" class="btn-acessar">Acessar</a>
+          </div>
+        </div>
+
+      </div>
+      <!-- ===== FIM CARD PYTHON ===== -->
+
+    </div>
+    <!-- fim da grade de cursos -->
+
+  </main>
+  <!-- ==================== FIM DO CONTEÚDO ==================== -->
+
+
+  <!-- ==================== RODAPÉ ==================== -->
+  <footer>
+    <div class="rodTopo">
+      <div class="rod-logo">
+        <h3 class="rod-nome">Tech <strong>Cursos</strong></h3>
+        <p>Todo tipo de linguagem na palma da sua mão!</p>
+      </div>
+      <div class="rod1">
+        <h3>Soluções</h3>
+        <ul>
+          <li><a href="#">Trilhas de Aprendizado</a></li>
+          <li><a href="#">Projetos Práticos</a></li>
+          <li><a href="#">Certificados</a></li>
+        </ul>
+      </div>
+      <div class="rod2">
+        <h3>Legal</h3>
+        <ul>
+          <li><a href="#">Termos de Uso</a></li>
+          <li><a href="#">Política de Privacidade</a></li>
+        </ul>
+      </div>
+      <div class="rodDados">
+        <h3>Empresa</h3>
+        <p><strong>CNPJ:</strong> 00.000.000/0000-00</p>
+        <p>Rio de Janeiro, RJ — Brasil</p>
+        <p>suporte <a href="#">@TechCursos.com</a></p>
+      </div>
+    </div>
+    <div class="rodFinal">
+      <p>© Tech Cursos — Devs: Herbert, João, Giovanni, Matheus e Caique.</p>
+    </div>
+  </footer>
+  <!-- ==================== FIM DO RODAPÉ ==================== -->
+
+
+  <!-- ==================== SCRIPTS ==================== -->
+  <!-- Sistema de login (deve vir antes do script abaixo) -->
+  <script src="../inscricao/auth.js"></script>
+
+  <script>
+    // PROTEÇÃO DA PÁGINA:
+    // Se o usuário não estiver logado, salva esta URL e manda para o login
+    if (!isLoggedIn()) {
+      sessionStorage.setItem('redirectAfterLogin', window.location.href);
+      window.location.href = '../inscricao/inscricao.html';
+    }
+
+    // Mostra "Olá, [nome do usuário]" no cabeçalho
+    document.getElementById('saudacao').textContent = 'Olá, ' + getUsuarioLogado();
+  </script>
+
+</body>
+</html>

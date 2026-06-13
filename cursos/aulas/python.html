@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<!--
+  =============================================
+  python.html — Página de Aulas: Curso de Python
+  =============================================
+  Página protegida por login.
+  Estrutura igual para todos os cursos — só muda:
+  - O título
+  - A cor do hero (aula-html / aula-css / aula-js / aula-py)
+  - Os nomes dos módulos
+-->
+
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Curso de Python — Tech Cursos</title>
+
+  <!-- Estilos desta página -->
+  <link rel="stylesheet" href="aulas.css" />
+  <link rel="stylesheet" href="../../css/footer.css" />
+
+  <!-- Fontes do Google -->
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+</head>
+
+<body>
+
+  <!-- ==================== CABEÇALHO ==================== -->
+  <header class="cabecalho">
+    <div class="container-header">
+
+      <img src="../../img/LOGOO.png" alt="logo" class="logo" />
+
+      <nav class="nav">
+        <!-- Nome do usuário (preenchido pelo JS abaixo) -->
+        <span class="saudacao" id="saudacao"></span>
+        <!-- Botão para voltar para a lista de cursos -->
+        <a href="../cursos.html">← Voltar aos Cursos</a>
+      </nav>
+
+    </div>
+  </header>
+  <!-- ==================== FIM DO CABEÇALHO ==================== -->
+
+
+  <!-- ==================== CONTEÚDO PRINCIPAL ==================== -->
+  <main class="conteudo-aulas">
+
+    <!-- Banner do curso com ícone e título -->
+    <!-- A classe "aula-py" define a cor do banner (ver aulas.css) -->
+    <div class="aula-hero aula-py">
+      <img src="../../img/apoio/licon4.svg" alt="Python" class="aula-icone" />
+      <div>
+        <h1 class="aula-titulo">Curso de <span class="destaque">Python</span></h1>
+        <p class="aula-subtitulo">Domine uma das linguagens mais requisitadas do mercado tech.</p>
+      </div>
+    </div>
+
+    <!-- Lista de módulos do curso -->
+    <div class="modulos-lista">
+
+      <!-- ===== MÓDULO 1 ===== -->
+      <div class="modulo-card">
+
+        <!-- Cabeçalho do módulo: número e título -->
+        <div class="modulo-header">
+          <span class="modulo-num">01</span>
+          <h2>Introdução ao Python</h2>
+        </div>
+
+        <!-- Grade de vídeos do módulo -->
+        <!-- Cada "video-placeholder" será substituído por um <iframe> do YouTube -->
+        <div class="videos-grid">
+
+          <div class="video-placeholder">
+            <div class="video-thumb">
+              <span class="play-icon">▶</span>
+            </div>
+            <p>Aula em breve</p>
+          </div>
+
+          <div class="video-placeholder">
+            <div class="video-thumb">
+              <span class="play-icon">▶</span>
+            </div>
+            <p>Aula em breve</p>
+          </div>
+
+        </div>
+      </div>
+      <!-- ===== FIM MÓDULO 1 ===== -->
+
+
+      <!-- ===== MÓDULO 2 ===== -->
+      <div class="modulo-card">
+        <div class="modulo-header">
+          <span class="modulo-num">02</span>
+          <h2>Estruturas de dados</h2>
+        </div>
+        <div class="videos-grid">
+          <div class="video-placeholder">
+            <div class="video-thumb"><span class="play-icon">▶</span></div>
+            <p>Aula em breve</p>
+          </div>
+          <div class="video-placeholder">
+            <div class="video-thumb"><span class="play-icon">▶</span></div>
+            <p>Aula em breve</p>
+          </div>
+        </div>
+      </div>
+      <!-- ===== FIM MÓDULO 2 ===== -->
+
+
+      <!-- ===== MÓDULO 3 ===== -->
+      <div class="modulo-card">
+        <div class="modulo-header">
+          <span class="modulo-num">03</span>
+          <h2>Funções e OOP</h2>
+        </div>
+        <div class="videos-grid">
+          <div class="video-placeholder">
+            <div class="video-thumb"><span class="play-icon">▶</span></div>
+            <p>Aula em breve</p>
+          </div>
+          <div class="video-placeholder">
+            <div class="video-thumb"><span class="play-icon">▶</span></div>
+            <p>Aula em breve</p>
+          </div>
+        </div>
+      </div>
+      <!-- ===== FIM MÓDULO 3 ===== -->
+
+
+      <!-- ===== MÓDULO 4 ===== -->
+      <div class="modulo-card">
+        <div class="modulo-header">
+          <span class="modulo-num">04</span>
+          <h2>Projetos práticos</h2>
+        </div>
+        <div class="videos-grid">
+          <div class="video-placeholder">
+            <div class="video-thumb"><span class="play-icon">▶</span></div>
+            <p>Aula em breve</p>
+          </div>
+          <div class="video-placeholder">
+            <div class="video-thumb"><span class="play-icon">▶</span></div>
+            <p>Aula em breve</p>
+          </div>
+        </div>
+      </div>
+      <!-- ===== FIM MÓDULO 4 ===== -->
+
+    </div>
+    <!-- fim da lista de módulos -->
+
+  </main>
+  <!-- ==================== FIM DO CONTEÚDO ==================== -->
+
+
+  <!-- ==================== RODAPÉ ==================== -->
+  <footer>
+    <div class="rodTopo">
+      <div class="rod-logo">
+        <h3 class="rod-nome">Tech <strong>Cursos</strong></h3>
+        <p>Todo tipo de linguagem na palma da sua mão!</p>
+      </div>
+      <div class="rod1">
+        <h3>Soluções</h3>
+        <ul>
+          <li><a href="#">Trilhas de Aprendizado</a></li>
+          <li><a href="#">Projetos Práticos</a></li>
+          <li><a href="#">Certificados</a></li>
+        </ul>
+      </div>
+      <div class="rod2">
+        <h3>Legal</h3>
+        <ul>
+          <li><a href="#">Termos de Uso</a></li>
+          <li><a href="#">Política de Privacidade</a></li>
+        </ul>
+      </div>
+      <div class="rodDados">
+        <h3>Empresa</h3>
+        <p><strong>CNPJ:</strong> 00.000.000/0000-00</p>
+        <p>Rio de Janeiro, RJ — Brasil</p>
+        <p>suporte <a href="#">@TechCursos.com</a></p>
+      </div>
+    </div>
+    <div class="rodFinal">
+      <p>© Tech Cursos — Devs: Herbert, João, Giovanni, Matheus e Caique.</p>
+    </div>
+  </footer>
+  <!-- ==================== FIM DO RODAPÉ ==================== -->
+
+
+  <!-- ==================== SCRIPTS ==================== -->
+  <script src="../../inscricao/auth.js"></script>
+
+  <script>
+    // PROTEÇÃO DA PÁGINA: redireciona para o login se não estiver logado
+    if (!isLoggedIn()) {
+      sessionStorage.setItem('redirectAfterLogin', window.location.href);
+      window.location.href = '../../inscricao/inscricao.html';
+    }
+
+    // Mostra "Olá, [nome]" no cabeçalho
+    document.getElementById('saudacao').textContent = 'Olá, ' + getUsuarioLogado();
+  </script>
+
+</body>
+</html>

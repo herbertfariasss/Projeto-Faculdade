@@ -1,0 +1,157 @@
+/**
+ * fundo.css — Fundo e formulário da página de login (inscricao.html)
+ *
+ * Estrutura HTML ligada:
+ *   body → flex column, min-height 100vh
+ *   header.cabecalho (cabecalho.css)
+ *   main.conteudo-login → centraliza o card
+ *   .boxform → card roxo do formulário
+ *   footer (rodape.css) → margin-top: auto gruda no fim
+ */
+
+/* ========== FUNDO DECORATIVO (igual conceito do index — styles.css) ========== */
+body::before,
+body::after {
+  content: "";
+  position: fixed;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+body::before {
+  top: -20%;
+  left: -10%;
+  width: 65vw;
+  height: 65vw;
+  background: radial-gradient(ellipse, rgba(91, 33, 244, 0.28) 0%, transparent 65%);
+  animation: flutua1 14s ease-in-out infinite alternate;
+}
+
+body::after {
+  bottom: -10%;
+  right: -10%;
+  width: 55vw;
+  height: 55vw;
+  background: radial-gradient(ellipse, rgba(26, 108, 246, 0.22) 0%, transparent 65%);
+  animation: flutua2 18s ease-in-out infinite alternate;
+}
+
+/* Coluna flex: cabeçalho + conteúdo que cresce + rodapé embaixo */
+body {
+  min-height: 100vh;
+  color: #ffffff;
+  font-family: "Segoe UI", system-ui, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  padding: 0;
+  margin: 0;
+  overflow-x: hidden;
+  background: #080810;
+  background-image:
+    radial-gradient(circle at 20% 30%, rgba(91, 33, 244, 0.15) 0%, transparent 50%),
+    radial-gradient(circle at 80% 70%, rgba(26, 108, 246, 0.15) 0%, transparent 50%);
+}
+
+/* Ocupa espaço entre header e footer; centraliza .boxform no meio da tela */
+.conteudo-login {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 24px 20px;
+  box-sizing: border-box;
+}
+
+/* Título "Login" / "Criar conta" com borda arredondada */
+.logintxt {
+  background: transparent;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 15px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+  padding: 6px 0;
+  text-align: center;
+  width: 100%;
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
+/* Card principal — contém #aba-login e #aba-registro */
+.boxform {
+  font-family: 'Syne';
+  color: #ffffff;
+  background: rgb(22, 2, 78);
+  border-radius: 50px;
+  box-shadow: 0 8px 32px rgba(22, 0, 56, 0.6);
+  padding: 48px 52px;
+  width: 90%;
+  max-width: 420px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin: 0 auto;
+  flex-shrink: 0;
+}
+
+/* Campos de entrada — ids usados pelo auth.js */
+input {
+  width: 100%;
+  padding: 12px 16px;
+  border: none;
+  border-radius: 10px;
+  background-color: rgb(95, 95, 95);
+  color: #ffffff;
+  font-family: 'Syne';
+  font-size: 0.95rem;
+  outline: none;
+  box-sizing: border-box;
+}
+
+input::placeholder {
+  color: #cccccc;
+  font-family: 'Syne';
+}
+
+html {
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
+/* Botões Entrar e Cadastrar — onclick no HTML chama auth.js */
+#btn-login,
+#btn-registro {
+  width: 100%;
+  height: 48px;
+  margin-top: 8px;
+  color: aliceblue;
+  border: 0;
+  border-radius: 15px;
+  font-family: 'Syne';
+  font-size: 1rem;
+  font-weight: 600;
+  background-color: #301472;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+}
+
+#btn-login:hover,
+#btn-registro:hover {
+  background-color: #442196;
+  transform: scale(1.02);
+}
+
+/* Celular: card um pouco mais estreito */
+@media (max-width: 480px) {
+  .conteudo-login {
+    padding: 16px 12px;
+  }
+
+  .boxform {
+    padding: 32px 20px;
+    border-radius: 30px;
+    width: 92%;
+    max-width: 360px;
+  }
+}

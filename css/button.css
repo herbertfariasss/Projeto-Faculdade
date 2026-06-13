@@ -103,8 +103,7 @@ body {
 }
 
 header,
-.cabecalho,
-footer {
+.cabecalho {
   background: var(--header-bg);
   color: var(--text-color);
   transition: all 0.4s ease;
