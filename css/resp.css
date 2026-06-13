@@ -40,12 +40,12 @@
 }
  
 
- 
+/* Evita rolagem horizontal */
 html {
   overflow-x: hidden !important;
   max-width: 100% !important;
 }
- 
+/* Empilha header, hero, cursos, sobre e footer na ordem do order */
 body {
   display: flex !important;
   flex-direction: column !important;
@@ -53,7 +53,7 @@ body {
   overflow-x: hidden !important;
   width: 100% !important;
 }
- 
+/* padding/border incluídos na largura */
 * {
   box-sizing: border-box !important;
 }
@@ -108,7 +108,7 @@ footer        { order: 8 !important; }
 }
  
 
- 
+/* Tamanhos dos títulos do hero */
 .textoIntro {
   font-size: clamp(1.8rem, 5vw, 2.5rem) !important;
   margin: 0 !important;
@@ -126,10 +126,7 @@ footer        { order: 8 !important; }
   margin: 0 !important;
 }
  
-/* ──────────────────────────────────────────
-   5. VÍDEO — responsivo
-   ────────────────────────────────────────── */
- 
+/* Vídeo responsivo dentro do hero */
 .hero .vid {
   width: 100% !important;
   max-width: 100% !important;
@@ -152,10 +149,7 @@ footer        { order: 8 !important; }
   width: 100% !important;
 }
  
-/* ──────────────────────────────────────────
-   7. SEÇÃO DE CURSOS — títulos e grid
-   ────────────────────────────────────────── */
- 
+/* Títulos "O CURSO" e "O que você irá aprender?" */
 .O_Curso {
   margin: 40px 0 4px !important;
   text-align: center !important;
@@ -178,6 +172,7 @@ footer        { order: 8 !important; }
   display: block !important;
 }
  
+/* Container dos 4 cards na index */
 .cursos-cards {
   display: flex !important;
   flex-direction: column !important;
@@ -212,10 +207,7 @@ footer        { order: 8 !important; }
 .cursos-cards .py-box,
 .py-box   { transform: translateX( 80px) !important; }
  
-/* ──────────────────────────────────────────
-   8. SOBRE e CONTATO
-   ────────────────────────────────────────── */
- 
+/* Seção Sobre Nós — margem abaixo dos cards */
 .secao-sobre {
   width: 100% !important;
   max-width: 900px !important;
@@ -241,10 +233,7 @@ footer        { order: 8 !important; }
   padding: 0 16px !important;
 }
  
-/* ──────────────────────────────────────────
-   9. FOOTER
-   ────────────────────────────────────────── */
- 
+/* Rodapé — remove margin-top antigo */
 footer {
   margin-top: 0 !important;
   width: 100% !important;

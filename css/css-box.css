@@ -1,9 +1,9 @@
 /**
- * css-box.css — Card da linguagem CSS (index.html)
- * Mesma estrutura que html-box.css — troque as classes para .css-box, .cabecalho-css, .textoCSS
- * Ícone: img/apoio/licon2.svg
+ * css-box.css — Card CSS na index.html
+ * HTML: .css-box | Ícone: img/apoio/licon2.svg
  */
 
+/* Card glassmorphism */
 .css-box {
   margin-top: 5%;
   flex-direction: column;
@@ -25,11 +25,13 @@
     inset 0 1px 0 rgba(255, 255, 255, 0.1);
 }
 
+/* Zoom ao passar o mouse */
 .css-box:hover {
   transform: scale(1.05);
   filter: brightness(1.1);
 }
 
+/* Ícone + título "CSS" com gradiente */
 .cabecalho-css {
   display: flex;
   align-items: center;
@@ -41,6 +43,7 @@
   font-weight: bold;
 }
 
+/* Texto descritivo abaixo do título */
 .textoCSS {
   display: flex;
   align-items: center;

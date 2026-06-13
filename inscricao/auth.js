@@ -22,13 +22,46 @@
 // CONFIGURAÇÕES INICIAIS
 // ============================================================
 
-// Endereço da página de login (caminho absoluto funciona em qualquer pasta)
-var PAGINA_LOGIN = '/inscricao/inscricao.html';
-
 // Usuário padrão criado automaticamente na primeira vez que o site abre
 var USUARIOS_PADRAO = [
   { usuario: 'admin', senha: 'admin' }
 ];
+
+// Descobre a URL do auth.js (funciona localmente e no GitHub Pages /Projeto-Faculdade/)
+function getAuthScriptUrl() {
+  var scripts = document.querySelectorAll('script[src*="auth.js"]');
+  if (scripts.length) {
+    return scripts[scripts.length - 1].src;
+  }
+  return null;
+}
+
+function getInscricaoBaseUrl() {
+  var scriptUrl = getAuthScriptUrl();
+  if (scriptUrl) {
+    return scriptUrl.replace(/auth\.js(\?.*)?$/, '');
+  }
+  return new URL('inscricao/', window.location.href).href;
+}
+
+function getSiteRootUrl() {
+  return getInscricaoBaseUrl().replace(/inscricao\/$/, '');
+}
+
+function getPaginaLogin() {
+  return getInscricaoBaseUrl() + 'inscricao.html';
+}
+
+function getIndexUrl() {
+  return new URL('index.html', getSiteRootUrl()).href;
+}
+
+// Converte caminhos relativos (ex.: cursos/cursos.html) em URL completa
+function resolverUrl(destino) {
+  if (!destino) return getIndexUrl();
+  if (/^https?:\/\//i.test(destino)) return destino;
+  return new URL(destino, getSiteRootUrl()).href;
+}
 
 
 // ============================================================
@@ -82,12 +115,11 @@ function getUsuarioLogado() {
 // Depois do login, o sistema redireciona de volta para onde o usuário queria ir
 function acessarConteudo(urlDestino) {
   if (isLoggedIn()) {
-    // Usuário logado: vai direto para a página
-    window.location.href = urlDestino;
+    window.location.href = resolverUrl(urlDestino);
   } else {
     // Usuário não logado: guarda o destino e vai para o login
-    sessionStorage.setItem('redirectAfterLogin', urlDestino);
-    window.location.href = PAGINA_LOGIN;
+    sessionStorage.setItem('redirectAfterLogin', resolverUrl(urlDestino));
+    window.location.href = getPaginaLogin();
   }
 }
 
@@ -97,14 +129,14 @@ function acessarConteudo(urlDestino) {
 function exigirLogin() {
   if (!isLoggedIn()) {
     sessionStorage.setItem('redirectAfterLogin', window.location.href);
-    window.location.href = PAGINA_LOGIN;
+    window.location.href = getPaginaLogin();
   }
 }
 
 // Faz o logout: remove o token de sessão e volta para o login
 function fazerLogout() {
   localStorage.removeItem('authToken'); // apaga a sessão
-  window.location.href = PAGINA_LOGIN; // redireciona para o login
+  window.location.href = getPaginaLogin(); // redireciona para o login
 }
 
 
@@ -161,7 +193,7 @@ function fazerLogin() {
     localStorage.setItem('authToken', usuario);
 
     // Verifica se tem uma página para redirecionar após o login
-    var destino = sessionStorage.getItem('redirectAfterLogin') || '../index.html';
+    var destino = resolverUrl(sessionStorage.getItem('redirectAfterLogin'));
     sessionStorage.removeItem('redirectAfterLogin'); // limpa o destino salvo
     window.location.href = destino; // redireciona
 
@@ -225,7 +257,7 @@ function registrarUsuario() {
 
   setTimeout(function() {
     localStorage.setItem('authToken', usuario); // loga automaticamente
-    var destino = sessionStorage.getItem('redirectAfterLogin') || '../index.html';
+    var destino = resolverUrl(sessionStorage.getItem('redirectAfterLogin'));
     sessionStorage.removeItem('redirectAfterLogin');
     window.location.href = destino;
   }, 1500);

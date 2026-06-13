@@ -1,9 +1,9 @@
 /**
- * js-box.css — Card da linguagem JavaScript (index.html)
- * Mesma estrutura que html-box.css — classes: .js-box, .cabecalho-js, .textoJS
- * Ícone: img/apoio/licon3.svg
+ * js-box.css — Card JavaScript na index.html
+ * HTML: .js-box | Ícone: img/apoio/licon3.svg
  */
 
+/* Card glassmorphism */
 .js-box {
   margin-top: 5%;
   flex-direction: column;
@@ -25,11 +25,13 @@
     inset 0 1px 0 rgba(255, 255, 255, 0.1);
 }
 
+/* Zoom ao passar o mouse */
 .js-box:hover {
   transform: scale(1.05);
   filter: brightness(1.1);
 }
 
+/* Ícone + título "JavaScript" */
 .cabecalho-js {
   display: flex;
   align-items: center;
@@ -41,6 +43,7 @@
   font-weight: bold;
 }
 
+/* Texto descritivo */
 .textoJS {
   display: flex;
   align-items: center;

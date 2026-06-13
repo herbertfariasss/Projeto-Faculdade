@@ -38,6 +38,7 @@
   position: relative;
 }
 
+/* Título "SOBRE NÓS" */
 .sobre {
   font-family: 'Syne';
   position: relative;
@@ -61,7 +62,7 @@
   margin: 48px 0 24px;
 }
 
-/* ========== DROPDOWN DO USUÁRIO NO HEADER ========== */
+/* Menu dropdown do usuário logado (index.html) */
 .user-dropdown {
   position: relative;
 }

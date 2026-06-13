@@ -1,5 +1,6 @@
-/* ========== RODAPÉ GLOBAL ========== */
+/* footer.css — rodapé grande do index.html (seção Contato + colunas) */
 
+/* Título "CONTATO" acima do rodapé */
 .rod-contato-titulo {
   text-align: center;
   padding: 64px 60px 48px;
@@ -13,6 +14,8 @@
   letter-spacing: 0.08em;
   margin: 0;
 }
+
+/* Faixa escura do rodapé */
 footer {
   background-color: #0d1b2a;
   color: #c8d6e5;
@@ -22,6 +25,7 @@ footer {
   box-sizing: border-box;
 }
 
+/* Grid com 4 colunas: logo, Soluções, Legal, Empresa */
 .rodTopo {
   display: grid;
   grid-template-columns: 1.5fr 1fr 1fr 1.2fr;
@@ -32,6 +36,7 @@ footer {
   box-sizing: border-box;
 }
 
+/* Coluna da esquerda — nome Tech Cursos */
 .rod-logo {
   display: flex;
   flex-direction: column;
@@ -44,10 +49,12 @@ footer {
   margin: 0;
 }
 
+/* Destaque roxo em labels (ex.: CNPJ) */
 footer strong {
   color: rgb(82, 64, 163);
 }
 
+/* Textos secundários cinza */
 .rod-logo p,
 .rodDados p {
   font-size: 13px;
@@ -56,12 +63,14 @@ footer strong {
   margin: 0;
 }
 
+/* Títulos das colunas Soluções / Legal / Empresa */
 .rod1 h3, .rod2 h3, .rodDados h3 {
   color: #c8d6e5;
   margin: 0 0 14px 0;
   font-size: 1rem;
 }
 
+/* Listas de links das colunas */
 .rod1 ul, .rod2 ul {
   list-style: none;
   padding: 0;
@@ -82,12 +91,14 @@ footer strong {
   color: #c8d6e5;
 }
 
+/* E-mail de suporte */
 .rodDados a {
   color: #7c5cfc;
   text-decoration: none;
 }
 .rodDados a:hover { color: #a78bfa; }
 
+/* Linha final © Tech Cursos */
 .rodFinal {
   padding: 20px 60px;
   text-align: center;
@@ -96,6 +107,7 @@ footer strong {
   margin: 0;
 }
 
+/* Tablet — rodapé em 2 colunas */
 @media (max-width: 900px) {
   .rodTopo {
     grid-template-columns: 1fr 1fr;
@@ -104,6 +116,7 @@ footer strong {
   }
 }
 
+/* Celular — rodapé em 1 coluna */
 @media (max-width: 500px) {
   .rodTopo {
     grid-template-columns: 1fr;

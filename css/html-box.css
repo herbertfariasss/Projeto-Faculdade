@@ -9,6 +9,7 @@
  * Layout do grupo: resp.css (.cursos-cards — zig-zag em telas grandes)
  */
 
+/* Card glassmorphism — HTML */
 .html-box {
   margin-top: 5%;
   flex-direction: column;
@@ -33,12 +34,13 @@
     inset 0 1px 0 rgba(255, 255, 255, 0.1);
 }
 
+/* Zoom ao passar o mouse */
 .html-box:hover {
   transform: scale(1.05);
   filter: brightness(1.1);
 }
 
-/* Cabeçalho do card: ícone SVG + texto "HTML" com gradiente */
+/* Ícone + título "HTML" com gradiente */
 .cabecalho-html {
   display: flex;
   align-items: center;
@@ -50,6 +52,7 @@
   font-weight: bold;
 }
 
+/* Texto descritivo abaixo do título */
 .textoHTML {
   display: flex;
   align-items: center;
