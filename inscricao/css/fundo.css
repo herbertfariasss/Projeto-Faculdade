@@ -109,11 +109,6 @@ input {
   box-sizing: border-box;
 }
 
-.cep-wrapper input {
-  width: auto;
-  flex: 1;
-}
-
 input::placeholder {
   color: #cccccc;
   font-family: 'Syne';
@@ -126,8 +121,7 @@ html {
 
 /* Botões Entrar e Cadastrar — onclick no HTML chama auth.js */
 #btn-login,
-#btn-registro,
-#btn-buscar-cep {
+#btn-registro {
   width: 100%;
   height: 48px;
   margin-top: 8px;
@@ -143,8 +137,7 @@ html {
 }
 
 #btn-login:hover,
-#btn-registro:hover,
-#btn-buscar-cep:hover {
+#btn-registro:hover {
   background-color: #442196;
   transform: scale(1.02);
 }
