@@ -1,20 +1,47 @@
 <!DOCTYPE html>
+<!--
+  =============================================
+  TECH CURSOS — Página Principal (index.html)
+  =============================================
+  Projeto: Site de cursos de programação
+  Turma: ADS 1º Período
+  Devs: Herbert, João, Giovanni, Matheus e Caique
+
+  Como esse arquivo funciona:
+  - O HTML define a ESTRUTURA da página (o esqueleto)
+  - Os arquivos CSS definem o VISUAL (cores, tamanhos, posições)
+  - Os arquivos JS definem o COMPORTAMENTO (o que acontece quando o usuário clica)
+
+  Estrutura desta página:
+  1. <head>     → configurações invisíveis (fontes, CSS)
+  2. <header>   → cabeçalho com menu e botão de login
+  3. <section>  → seção hero (título + vídeo)
+  4. <div>      → cards dos cursos
+  5. <section>  → sobre nós
+  6. <footer>   → rodapé com contato e informações
+-->
+
 <html lang="pt-br">
 
 <head>
+  <!-- Define que o site usa letras acentuadas (português) -->
   <meta charset="UTF-8" />
+
+  <!-- Faz o site funcionar bem no celular e tablet -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <link rel="stylesheet" href="css/styles.css" />      
-  <link rel="stylesheet" href="css/button.css" />      
-  <link rel="stylesheet" href="css/html-box.css" />    
-  <link rel="stylesheet" href="css/css-box.css" />     
-  <link rel="stylesheet" href="css/py-box.css" />      
-  <link rel="stylesheet" href="css/js-box.css" />      
-  <link rel="stylesheet" href="css/resp.css" />        
-  <link rel="stylesheet" href="css/menu.css" />        
-  <link rel="stylesheet" href="css/footer.css" />      
+  <!-- Arquivos CSS: cada um cuida de uma parte visual diferente -->
+  <link rel="stylesheet" href="css/styles.css" />      <!-- Estilo geral da página -->
+  <link rel="stylesheet" href="css/button.css" />      <!-- Estilo dos botões -->
+  <link rel="stylesheet" href="css/html-box.css" />    <!-- Card do curso de HTML -->
+  <link rel="stylesheet" href="css/css-box.css" />     <!-- Card do curso de CSS -->
+  <link rel="stylesheet" href="css/py-box.css" />      <!-- Card do curso de Python -->
+  <link rel="stylesheet" href="css/js-box.css" />      <!-- Card do curso de JavaScript -->
+  <link rel="stylesheet" href="css/resp.css" />        <!-- Responsividade (celular/tablet) -->
+  <link rel="stylesheet" href="css/menu.css" />        <!-- Menu e divisores -->
+  <link rel="stylesheet" href="css/footer.css" />      <!-- Rodapé -->
 
+  <!-- Fontes do Google: baixa as letras personalizadas do site -->
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 
@@ -23,16 +50,22 @@
 
 <body>
 
+  <!-- ==================== CABEÇALHO ==================== -->
+  <!-- O <header> fica fixo no topo da tela enquanto o usuário rola a página -->
   <header class="cabecalho">
     <div class="container-header">
 
+      <!-- Logo da empresa -->
       <img src="img/LOGOO.png" alt="logo da marca" class="logo" />
 
+      <!-- Linha vertical decorativa entre o logo e o menu -->
       <hr class="linha-cabecalho" />
 
+      <!-- Menu de navegação: os links "#" levam para seções da mesma página -->
       <nav class="nav">
         <a href="#Home">Video</a>
 
+        <!-- "Cursos" verifica se o usuário está logado antes de ir para a página -->
         <a href="#Cursos" onclick="event.preventDefault(); acessarConteudo('cursos/cursos.html')">Cursos</a>
 
         <a href="#Sobre">Sobre</a>
@@ -64,11 +97,15 @@
 
     </div>
   </header>
+  <!-- ==================== FIM DO CABEÇALHO ==================== -->
 
+
+  <!-- ==================== SEÇÃO HERO (INÍCIO) ==================== -->
+  <!-- id="Home" é o alvo do link "Video" no menu (rolagem suave) -->
   <section class="hero" id="Home">
     <div class="hero-inner">
 
-      
+      <!-- Textos do lado esquerdo -->
       <div class="hero-textos">
         <h1 class="textoIntro">
           TECNOLOGIA PARA <span class="destaque-todos">TODOS</span>
@@ -82,19 +119,19 @@
           e se torne um <span class="Dev"><br />Desenvolvedor!</span>
         </h2>
 
-        
+        <!-- Botões de ação -->
         <div class="botoesinicial">
           <!-- Verifica login antes de ir para a página de cursos -->
           <a href="#" onclick="event.preventDefault(); acessarConteudo('cursos/cursos.html')" class="btn-roxo">
             Cursos Gratuitos
           </a>
-          
+          <!-- Rola a página até a seção de cursos -->
           <a href="#Cursos" class="btn-contorno">Trilha de Cursos</a>
         </div>
       </div>
 
-      
-      
+      <!-- Vídeo do lado direito (embed do YouTube) -->
+      <!-- Atenção: usar /embed/ no link, e NÃO o link normal do YouTube -->
       <div class="vid">
         <iframe
           src="https://www.youtube.com/embed/8mei6uVttho?start=7"
@@ -107,14 +144,16 @@
 
     </div>
   </section>
-  
+  <!-- ==================== FIM DO HERO ==================== -->
 
 
-  
+  <!-- ==================== SEÇÃO DE CURSOS ==================== -->
+  <!-- id="Cursos" é o alvo do link "Cursos" no menu -->
   <hr id="Cursos" class="linha-curso" />
   <h1 class="O_Curso">O CURSO</h1>
   <h2 class="aprender">O que você irá aprender?</h2>
 
+  <!-- Grade com os 4 cards de linguagem -->
   <div class="cursos-cards">
 
     <!-- Card: HTML -->
@@ -166,8 +205,11 @@
     </div>
 
   </div>
+  <!-- ==================== FIM DOS CURSOS ==================== -->
 
 
+  <!-- ==================== SEÇÃO SOBRE NÓS ==================== -->
+  <!-- id="Sobre" é o alvo do link "Sobre" no menu -->
   <section class="secao-sobre">
     <hr id="Sobre" class="linha-sobre" />
     <h1 class="sobre">SOBRE NÓS</h1>
@@ -181,10 +223,14 @@
     </h2>
     <hr class="linha-contato" />
   </section>
- 
+  <!-- ==================== FIM DO SOBRE ==================== -->
 
+
+  <!-- ==================== RODAPÉ ==================== -->
+  <!-- id="Contato" é o alvo do link "Contato" no menu -->
   <footer>
 
+    <!-- Título da seção de contato dentro do rodapé -->
     <div class="rod-contato-titulo" id="Contato">
       <h1 class="contato">CONTATO</h1>
     </div>
@@ -192,11 +238,13 @@
     <!-- Grade com as colunas de informação do rodapé -->
     <div class="rodTopo">
 
+      <!-- Coluna 1: nome e descrição do site -->
       <div class="rod-logo">
         <h3 class="rod-nome">Tech <strong>Cursos</strong></h3>
         <p>Todo tipo de linguagem na palma da sua mão!</p>
       </div>
 
+      <!-- Coluna 2: links de soluções -->
       <div class="rod1">
         <h3>Soluções</h3>
         <ul>
@@ -206,6 +254,7 @@
         </ul>
       </div>
 
+      <!-- Coluna 3: links legais -->
       <div class="rod2">
         <h3>Legal</h3>
         <ul>
@@ -214,6 +263,7 @@
         </ul>
       </div>
 
+      <!-- Coluna 4: dados da empresa -->
       <div class="rodDados">
         <h3>Empresa</h3>
         <p><strong>CNPJ:</strong> 00.000.000/0000-00</p>
@@ -223,11 +273,17 @@
 
     </div>
 
+    <!-- Linha final de copyright -->
     <div class="rodFinal">
       <p>© Tech Cursos — Devs: Herbert, João, Giovanni, Matheus e Caique.</p>
     </div>
 
   </footer>
+  <!-- ==================== FIM DO RODAPÉ ==================== -->
+
+
+  <!-- ==================== SCRIPTS JAVASCRIPT ==================== -->
+  <!-- Os scripts ficam no FINAL do body para a página carregar mais rápido -->
 
   <!-- Rolagem suave ao clicar nos links do menu -->
   <script src="js/script.js"></script>
@@ -237,8 +293,7 @@
 
   <!-- Lógica do botão de Login/Usuário no cabeçalho -->
   <script>
-    // Função auto-executável que gerencia a exibição do botão "Login" e do menu do usuário logado no cabeçalho,
-    // verificando se o usuário está autenticado e ajustando a interface de acordo.
+    // Usamos uma função imediata (IIFE) para não poluir o escopo global
     (function () {
 
       // Pega os elementos HTML pelo ID

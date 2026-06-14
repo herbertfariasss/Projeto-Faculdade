@@ -1,11 +1,8 @@
-/* cursos.css — página cursos/cursos.html (grade de cards HTML/CSS/JS/Python) */
-
-/* Reset básico */
+/* ========== BASE ========== */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 html { scroll-behavior: smooth; }
 
-/* Fundo escuro e layout em coluna (header + conteúdo + footer) */
 body {
   background-color: #080810;
   background-image:
@@ -18,7 +15,7 @@ body {
   min-height: 100vh;
 }
 
-/* Barra superior fixa ao rolar */
+/* ========== CABEÇALHO ========== */
 .cabecalho {
   background: linear-gradient(90deg, rgba(91, 33, 244, 0.35), rgba(26, 108, 246, 0.28));
   padding: 1rem 0;
@@ -33,7 +30,6 @@ body {
   box-sizing: border-box;
 }
 
-/* Logo + nav + botão sair na mesma linha */
 .container-header {
   max-width: 1200px;
   width: 100%;
@@ -48,7 +44,6 @@ body {
 
 .logo { width: 110px; height: auto; object-fit: contain; flex-shrink: 0; }
 
-/* Divisor vertical entre logo e menu */
 .linha-cabecalho {
   border: none;
   border-left: 1px solid rgba(255,255,255,0.2);
@@ -59,7 +54,6 @@ body {
 
 .nav { display: flex; align-items: center; gap: 14px; margin-left: auto; }
 
-/* Botões do menu (Início, etc.) */
 .nav a {
   font-family: "Syne", sans-serif;
   color: #fff;
@@ -73,7 +67,6 @@ body {
 }
 .nav a:hover { background: rgb(85, 3, 179); }
 
-/* Área "Olá, usuário" + Sair (quando logado) */
 .menu-usuario {
   display: flex;
   align-items: center;
@@ -102,7 +95,7 @@ body {
 }
 .btn-logout:hover { background: rgba(124, 92, 252, 0.15); color: #fff; }
 
-/* Área central — título + grade de cards */
+/* ========== CONTEÚDO PRINCIPAL ========== */
 .conteudo-cursos {
   flex: 1;
   width: 100%;
@@ -111,7 +104,7 @@ body {
   padding: 48px 24px 64px;
 }
 
-/* "TRILHA DE CURSOS" + subtítulo */
+/* ========== HERO DOS CURSOS ========== */
 .cursos-hero {
   text-align: center;
   margin-bottom: 56px;
@@ -131,14 +124,14 @@ body {
   color: rgba(255,255,255,0.55);
 }
 
-/* Grid responsivo dos 4 cards */
+/* ========== GRADE DE CARDS ========== */
 .grade-cursos {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
   gap: 28px;
 }
 
-/* Card individual de curso */
+/* ========== CARD ========== */
 .card-curso {
   background: rgba(255,255,255,0.04);
   border: 1px solid rgba(255,255,255,0.08);
@@ -153,7 +146,7 @@ body {
   box-shadow: 0 12px 40px rgba(0,0,0,0.4);
 }
 
-/* Faixa colorida no topo de cada card */
+/* Topo colorido de cada card */
 .card-topo {
   display: flex;
   align-items: center;
@@ -162,7 +155,6 @@ body {
 }
 .card-topo h2 { font-family: "Syne", sans-serif; font-size: 1.4rem; }
 
-/* Cor de cada linguagem — altere aqui para mudar o topo do card */
 .card-html { background: linear-gradient(135deg, rgba(228,77,38,0.35), rgba(228,77,38,0.1)); }
 .card-css  { background: linear-gradient(135deg, rgba(38,77,228,0.35), rgba(38,77,228,0.1)); }
 .card-js   { background: linear-gradient(135deg, rgba(247,223,30,0.25), rgba(247,223,30,0.06)); }
@@ -170,7 +162,7 @@ body {
 
 .card-icone { width: 44px; height: 44px; object-fit: contain; }
 
-/* Descrição + lista de módulos */
+/* Corpo do card */
 .card-corpo {
   padding: 20px 24px 24px;
   display: flex;
@@ -185,6 +177,7 @@ body {
   line-height: 1.55;
 }
 
+/* Lista de módulos */
 .lista-modulos {
   list-style: none;
   display: flex;
@@ -207,7 +200,7 @@ body {
   top: 1px;
 }
 
-/* Badges + botão "Acessar" */
+/* Rodapé do card */
 .card-rodape {
   display: flex;
   flex-direction: column;
@@ -256,7 +249,7 @@ body {
 }
 .btn-acessar:hover { background-color: #7c5cfc; border-color: #7c5cfc; transform: scale(1.02); }
 
-/* Rodapé simples da página */
+/* ========== RODAPÉ ========== */
 footer {
   background: linear-gradient(90deg, rgba(91,33,244,0.28), rgba(26,108,246,0.22));
   color: #fff;
@@ -268,7 +261,7 @@ footer {
 }
 .copyright { color: grey; font-size: 0.85rem; }
 
-/* Tablet */
+/* ========== RESPONSIVO ========== */
 @media (max-width: 768px) {
   .linha-cabecalho { display: none; }
   .grade-cursos { grid-template-columns: repeat(2, 1fr); }
@@ -277,7 +270,6 @@ footer {
   .btn-logout { padding: 6px 12px; font-size: 0.82rem; }
 }
 
-/* Celular */
 @media (max-width: 500px) {
   .container-header { padding: 0 14px; }
   .grade-cursos { grid-template-columns: 1fr; }

@@ -1,9 +1,6 @@
-/* aulas.css — páginas cursos/aulas/*.html (HTML, CSS, JS, Python) */
-
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
 
-/* Fundo e layout em coluna */
 body {
   background-color: #080810;
   background-image:
@@ -16,7 +13,7 @@ body {
   min-height: 100vh;
 }
 
-/* Cabeçalho fixo (igual cursos.html) */
+/* ========== CABEÇALHO ========== */
 .cabecalho {
   background: linear-gradient(90deg, rgba(91,33,244,0.35), rgba(26,108,246,0.28));
   padding: 1rem 0;
@@ -91,7 +88,7 @@ body {
 }
 .btn-logout:hover { background: rgba(124,92,252,0.15); color: #fff; }
 
-/* Área principal da aula */
+/* ========== CONTEÚDO ========== */
 .conteudo-aulas {
   flex: 1;
   max-width: 1000px;
@@ -100,7 +97,7 @@ body {
   padding: 48px 24px 64px;
 }
 
-/* Banner no topo — ícone + título da aula */
+/* ========== HERO DA AULA ========== */
 .aula-hero {
   display: flex;
   align-items: center;
@@ -110,7 +107,6 @@ body {
   margin-bottom: 48px;
 }
 
-/* Cor do banner por linguagem */
 .aula-html { background: linear-gradient(135deg, rgba(228,77,38,0.3), rgba(228,77,38,0.05)); border: 1px solid rgba(228,77,38,0.2); }
 .aula-css  { background: linear-gradient(135deg, rgba(38,77,228,0.3), rgba(38,77,228,0.05)); border: 1px solid rgba(38,77,228,0.2); }
 .aula-js   { background: linear-gradient(135deg, rgba(247,223,30,0.2), rgba(247,223,30,0.03)); border: 1px solid rgba(247,223,30,0.15); }
@@ -132,14 +128,13 @@ body {
   line-height: 1.5;
 }
 
-/* Lista vertical de módulos */
+/* ========== MÓDULOS ========== */
 .modulos-lista {
   display: flex;
   flex-direction: column;
   gap: 28px;
 }
 
-/* Card de cada módulo (Módulo 1, 2, 3…) */
 .modulo-card {
   background: rgba(255,255,255,0.04);
   border: 1px solid rgba(255,255,255,0.08);
@@ -171,7 +166,7 @@ body {
   color: #e2e8f0;
 }
 
-/* Grade de placeholders de vídeo */
+/* ========== GRID DE VÍDEOS ========== */
 .videos-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
@@ -187,7 +182,6 @@ body {
   cursor: pointer;
 }
 
-/* Retângulo tracejado onde entrará o vídeo */
 .video-thumb {
   width: 100%;
   aspect-ratio: 16/9;
@@ -215,6 +209,7 @@ body {
   text-align: center;
 }
 
+/* ========== RODAPÉ ========== */
 footer {
   background: linear-gradient(90deg, rgba(91,33,244,0.28), rgba(26,108,246,0.22));
   color: #fff;
@@ -226,6 +221,7 @@ footer {
 }
 .copyright { color: grey; font-size: 0.85rem; }
 
+/* ========== RESPONSIVO ========== */
 @media (max-width: 768px) {
   .linha-cabecalho { display: none; }
   .aula-hero { padding: 24px 20px; gap: 16px; }

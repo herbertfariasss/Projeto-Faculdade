@@ -15,13 +15,13 @@ O objetivo deste projeto foi praticar conceitos de desenvolvimento web utilizand
 | `css/menu.css` | Linhas e títulos de seção |
 | `css/resp.css` | Responsivo — carregar **por último** no HTML |
 | `js/script.js` | Rolagem suave dos links `#Home`, `#Cursos`… |
-| `inscricao/inscricao.html` | Tela de login e cadastro |
-| `inscricao/auth.js` | Login com `localStorage` (admin/admin padrão) |
-| `inscricao/cabecalho.js` | Menu hambúrguer no mobile |
-| `inscricao/css/fundo.css` | Fundo + card centralizado |
-| `inscricao/css/cabecalho.css` | Header da página de login |
-| `inscricao/css/rodape.css` | Rodapé fixo no fim da tela |
-| `inscricao/css/cadastronavs.css` | Mensagens de erro/sucesso e links de aba |
+| `inscriçao/inscricao.html` | Tela de login e cadastro |
+| `inscriçao/auth.js` | Login com `localStorage` (admin/admin padrão) |
+| `inscriçao/cabecalho.js` | Menu hambúrguer no mobile |
+| `inscriçao/css/fundo.css` | Fundo + card centralizado |
+| `inscriçao/css/cabecalho.css` | Header da página de login |
+| `inscriçao/css/rodape.css` | Rodapé fixo no fim da tela |
+| `inscriçao/css/cadastronavs.css` | Mensagens de erro/sucesso e links de aba |
 
 ---
 
@@ -53,17 +53,8 @@ O objetivo deste projeto foi praticar conceitos de desenvolvimento web utilizand
 
 ---
 
-## 🌐 Site publicado (GitHub Pages)
-
-**URL correta:** https://herbertfariasss.github.io/Projeto-Faculdade/
-
-> Use sempre o link com `/Projeto-Faculdade/` no final. Abrir só `herbertfariasss.github.io` (sem o nome do repositório) gera erro 404.
-
----
-
 ## 📂 Como executar o projeto
 
 ```bash
 # Clone o repositório
 git clone https://github.com/herbertfariasss/Projeto-Faculdade.git
-```
