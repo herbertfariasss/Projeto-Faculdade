@@ -239,6 +239,34 @@ function registrarUsuario() {
     return;
   }
 
+    // Validação do CPF
+  var cpf = document.getElementById('cpf').value.replace(/\D/g, '');
+  if (!cpf) {
+    mostrarMensagem(msgErro, 'Preencha o CPF.', true);
+    return;
+  }
+  if (!validarCpf(cpf)) {
+    mostrarMensagem(msgErro, 'CPF inválido.', true);
+    return;
+  }
+
+  // Validação do CEP
+  var cep = document.getElementById('cep').value.replace(/\D/g, '');
+  var rua = document.getElementById('rua').value.trim();
+  if (!cep || cep.length !== 8) {
+    mostrarMensagem(msgErro, 'Preencha o CEP.', true);
+    return;
+  }
+  if (!rua) {
+    mostrarMensagem(msgErro, 'CEP não foi buscado. Aguarde ou verifique o CEP.', true);
+    return;
+  }
+  var numero = document.getElementById('numero').value.trim();
+  if (!numero) {
+    mostrarMensagem(msgErro, 'Preencha o número da residência.', true);
+    return;
+  }
+
   // Verifica se o nome de usuário já está em uso
   var usuarios = carregarUsuarios();
   var jaExiste = usuarios.find(function(u) { return u.usuario === usuario; });
@@ -249,7 +277,7 @@ function registrarUsuario() {
   }
 
   // Tudo certo: adiciona o novo usuário à lista e salva
-  usuarios.push({ usuario: usuario, senha: senha });
+  usuarios.push({ usuario: usuario, senha: senha, cpf: cpf, cep: cep, numero: numero });
   salvarUsuarios(usuarios);
 
   // Mostra mensagem de sucesso e redireciona após 1,5 segundos
