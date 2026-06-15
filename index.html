@@ -89,6 +89,7 @@
 
           <!-- Menu que aparece ao clicar no nome do usuário -->
           <div class="dropdown-menu" id="dropdown-menu" hidden>
+            <button onclick="window.location.href='inscricao/perfil.html'">Meu Perfil</button>
             <button onclick="fazerLogout()">Sair</button>
           </div>
 
@@ -130,16 +131,16 @@
         </div>
       </div>
 
-      <!-- Vídeo do lado direito (embed do YouTube) -->
-      <!-- Atenção: usar /embed/ no link, e NÃO o link normal do YouTube -->
+      <!-- Vídeo do lado direito com thumbnail clicável -->
       <div class="vid">
-        <iframe
-          src="https://www.youtube.com/embed/8mei6uVttho?start=7"
-          title="YouTube video player"
-          frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          allowfullscreen>
-        </iframe>
+        <div class="vid-wrapper" onclick="loadHeroVideo(this)">
+          <img
+            class="vid-thumb"
+            src="https://img.youtube.com/vi/Fhy-5CtVkiM/hqdefault.jpg"
+            alt="Curso completo de HTML – seu primeiro site do zero"
+          />
+          <div class="vid-play-btn">▶</div>
+        </div>
       </div>
 
     </div>
@@ -284,6 +285,51 @@
 
   <!-- ==================== SCRIPTS JAVASCRIPT ==================== -->
   <!-- Os scripts ficam no FINAL do body para a página carregar mais rápido -->
+
+  <!-- Estilos e script do vídeo hero com thumbnail clicável -->
+  <style>
+    .vid-wrapper {
+      width: 100%;
+      aspect-ratio: 16/9;
+      position: relative;
+      border-radius: 16px;
+      overflow: hidden;
+      cursor: pointer;
+      background: #000;
+    }
+    .vid-thumb {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.3s ease, opacity 0.3s;
+    }
+    .vid-wrapper:hover .vid-thumb { transform: scale(1.04); opacity: 0.85; }
+    .vid-play-btn {
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 64px; height: 64px;
+      background: rgba(124,92,252,0.88);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.6rem; color: #fff;
+      pointer-events: none;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .vid-wrapper:hover .vid-play-btn { background: rgba(124,92,252,1); transform: translate(-50%, -50%) scale(1.1); }
+    .vid-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; border-radius: 16px; }
+  </style>
+  <script>
+    function loadHeroVideo(wrapper) {
+      var iframe = document.createElement('iframe');
+      iframe.src = 'https://www.youtube.com/embed/Fhy-5CtVkiM?autoplay=1';
+      iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+      iframe.allowFullscreen = true;
+      wrapper.innerHTML = '';
+      wrapper.appendChild(iframe);
+    }
+  </script>
 
   <!-- Rolagem suave ao clicar nos links do menu -->
   <script src="js/script.js"></script>

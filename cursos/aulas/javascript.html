@@ -3,11 +3,6 @@
   =============================================
   javascript.html — Página de Aulas: Curso de JavaScript
   =============================================
-  Página protegida por login.
-  Estrutura igual para todos os cursos — só muda:
-  - O título
-  - A cor do hero (aula-html / aula-css / aula-js / aula-py)
-  - Os nomes dos módulos
 -->
 
 <html lang="pt-br">
@@ -15,41 +10,26 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Curso de JavaScript — Tech Cursos</title>
-
-  <!-- Estilos desta página -->
   <link rel="stylesheet" href="aulas.css" />
   <link rel="stylesheet" href="../../css/footer.css" />
-
-  <!-- Fontes do Google -->
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 </head>
 
 <body>
 
-  <!-- ==================== CABEÇALHO ==================== -->
   <header class="cabecalho">
     <div class="container-header">
-
       <img src="../../img/LOGOO.png" alt="logo" class="logo" />
-
       <nav class="nav">
-        <!-- Nome do usuário (preenchido pelo JS abaixo) -->
         <span class="saudacao" id="saudacao"></span>
-        <!-- Botão para voltar para a lista de cursos -->
         <a href="../cursos.html">← Voltar aos Cursos</a>
       </nav>
-
     </div>
   </header>
-  <!-- ==================== FIM DO CABEÇALHO ==================== -->
 
-
-  <!-- ==================== CONTEÚDO PRINCIPAL ==================== -->
   <main class="conteudo-aulas">
 
-    <!-- Banner do curso com ícone e título -->
-    <!-- A classe "aula-js" define a cor do banner (ver aulas.css) -->
     <div class="aula-hero aula-js">
       <img src="../../img/apoio/licon3.svg" alt="JavaScript" class="aula-icone" />
       <div>
@@ -58,40 +38,34 @@
       </div>
     </div>
 
-    <!-- Lista de módulos do curso -->
     <div class="modulos-lista">
 
       <!-- ===== MÓDULO 1 ===== -->
       <div class="modulo-card">
-
-        <!-- Cabeçalho do módulo: número e título -->
         <div class="modulo-header">
           <span class="modulo-num">01</span>
           <h2>Fundamentos</h2>
         </div>
-
-        <!-- Grade de vídeos do módulo -->
-        <!-- Cada "video-placeholder" será substituído por um <iframe> do YouTube -->
         <div class="videos-grid">
 
-          <div class="video-placeholder">
-            <div class="video-thumb">
-              <span class="play-icon">▶</span>
+                    <div class="video-placeholder">
+            <div class="video-wrapper" onclick="loadVideo(this, 'https://www.youtube.com/embed/hyMCPZNLXps?autoplay=1')">
+              <img class="video-thumb-img" src="https://img.youtube.com/vi/hyMCPZNLXps/hqdefault.jpg" alt="JavaScript para Iniciantes – Fundamentos" />
+              <div class="play-btn">▶</div>
             </div>
-            <p>Aula em breve</p>
+            <p>JavaScript para Iniciantes – Fundamentos</p>
           </div>
 
-          <div class="video-placeholder">
-            <div class="video-thumb">
-              <span class="play-icon">▶</span>
+                    <div class="video-placeholder">
+            <div class="video-wrapper" onclick="loadVideo(this, 'https://www.youtube.com/embed/vrSEt5J4q2Y?autoplay=1')">
+              <img class="video-thumb-img" src="https://img.youtube.com/vi/vrSEt5J4q2Y/hqdefault.jpg" alt="Conceitos Básicos de JavaScript" />
+              <div class="play-btn">▶</div>
             </div>
-            <p>Aula em breve</p>
+            <p>Conceitos Básicos de JavaScript</p>
           </div>
 
         </div>
       </div>
-      <!-- ===== FIM MÓDULO 1 ===== -->
-
 
       <!-- ===== MÓDULO 2 ===== -->
       <div class="modulo-card">
@@ -100,18 +74,25 @@
           <h2>DOM e eventos</h2>
         </div>
         <div class="videos-grid">
-          <div class="video-placeholder">
-            <div class="video-thumb"><span class="play-icon">▶</span></div>
-            <p>Aula em breve</p>
+
+                    <div class="video-placeholder">
+            <div class="video-wrapper" onclick="loadVideo(this, 'https://www.youtube.com/embed/snaMsZuYoFo?autoplay=1')">
+              <img class="video-thumb-img" src="https://img.youtube.com/vi/snaMsZuYoFo/hqdefault.jpg" alt="O que é DOM? – Document Object Model" />
+              <div class="play-btn">▶</div>
+            </div>
+            <p>O que é DOM? – Document Object Model</p>
           </div>
-          <div class="video-placeholder">
-            <div class="video-thumb"><span class="play-icon">▶</span></div>
-            <p>Aula em breve</p>
+
+                    <div class="video-placeholder">
+            <div class="video-wrapper" onclick="loadVideo(this, 'https://www.youtube.com/embed/XqvoOnlfiBc?autoplay=1')">
+              <img class="video-thumb-img" src="https://img.youtube.com/vi/XqvoOnlfiBc/hqdefault.jpg" alt="DOM – Eventos no Navegador" />
+              <div class="play-btn">▶</div>
+            </div>
+            <p>DOM – Eventos no Navegador</p>
           </div>
+
         </div>
       </div>
-      <!-- ===== FIM MÓDULO 2 ===== -->
-
 
       <!-- ===== MÓDULO 3 ===== -->
       <div class="modulo-card">
@@ -120,18 +101,25 @@
           <h2>Funções e arrays</h2>
         </div>
         <div class="videos-grid">
-          <div class="video-placeholder">
-            <div class="video-thumb"><span class="play-icon">▶</span></div>
-            <p>Aula em breve</p>
+
+                    <div class="video-placeholder">
+            <div class="video-wrapper" onclick="loadVideo(this, 'https://www.youtube.com/embed/Z7mnxUI4u00?autoplay=1')">
+              <img class="video-thumb-img" src="https://img.youtube.com/vi/Z7mnxUI4u00/hqdefault.jpg" alt="JavaScript do Zero – Variáveis e Funções" />
+              <div class="play-btn">▶</div>
+            </div>
+            <p>JavaScript do Zero – Variáveis e Funções</p>
           </div>
-          <div class="video-placeholder">
-            <div class="video-thumb"><span class="play-icon">▶</span></div>
-            <p>Aula em breve</p>
+
+                    <div class="video-placeholder">
+            <div class="video-wrapper" onclick="loadVideo(this, 'https://www.youtube.com/embed/mo3fpbW_eTA?autoplay=1')">
+              <img class="video-thumb-img" src="https://img.youtube.com/vi/mo3fpbW_eTA/hqdefault.jpg" alt="Sintaxe Básica JS – Funções, Loops e Arrays" />
+              <div class="play-btn">▶</div>
+            </div>
+            <p>Sintaxe Básica JS – Funções, Loops e Arrays</p>
           </div>
+
         </div>
       </div>
-      <!-- ===== FIM MÓDULO 3 ===== -->
-
 
       <!-- ===== MÓDULO 4 ===== -->
       <div class="modulo-card">
@@ -140,26 +128,30 @@
           <h2>Fetch e APIs</h2>
         </div>
         <div class="videos-grid">
-          <div class="video-placeholder">
-            <div class="video-thumb"><span class="play-icon">▶</span></div>
-            <p>Aula em breve</p>
+
+                    <div class="video-placeholder">
+            <div class="video-wrapper" onclick="loadVideo(this, 'https://www.youtube.com/embed/qIGYM4S8x50?autoplay=1')">
+              <img class="video-thumb-img" src="https://img.youtube.com/vi/qIGYM4S8x50/hqdefault.jpg" alt="Aprenda Fetch API com Projeto" />
+              <div class="play-btn">▶</div>
+            </div>
+            <p>Aprenda Fetch API com Projeto</p>
           </div>
-          <div class="video-placeholder">
-            <div class="video-thumb"><span class="play-icon">▶</span></div>
-            <p>Aula em breve</p>
+
+                    <div class="video-placeholder">
+            <div class="video-wrapper" onclick="loadVideo(this, 'https://www.youtube.com/embed/cjpQU6NutU0?autoplay=1')">
+              <img class="video-thumb-img" src="https://img.youtube.com/vi/cjpQU6NutU0/hqdefault.jpg" alt="Eventos Click e Dblclick do DOM" />
+              <div class="play-btn">▶</div>
+            </div>
+            <p>Eventos Click e Dblclick do DOM</p>
           </div>
+
         </div>
       </div>
-      <!-- ===== FIM MÓDULO 4 ===== -->
 
     </div>
-    <!-- fim da lista de módulos -->
 
   </main>
-  <!-- ==================== FIM DO CONTEÚDO ==================== -->
 
-
-  <!-- ==================== RODAPÉ ==================== -->
   <footer>
     <div class="rodTopo">
       <div class="rod-logo">
@@ -192,22 +184,26 @@
       <p>© Tech Cursos — Devs: Herbert, João, Giovanni, Matheus e Caique.</p>
     </div>
   </footer>
-  <!-- ==================== FIM DO RODAPÉ ==================== -->
 
-
-  <!-- ==================== SCRIPTS ==================== -->
   <script src="../../inscricao/auth.js"></script>
-
   <script>
-    // PROTEÇÃO DA PÁGINA: redireciona para o login se não estiver logado
     if (!isLoggedIn()) {
       sessionStorage.setItem('redirectAfterLogin', window.location.href);
       window.location.href = '../../inscricao/inscricao.html';
     }
-
-    // Mostra "Olá, [nome]" no cabeçalho
     document.getElementById('saudacao').textContent = 'Olá, ' + getUsuarioLogado();
   </script>
 
+
+  <script>
+    function loadVideo(wrapper, embedUrl) {
+      var iframe = document.createElement('iframe');
+      iframe.src = embedUrl;
+      iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+      iframe.allowFullscreen = true;
+      wrapper.innerHTML = '';
+      wrapper.appendChild(iframe);
+    }
+  </script>
 </body>
 </html>

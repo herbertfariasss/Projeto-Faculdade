@@ -90,9 +90,34 @@ body {
   max-width: 420px;
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 20px;
   margin: 0 auto;
   flex-shrink: 0;
+}
+
+/* Agrupa label + input com espaçamento uniforme */
+.campo {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.campo label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: rgba(255,255,255,0.85);
+}
+
+/* Formulário interno — espaçamento entre todos os campos */
+.Formulario {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Título "Login" / "Criar conta" — espaço abaixo antes do primeiro campo */
+.logintxt {
+  margin-bottom: 8px;
 }
 
 /* Campos de entrada — ids usados pelo auth.js */

@@ -3,18 +3,6 @@
   =============================================
   inscricao.html — Tela de Login e Cadastro
   =============================================
-  Esta página tem duas "abas" dentro do mesmo arquivo:
-  1. Aba de LOGIN  → o usuário digita usuário e senha
-  2. Aba de CADASTRO → o usuário cria uma nova conta
-
-  Como a troca de abas funciona:
-  → As duas abas existem no HTML ao mesmo tempo
-  → Uma fica visível e a outra fica com "hidden" (escondida)
-  → A função mostrarAba() em auth.js faz essa troca
-
-  Os dados são salvos no localStorage do navegador (sem servidor).
-  Após o login, o usuário é redirecionado para onde estava tentando ir
-  (ou para a página inicial, se veio direto).
 -->
 
 <html lang="pt-br">
@@ -23,15 +11,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Login — Tech Cursos</title>
 
-  <!-- Estilos: carregados nesta ordem específica para que as regras mais
-       específicas (cadastronavs.css) sobreponham as mais gerais (rodape.css) -->
   <link rel="stylesheet" href="css/rodape.css" />
   <link rel="stylesheet" href="../css/footer.css" />
   <link rel="stylesheet" href="css/cabecalho.css" />
   <link rel="stylesheet" href="css/fundo.css" />
   <link rel="stylesheet" href="css/cadastronavs.css" />
 
-  <!-- Fontes do Google -->
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 </head>
@@ -41,23 +26,12 @@
   <!-- ==================== CABEÇALHO ==================== -->
   <header class="cabecalho">
     <div class="container-header">
-
       <img src="../img/LOGOO.png" alt="logo da marca" class="logo" />
-
       <nav class="nav">
-        <!-- Link para voltar à página principal -->
         <a href="../index.html">Início</a>
       </nav>
-
-      <!-- Botão hambúrguer: aparece somente no celular (ver cabecalho.css) -->
-      <!-- O onclick chama toggleMenu() definido em cabecalho.js -->
-      <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Abrir menu">
-        &#9776;
-      </button>
-
+      <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Abrir menu">&#9776;</button>
     </div>
-
-    <!-- Menu que abre ao clicar no hambúrguer (só no celular) -->
     <div class="mobile-menu" id="mobile-menu">
       <a href="../index.html">Início</a>
     </div>
@@ -66,39 +40,31 @@
 
 
   <!-- ==================== CONTEÚDO PRINCIPAL ==================== -->
-  <!-- A classe "conteudo-login" centraliza o formulário na tela (ver fundo.css) -->
   <main class="conteudo-login">
     <div class="boxform">
 
       <!-- ==================== ABA: LOGIN ==================== -->
-      <!-- Visível por padrão. O "hidden" é removido/adicionado pelo JS -->
       <div id="aba-login">
         <div class="Formulario">
 
           <div class="logintxt"><h1>Login</h1></div>
-          <br><br>
 
-          <!-- Campo: nome de usuário -->
-          <label for="usuario">Nome de Usuário</label>
-          <br><br>
-          <input type="text" id="usuario" placeholder="Digite seu nome de usuário" autocomplete="username" />
-          <br><br>
+          <div class="campo">
+            <label for="usuario">Nome de Usuário</label>
+            <input type="text" id="usuario" placeholder="Digite seu nome de usuário" autocomplete="username" />
+          </div>
 
-          <!-- Campo: senha -->
-          <label for="senha">Senha</label>
-          <br><br>
-          <input type="password" id="senha" placeholder="Digite sua senha" autocomplete="current-password" />
-          <br><br>
+          <div class="campo">
+            <label for="senha">Senha</label>
+            <input type="password" id="senha" placeholder="Digite sua senha" autocomplete="current-password" />
+          </div>
 
-          <!-- Mensagem de erro: começa invisível, auth.js mostra quando necessário -->
           <p id="erro-msg" class="msg-erro" hidden></p>
 
         </div>
 
-        <!-- Botão que chama fazerLogin() definida em auth.js -->
         <button type="button" id="btn-login" onclick="fazerLogin()">Entrar</button>
 
-        <!-- Link para trocar para a aba de cadastro -->
         <p class="trocar-aba">
           Não tem conta?
           <a href="#" onclick="mostrarAba('registro'); return false;">Criar conta</a>
@@ -108,105 +74,77 @@
 
 
       <!-- ==================== ABA: CADASTRO ==================== -->
-      <!-- "hidden" deixa esta aba invisível até o usuário clicar em "Criar conta" -->
       <div id="aba-registro" hidden>
         <div class="Formulario">
 
           <div class="logintxt"><h1>Criar conta</h1></div>
-          <br><br>
 
-          <!-- Campo: nome de usuário desejado -->
-          <label for="novo-usuario">Nome de Usuário</label>
-          <br><br>
-          <input type="text" id="novo-usuario" placeholder="Escolha um nome de usuário" autocomplete="username" />
-          <br><br>
+          <div class="campo">
+            <label for="novo-usuario">Nome de Usuário</label>
+            <input type="text" id="novo-usuario" placeholder="Escolha um nome de usuário" autocomplete="username" />
+          </div>
 
-          <!-- Campo: senha -->
-          <label for="nova-senha">Senha</label>
-          <br><br>
-          <input type="password" id="nova-senha" placeholder="Crie uma senha" autocomplete="new-password" />
-          <br><br>
+          <div class="campo">
+            <label for="nova-senha">Senha</label>
+            <input type="password" id="nova-senha" placeholder="Crie uma senha" autocomplete="new-password" />
+          </div>
 
-          <!-- Campo: confirmação de senha (deve ser igual ao campo anterior) -->
-          <label for="confirmar-senha">Confirmar Senha</label>
-          <br><br>
-          <input type="password" id="confirmar-senha" placeholder="Repita a senha" autocomplete="new-password" />
-          <br><br>
+          <div class="campo">
+            <label for="confirmar-senha">Confirmar Senha</label>
+            <input type="password" id="confirmar-senha" placeholder="Repita a senha" autocomplete="new-password" />
+          </div>
 
-          <!-- CAMPO DE CEP-->
+          <div class="campo">
+            <label for="cpf">CPF</label>
+            <input type="text" id="cpf" placeholder="000.000.000-00" maxlength="14" autocomplete="off" oninput="mascaraCpf(this)" />
+            <p id="erro-cpf" class="msg-erro" hidden></p>
+          </div>
 
-          <!-- Campo: CPF -->
-          <label for="cpf">CPF</label>
-              <br><br>
-          <input type="text" id="cpf" placeholder="000.000.000-00" maxlength="14" autocomplete="off" oninput="mascaraCpf(this)" />
-              <br><br>
-          <p id="erro-cpf" class="msg-erro" hidden></p>
+          <div class="campo">
+            <label for="cep">CEP</label>
+            <input type="text" id="cep" placeholder="00000-000" maxlength="9" autocomplete="postal-code" oninput="mascaraCep(this)" />
+            <p id="erro-cep" class="msg-erro" hidden></p>
+          </div>
 
-          <!-- ===== CAMPOS DE ENDEREÇO (busca por CEP via ViaCEP) ===== -->
-
-          <!-- O usuário digita o CEP aqui; o JS busca o endereço automaticamente -->
-          <label for="cep">CEP</label>
-          <br><br>
-          <input type="text" id="cep" placeholder="00000-000" maxlength="9"
-            autocomplete="postal-code" oninput="mascaraCep(this)" />
-
-          <!-- Mensagem de erro do CEP (ex: "CEP não encontrado") -->
-          <p id="erro-cep" class="msg-erro" hidden></p>
-          <br>
-
-          <!-- Preenchidos automaticamente pela busca; o usuário pode corrigir -->
-          <label for="rua">Rua / Logradouro</label>
-          <br><br>
-          <input type="text" id="rua" placeholder="Preenchido automaticamente" autocomplete="street-address" />
-          <br><br>
+          <div class="campo">
+            <label for="rua">Rua / Logradouro</label>
+            <input type="text" id="rua" placeholder="Preenchido automaticamente" autocomplete="street-address" />
+          </div>
 
           <div class="endereco-linha">
-            <div class="campo-numero">
+            <div class="campo campo-numero">
               <label for="numero">Número</label>
-              <br><br>
-              <!-- Número NÃO vem do CEP; o usuário sempre preenche -->
               <input type="text" id="numero" placeholder="Nº" autocomplete="off" />
             </div>
-            <div class="campo-complemento">
+            <div class="campo campo-complemento">
               <label for="complemento">Complemento</label>
-              <br><br>
               <input type="text" id="complemento" placeholder="Apto, bloco..." autocomplete="off" />
             </div>
           </div>
-          <br>
 
-          <label for="bairro">Bairro</label>
-          <br><br>
-          <input type="text" id="bairro" placeholder="Preenchido automaticamente" autocomplete="off" />
-          <br><br>
+          <div class="campo">
+            <label for="bairro">Bairro</label>
+            <input type="text" id="bairro" placeholder="Preenchido automaticamente" autocomplete="off" />
+          </div>
 
           <div class="endereco-linha">
-            <div class="campo-cidade">
+            <div class="campo campo-cidade">
               <label for="cidade">Cidade</label>
-              <br><br>
               <input type="text" id="cidade" placeholder="Cidade" autocomplete="address-level2" />
             </div>
-            <div class="campo-uf">
+            <div class="campo campo-uf">
               <label for="uf">UF</label>
-              <br><br>
               <input type="text" id="uf" placeholder="UF" maxlength="2" autocomplete="address-level1" />
             </div>
           </div>
-          <br>
-          <!-- ===== FIM DOS CAMPOS DE ENDEREÇO ===== -->
 
-          <!-- Mensagem de erro de cadastro -->
           <p id="erro-registro" class="msg-erro" hidden></p>
-
-          <!-- Mensagem de sucesso: aparece quando a conta é criada com sucesso -->
           <p id="sucesso-registro" class="msg-sucesso" hidden></p>
 
         </div>
 
-        <!-- Botão que chama registrarUsuario() definida em auth.js -->
         <button type="button" id="btn-registro" onclick="registrarUsuario()">Cadastrar</button>
 
-        <!-- Link para voltar para a aba de login -->
         <p class="trocar-aba">
           Já tem conta?
           <a href="#" onclick="mostrarAba('login'); return false;">Entrar</a>
@@ -216,7 +154,6 @@
 
     </div>
   </main>
-  <!-- ==================== FIM DO CONTEÚDO ==================== -->
 
 
   <!-- ==================== RODAPÉ ==================== -->
@@ -252,20 +189,12 @@
       <p>© Tech Cursos — Devs: Herbert, João, Giovanni, Matheus e Caique.</p>
     </div>
   </footer>
-  <!-- ==================== FIM DO RODAPÉ ==================== -->
 
 
   <!-- ==================== SCRIPTS ==================== -->
-  <!-- cabecalho.js: controla o menu hambúrguer no celular -->
   <script src="cabecalho.js"></script>
-
-  <!-- auth.js: sistema de login, cadastro, logout e proteção de páginas -->
   <script src="auth.js"></script>
-
-  <!-- cep.js: busca endereço na API do ViaCEP ao preencher o campo de CEP -->
   <script src="cep.js"></script>
-
-  <!-- cpf.js: aplica máscara e valida CPF -->
   <script src="cpf.js"></script>
 
 </body>

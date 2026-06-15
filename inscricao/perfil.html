@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<!--
+  =============================================
+  perfil.html — Página de Perfil do Usuário
+  =============================================
+  Permite ao usuário:
+  - Ver seus dados cadastrados
+  - Editar nome de usuário, senha e endereço
+  - Excluir a conta permanentemente
+-->
+
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Meu Perfil — Tech Cursos</title>
+
+  <link rel="stylesheet" href="../css/footer.css" />
+  <link rel="stylesheet" href="css/cabecalho.css" />
+  <link rel="stylesheet" href="css/fundo.css" />
+  <link rel="stylesheet" href="css/cadastronavs.css" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ===== LAYOUT GERAL ===== */
+    .conteudo-perfil {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px 20px 64px;
+      gap: 28px;
+    }
+
+    /* ===== CARD DO PERFIL ===== */
+    .perfil-card {
+      font-family: 'Syne', sans-serif;
+      color: #ffffff;
+      background: rgb(22, 2, 78);
+      border-radius: 32px;
+      box-shadow: 0 8px 32px rgba(22, 0, 56, 0.6);
+      padding: 40px 48px;
+      width: 90%;
+      max-width: 480px;
+    }
+
+    .perfil-titulo {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 28px;
+      text-align: center;
+      color: #c4b5fd;
+    }
+
+    /* ===== SEÇÃO DENTRO DO CARD ===== */
+    .secao {
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding-top: 24px;
+      margin-top: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .secao-titulo {
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: rgba(255,255,255,0.4);
+      margin-bottom: 4px;
+    }
+
+    /* ===== CAMPO (label + input) ===== */
+    .campo {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .campo label {
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: rgba(255,255,255,0.75);
+    }
+
+    .campo input {
+      width: 100%;
+      padding: 11px 14px;
+      border: 1px solid rgba(124,92,252,0.25);
+      border-radius: 10px;
+      background: rgba(95,95,95,0.5);
+      color: #fff;
+      font-family: 'Syne', sans-serif;
+      font-size: 0.92rem;
+      outline: none;
+      box-sizing: border-box;
+      transition: border-color 0.2s, background 0.2s;
+    }
+
+    .campo input:focus {
+      border-color: rgba(124,92,252,0.7);
+      background: rgba(95,95,95,0.75);
+    }
+
+    .campo input:disabled {
+      opacity: 0.45;
+      cursor: not-allowed;
+    }
+
+    /* Dois campos lado a lado */
+    .campos-linha {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    /* ===== BOTÕES ===== */
+    .btn-salvar {
+      width: 100%;
+      padding: 13px;
+      margin-top: 8px;
+      background: #5b21f4;
+      color: #fff;
+      border: none;
+      border-radius: 12px;
+      font-family: 'Syne', sans-serif;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .btn-salvar:hover { background: #7c3aed; transform: scale(1.02); }
+
+    .btn-excluir {
+      width: 100%;
+      padding: 13px;
+      background: transparent;
+      color: #f87171;
+      border: 1.5px solid rgba(248,113,113,0.4);
+      border-radius: 12px;
+      font-family: 'Syne', sans-serif;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s, border-color 0.2s, transform 0.15s;
+    }
+    .btn-excluir:hover {
+      background: rgba(248,113,113,0.1);
+      border-color: rgba(248,113,113,0.8);
+      transform: scale(1.02);
+    }
+
+    /* ===== MENSAGENS ===== */
+    .msg-sucesso {
+      color: #86efac;
+      font-size: 0.88rem;
+      font-weight: 600;
+      text-align: center;
+      padding: 10px;
+      background: rgba(134,239,172,0.1);
+      border-radius: 8px;
+    }
+    .msg-erro {
+      color: #f87171;
+      font-size: 0.88rem;
+      font-weight: 600;
+      text-align: center;
+      padding: 10px;
+      background: rgba(248,113,113,0.1);
+      border-radius: 8px;
+    }
+
+    /* ===== MODAL DE CONFIRMAÇÃO DE EXCLUSÃO ===== */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.65);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      backdrop-filter: blur(4px);
+    }
+    .modal-overlay[hidden] { display: none; }
+
+    .modal-box {
+      background: rgb(22, 2, 78);
+      border: 1px solid rgba(248,113,113,0.3);
+      border-radius: 24px;
+      padding: 40px 36px;
+      max-width: 360px;
+      width: 90%;
+      text-align: center;
+      font-family: 'Syne', sans-serif;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.5);
+    }
+
+    .modal-icon { font-size: 2.5rem; }
+
+    .modal-titulo {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #f87171;
+    }
+
+    .modal-texto {
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.65);
+      line-height: 1.5;
+    }
+
+    .modal-acoes {
+      display: flex;
+      gap: 12px;
+      margin-top: 8px;
+    }
+
+    .modal-acoes button {
+      flex: 1;
+      padding: 12px;
+      border-radius: 10px;
+      font-family: 'Syne', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 600;
+      cursor: pointer;
+      border: none;
+      transition: opacity 0.2s, transform 0.15s;
+    }
+    .modal-acoes button:hover { opacity: 0.85; transform: scale(1.02); }
+
+    .btn-cancelar {
+      background: rgba(255,255,255,0.1);
+      color: #fff;
+    }
+    .btn-confirmar-excluir {
+      background: #dc2626;
+      color: #fff;
+    }
+
+    @media (max-width: 480px) {
+      .perfil-card { padding: 28px 20px; border-radius: 24px; }
+      .campos-linha { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ==================== CABEÇALHO ==================== -->
+  <header class="cabecalho">
+    <div class="container-header">
+      <img src="../img/LOGOO.png" alt="logo da marca" class="logo" />
+      <nav class="nav">
+        <a href="../index.html">← Início</a>
+      </nav>
+    </div>
+  </header>
+
+
+  <!-- ==================== CONTEÚDO ==================== -->
+  <main class="conteudo-perfil">
+
+    <div class="perfil-card">
+      <h1 class="perfil-titulo">👤 Meu Perfil</h1>
+
+      <!-- ===== SEÇÃO: DADOS DE ACESSO ===== -->
+      <div class="secao">
+        <p class="secao-titulo">Dados de acesso</p>
+
+        <div class="campo">
+          <label for="p-usuario">Nome de Usuário</label>
+          <input type="text" id="p-usuario" placeholder="Nome de usuário" autocomplete="username" />
+        </div>
+
+        <div class="campo">
+          <label for="p-senha-atual">Senha atual</label>
+          <input type="password" id="p-senha-atual" placeholder="Digite sua senha atual para confirmar" />
+        </div>
+
+        <div class="campo">
+          <label for="p-nova-senha">Nova senha <span style="opacity:0.5;font-weight:400">(deixe em branco para não alterar)</span></label>
+          <input type="password" id="p-nova-senha" placeholder="Nova senha" autocomplete="new-password" />
+        </div>
+
+        <div class="campo">
+          <label for="p-confirmar-senha">Confirmar nova senha</label>
+          <input type="password" id="p-confirmar-senha" placeholder="Repita a nova senha" autocomplete="new-password" />
+        </div>
+      </div>
+
+      <!-- ===== SEÇÃO: ENDEREÇO ===== -->
+      <div class="secao">
+        <p class="secao-titulo">Endereço</p>
+
+        <div class="campo">
+          <label for="p-cep">CEP</label>
+          <input type="text" id="p-cep" placeholder="00000-000" maxlength="9" oninput="mascaraCepPerfil(this)" />
+        </div>
+
+        <div class="campo">
+          <label for="p-rua">Rua / Logradouro</label>
+          <input type="text" id="p-rua" placeholder="Preenchido automaticamente" />
+        </div>
+
+        <div class="campos-linha">
+          <div class="campo">
+            <label for="p-numero">Número</label>
+            <input type="text" id="p-numero" placeholder="Nº" />
+          </div>
+          <div class="campo">
+            <label for="p-complemento">Complemento</label>
+            <input type="text" id="p-complemento" placeholder="Apto, bloco..." />
+          </div>
+        </div>
+
+        <div class="campo">
+          <label for="p-bairro">Bairro</label>
+          <input type="text" id="p-bairro" placeholder="Bairro" />
+        </div>
+
+        <div class="campos-linha">
+          <div class="campo">
+            <label for="p-cidade">Cidade</label>
+            <input type="text" id="p-cidade" placeholder="Cidade" />
+          </div>
+          <div class="campo">
+            <label for="p-uf">UF</label>
+            <input type="text" id="p-uf" placeholder="UF" maxlength="2" />
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== MENSAGENS ===== -->
+      <p id="msg-perfil-erro"   class="msg-erro"    hidden></p>
+      <p id="msg-perfil-sucesso" class="msg-sucesso" hidden></p>
+
+      <!-- ===== BOTÃO SALVAR ===== -->
+      <div class="secao" style="border-top: none; padding-top: 8px; margin-top: 0;">
+        <button class="btn-salvar" onclick="salvarPerfil()">Salvar alterações</button>
+      </div>
+
+      <!-- ===== SEÇÃO: ZONA DE PERIGO ===== -->
+      <div class="secao">
+        <p class="secao-titulo" style="color: rgba(248,113,113,0.6);">Zona de perigo</p>
+        <button class="btn-excluir" onclick="abrirModalExcluir()">🗑️ Excluir minha conta</button>
+      </div>
+
+    </div>
+  </main>
+
+
+  <!-- ==================== MODAL: CONFIRMAR EXCLUSÃO ==================== -->
+  <div class="modal-overlay" id="modal-excluir" hidden>
+    <div class="modal-box">
+      <div class="modal-icon">⚠️</div>
+      <p class="modal-titulo">Excluir conta?</p>
+      <p class="modal-texto">
+        Essa ação é permanente e não pode ser desfeita.
+        Todos os seus dados serão removidos.
+      </p>
+      <div class="modal-acoes">
+        <button class="btn-cancelar" onclick="fecharModalExcluir()">Cancelar</button>
+        <button class="btn-confirmar-excluir" onclick="excluirConta()">Sim, excluir</button>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ==================== RODAPÉ ==================== -->
+  <footer>
+    <div class="rodTopo">
+      <div class="rod-logo">
+        <h3 class="rod-nome">Tech <strong>Cursos</strong></h3>
+        <p>Todo tipo de linguagem na palma da sua mão!</p>
+      </div>
+      <div class="rod1">
+        <h3>Soluções</h3>
+        <ul>
+          <li><a href="#">Trilhas de Aprendizado</a></li>
+          <li><a href="#">Projetos Práticos</a></li>
+          <li><a href="#">Certificados</a></li>
+        </ul>
+      </div>
+      <div class="rod2">
+        <h3>Legal</h3>
+        <ul>
+          <li><a href="#">Termos de Uso</a></li>
+          <li><a href="#">Política de Privacidade</a></li>
+        </ul>
+      </div>
+      <div class="rodDados">
+        <h3>Empresa</h3>
+        <p><strong>CNPJ:</strong> 00.000.000/0000-00</p>
+        <p>Rio de Janeiro, RJ — Brasil</p>
+        <p>suporte <a href="#">@TechCursos.com</a></p>
+      </div>
+    </div>
+    <div class="rodFinal">
+      <p>© Tech Cursos — Devs: Herbert, João, Giovanni, Matheus e Caique.</p>
+    </div>
+  </footer>
+
+
+  <!-- ==================== SCRIPTS ==================== -->
+  <script src="auth.js"></script>
+  <script src="cep.js"></script>
+
+  <script>
+    // ============================================================
+    // PROTEÇÃO + PREENCHIMENTO INICIAL
+    // ============================================================
+    (function () {
+      // Redireciona se não estiver logado
+      if (!isLoggedIn()) {
+        sessionStorage.setItem('redirectAfterLogin', window.location.href);
+        window.location.href = 'inscricao.html';
+        return;
+      }
+
+      // Carrega os dados do usuário logado e preenche os campos
+      var nomeLogado = getUsuarioLogado();
+      var usuarios   = carregarUsuarios();
+      var usuario    = usuarios.find(function(u) { return u.usuario === nomeLogado; });
+
+      if (!usuario) return;
+
+      document.getElementById('p-usuario').value     = usuario.usuario    || '';
+      document.getElementById('p-cep').value         = usuario.cep        ? formatarCep(usuario.cep) : '';
+      document.getElementById('p-rua').value         = usuario.rua        || '';
+      document.getElementById('p-numero').value      = usuario.numero     || '';
+      document.getElementById('p-complemento').value = usuario.complemento|| '';
+      document.getElementById('p-bairro').value      = usuario.bairro     || '';
+      document.getElementById('p-cidade').value      = usuario.cidade     || '';
+      document.getElementById('p-uf').value          = usuario.uf         || '';
+    })();
+
+    function formatarCep(cep) {
+      var s = cep.replace(/\D/g, '');
+      return s.length === 8 ? s.slice(0,5) + '-' + s.slice(5) : s;
+    }
+
+    // ============================================================
+    // MÁSCARA DO CEP NA PÁGINA DE PERFIL
+    // ============================================================
+    function mascaraCepPerfil(input) {
+      var v = input.value.replace(/\D/g, '').slice(0, 8);
+      if (v.length > 5) v = v.slice(0, 5) + '-' + v.slice(5);
+      input.value = v;
+
+      // Busca endereço automaticamente quando CEP tiver 8 dígitos
+      if (v.replace(/\D/g, '').length === 8) {
+        fetch('https://viacep.com.br/ws/' + v.replace(/\D/g, '') + '/json/')
+          .then(function(r) { return r.json(); })
+          .then(function(d) {
+            if (!d.erro) {
+              document.getElementById('p-rua').value    = d.logradouro || '';
+              document.getElementById('p-bairro').value = d.bairro     || '';
+              document.getElementById('p-cidade').value = d.localidade || '';
+              document.getElementById('p-uf').value     = d.uf         || '';
+            }
+          })
+          .catch(function() {});
+      }
+    }
+
+    // ============================================================
+    // SALVAR ALTERAÇÕES
+    // ============================================================
+    function salvarPerfil() {
+      var msgErro    = document.getElementById('msg-perfil-erro');
+      var msgSucesso = document.getElementById('msg-perfil-sucesso');
+      msgErro.hidden = msgSucesso.hidden = true;
+
+      var nomeLogado   = getUsuarioLogado();
+      var novoUsuario  = document.getElementById('p-usuario').value.trim();
+      var senhaAtual   = document.getElementById('p-senha-atual').value.trim();
+      var novaSenha    = document.getElementById('p-nova-senha').value.trim();
+      var confirmarSenha = document.getElementById('p-confirmar-senha').value.trim();
+
+      // Campos obrigatórios
+      if (!novoUsuario) {
+        return exibirErro(msgErro, 'O nome de usuário não pode ficar vazio.');
+      }
+      if (!senhaAtual) {
+        return exibirErro(msgErro, 'Digite sua senha atual para confirmar as alterações.');
+      }
+
+      var usuarios = carregarUsuarios();
+      var idx      = usuarios.findIndex(function(u) { return u.usuario === nomeLogado; });
+      if (idx === -1) return exibirErro(msgErro, 'Usuário não encontrado.');
+
+      // Verifica senha atual
+      if (usuarios[idx].senha !== senhaAtual) {
+        return exibirErro(msgErro, 'Senha atual incorreta.');
+      }
+
+      // Verifica se novo nome já está em uso por outro usuário
+      if (novoUsuario !== nomeLogado) {
+        var nomeEmUso = usuarios.find(function(u) { return u.usuario === novoUsuario; });
+        if (nomeEmUso) return exibirErro(msgErro, 'Esse nome de usuário já está em uso.');
+      }
+
+      // Valida nova senha (se preenchida)
+      if (novaSenha) {
+        if (novaSenha.length < 4) return exibirErro(msgErro, 'A nova senha deve ter pelo menos 4 caracteres.');
+        if (novaSenha !== confirmarSenha) return exibirErro(msgErro, 'As novas senhas não coincidem.');
+      }
+
+      // Atualiza os dados
+      usuarios[idx].usuario     = novoUsuario;
+      if (novaSenha) usuarios[idx].senha = novaSenha;
+      usuarios[idx].cep         = document.getElementById('p-cep').value.replace(/\D/g, '');
+      usuarios[idx].rua         = document.getElementById('p-rua').value.trim();
+      usuarios[idx].numero      = document.getElementById('p-numero').value.trim();
+      usuarios[idx].complemento = document.getElementById('p-complemento').value.trim();
+      usuarios[idx].bairro      = document.getElementById('p-bairro').value.trim();
+      usuarios[idx].cidade      = document.getElementById('p-cidade').value.trim();
+      usuarios[idx].uf          = document.getElementById('p-uf').value.trim();
+
+      salvarUsuarios(usuarios);
+
+      // Atualiza o token de sessão se o nome mudou
+      if (novoUsuario !== nomeLogado) {
+        localStorage.setItem('authToken', novoUsuario);
+      }
+
+      // Limpa campos de senha e mostra sucesso
+      document.getElementById('p-senha-atual').value    = '';
+      document.getElementById('p-nova-senha').value     = '';
+      document.getElementById('p-confirmar-senha').value = '';
+
+      msgSucesso.textContent = '✅ Dados atualizados com sucesso!';
+      msgSucesso.hidden = false;
+      setTimeout(function() { msgSucesso.hidden = true; }, 3000);
+    }
+
+    function exibirErro(el, texto) {
+      el.textContent = texto;
+      el.hidden = false;
+    }
+
+    // ============================================================
+    // EXCLUIR CONTA
+    // ============================================================
+    function abrirModalExcluir()  { document.getElementById('modal-excluir').hidden = false; }
+    function fecharModalExcluir() { document.getElementById('modal-excluir').hidden = true; }
+
+    function excluirConta() {
+      var nomeLogado = getUsuarioLogado();
+      var usuarios   = carregarUsuarios();
+      var novos      = usuarios.filter(function(u) { return u.usuario !== nomeLogado; });
+
+      salvarUsuarios(novos);
+      localStorage.removeItem('authToken');
+      window.location.href = 'inscricao.html';
+    }
+
+    // Fechar modal clicando fora
+    document.getElementById('modal-excluir').addEventListener('click', function(e) {
+      if (e.target === this) fecharModalExcluir();
+    });
+  </script>
+
+</body>
+</html>

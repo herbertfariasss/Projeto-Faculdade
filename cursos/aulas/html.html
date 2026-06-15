@@ -34,9 +34,7 @@
       <img src="../../img/LOGOO.png" alt="logo" class="logo" />
 
       <nav class="nav">
-        <!-- Nome do usuário (preenchido pelo JS abaixo) -->
         <span class="saudacao" id="saudacao"></span>
-        <!-- Botão para voltar para a lista de cursos -->
         <a href="../cursos.html">← Voltar aos Cursos</a>
       </nav>
 
@@ -48,8 +46,6 @@
   <!-- ==================== CONTEÚDO PRINCIPAL ==================== -->
   <main class="conteudo-aulas">
 
-    <!-- Banner do curso com ícone e título -->
-    <!-- A classe "aula-html" define a cor do banner (ver aulas.css) -->
     <div class="aula-hero aula-html">
       <img src="../../img/apoio/licon1.svg" alt="HTML" class="aula-icone" />
       <div>
@@ -58,34 +54,30 @@
       </div>
     </div>
 
-    <!-- Lista de módulos do curso -->
     <div class="modulos-lista">
 
       <!-- ===== MÓDULO 1 ===== -->
       <div class="modulo-card">
-
-        <!-- Cabeçalho do módulo: número e título -->
         <div class="modulo-header">
           <span class="modulo-num">01</span>
           <h2>Estrutura básica</h2>
         </div>
-
-        <!-- Grade de vídeos do módulo -->
-        <!-- Cada "video-placeholder" será substituído por um <iframe> do YouTube -->
         <div class="videos-grid">
 
-          <div class="video-placeholder">
-            <div class="video-thumb">
-              <span class="play-icon">▶</span>
+                    <div class="video-placeholder">
+            <div class="video-wrapper" onclick="loadVideo(this, 'https://www.youtube.com/embed/_-wJSM5hrsc?autoplay=1')">
+              <img class="video-thumb-img" src="https://img.youtube.com/vi/_-wJSM5hrsc/hqdefault.jpg" alt="Estrutura Básica do HTML" />
+              <div class="play-btn">▶</div>
             </div>
-            <p>Aula em breve</p>
+            <p>Estrutura Básica do HTML</p>
           </div>
 
-          <div class="video-placeholder">
-            <div class="video-thumb">
-              <span class="play-icon">▶</span>
+                    <div class="video-placeholder">
+            <div class="video-wrapper" onclick="loadVideo(this, 'https://www.youtube.com/embed/MOd8PCyEB88?autoplay=1')">
+              <img class="video-thumb-img" src="https://img.youtube.com/vi/MOd8PCyEB88/hqdefault.jpg" alt="Curso de HTML Completo – Estrutura Básica" />
+              <div class="play-btn">▶</div>
             </div>
-            <p>Aula em breve</p>
+            <p>Curso de HTML Completo – Estrutura Básica</p>
           </div>
 
         </div>
@@ -100,14 +92,23 @@
           <h2>Tags semânticas</h2>
         </div>
         <div class="videos-grid">
-          <div class="video-placeholder">
-            <div class="video-thumb"><span class="play-icon">▶</span></div>
-            <p>Aula em breve</p>
+
+                    <div class="video-placeholder">
+            <div class="video-wrapper" onclick="loadVideo(this, 'https://www.youtube.com/embed/FGLslGWyZoU?autoplay=1')">
+              <img class="video-thumb-img" src="https://img.youtube.com/vi/FGLslGWyZoU/hqdefault.jpg" alt="Tags Semânticas – Iniciantes" />
+              <div class="play-btn">▶</div>
+            </div>
+            <p>Tags Semânticas – Iniciantes</p>
           </div>
-          <div class="video-placeholder">
-            <div class="video-thumb"><span class="play-icon">▶</span></div>
-            <p>Aula em breve</p>
+
+                    <div class="video-placeholder">
+            <div class="video-wrapper" onclick="loadVideo(this, 'https://www.youtube.com/embed/Ci2ZUZGMpgQ?autoplay=1')">
+              <img class="video-thumb-img" src="https://img.youtube.com/vi/Ci2ZUZGMpgQ/hqdefault.jpg" alt="Tags Semânticas HTML5 – Guanabara" />
+              <div class="play-btn">▶</div>
+            </div>
+            <p>Tags Semânticas HTML5 – Guanabara</p>
           </div>
+
         </div>
       </div>
       <!-- ===== FIM MÓDULO 2 ===== -->
@@ -120,14 +121,23 @@
           <h2>Formulários</h2>
         </div>
         <div class="videos-grid">
-          <div class="video-placeholder">
-            <div class="video-thumb"><span class="play-icon">▶</span></div>
-            <p>Aula em breve</p>
+
+                    <div class="video-placeholder">
+            <div class="video-wrapper" onclick="loadVideo(this, 'https://www.youtube.com/embed/Cc50PtXk-e4?autoplay=1')">
+              <img class="video-thumb-img" src="https://img.youtube.com/vi/Cc50PtXk-e4/hqdefault.jpg" alt="Formulários HTML – form, input e button" />
+              <div class="play-btn">▶</div>
+            </div>
+            <p>Formulários HTML – form, input e button</p>
           </div>
-          <div class="video-placeholder">
-            <div class="video-thumb"><span class="play-icon">▶</span></div>
-            <p>Aula em breve</p>
+
+                    <div class="video-placeholder">
+            <div class="video-wrapper" onclick="loadVideo(this, 'https://www.youtube.com/embed/metoFY-x_yg?autoplay=1')">
+              <img class="video-thumb-img" src="https://img.youtube.com/vi/metoFY-x_yg/hqdefault.jpg" alt="Formulários em HTML5 – Guanabara" />
+              <div class="play-btn">▶</div>
+            </div>
+            <p>Formulários em HTML5 – Guanabara</p>
           </div>
+
         </div>
       </div>
       <!-- ===== FIM MÓDULO 3 ===== -->
@@ -140,20 +150,28 @@
           <h2>Acessibilidade</h2>
         </div>
         <div class="videos-grid">
-          <div class="video-placeholder">
-            <div class="video-thumb"><span class="play-icon">▶</span></div>
-            <p>Aula em breve</p>
+
+                    <div class="video-placeholder">
+            <div class="video-wrapper" onclick="loadVideo(this, 'https://www.youtube.com/embed/sCHO4A-EIkc?autoplay=1')">
+              <img class="video-thumb-img" src="https://img.youtube.com/vi/sCHO4A-EIkc/hqdefault.jpg" alt="HTML Acessibilidade – role e aria" />
+              <div class="play-btn">▶</div>
+            </div>
+            <p>HTML Acessibilidade – role e aria</p>
           </div>
-          <div class="video-placeholder">
-            <div class="video-thumb"><span class="play-icon">▶</span></div>
-            <p>Aula em breve</p>
+
+                    <div class="video-placeholder">
+            <div class="video-wrapper" onclick="loadVideo(this, 'https://www.youtube.com/embed/pKOp7pQQzNM?autoplay=1')">
+              <img class="video-thumb-img" src="https://img.youtube.com/vi/pKOp7pQQzNM/hqdefault.jpg" alt="Tags Semânticas e Acessibilidade" />
+              <div class="play-btn">▶</div>
+            </div>
+            <p>Tags Semânticas e Acessibilidade</p>
           </div>
+
         </div>
       </div>
       <!-- ===== FIM MÓDULO 4 ===== -->
 
     </div>
-    <!-- fim da lista de módulos -->
 
   </main>
   <!-- ==================== FIM DO CONTEÚDO ==================== -->
@@ -192,22 +210,29 @@
       <p>© Tech Cursos — Devs: Herbert, João, Giovanni, Matheus e Caique.</p>
     </div>
   </footer>
-  <!-- ==================== FIM DO RODAPÉ ==================== -->
 
 
   <!-- ==================== SCRIPTS ==================== -->
   <script src="../../inscricao/auth.js"></script>
 
   <script>
-    // PROTEÇÃO DA PÁGINA: redireciona para o login se não estiver logado
     if (!isLoggedIn()) {
       sessionStorage.setItem('redirectAfterLogin', window.location.href);
       window.location.href = '../../inscricao/inscricao.html';
     }
-
-    // Mostra "Olá, [nome]" no cabeçalho
     document.getElementById('saudacao').textContent = 'Olá, ' + getUsuarioLogado();
   </script>
 
+
+  <script>
+    function loadVideo(wrapper, embedUrl) {
+      var iframe = document.createElement('iframe');
+      iframe.src = embedUrl;
+      iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+      iframe.allowFullscreen = true;
+      wrapper.innerHTML = '';
+      wrapper.appendChild(iframe);
+    }
+  </script>
 </body>
 </html>
