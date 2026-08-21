@@ -51,7 +51,7 @@ header {
   font-size: 1.1em;
   text-decoration: none;
   color: white;
-  font-family: "Syne";
+  font-family: 'Syne';
   background: rgb(57, 2, 145);
   padding: 8px 20px;
   border: rgb(85, 3, 179);
@@ -133,7 +133,7 @@ header {
 .mobile-menu a {
   color: white;
   text-decoration: none;
-  font-family: "Syne";
+  font-family: 'Syne';
   font-size: 1rem;
   padding: 10px 0;
   border-bottom: 1px solid rgba(255, 255, 255, 0.15);

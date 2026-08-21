@@ -5,9 +5,7 @@
   Armazenamento local apenas para estudos. Em produção, use backend.
 */
 
-var USUARIOS_PADRAO = [
-  { usuario: 'admin', senhaHash: null }
-];
+var USUARIOS_PADRAO = [{ usuario: 'admin', senhaHash: null }];
 
 var SESSION_TTL_MS = 1000 * 60 * 60 * 6; // 6 horas
 
@@ -108,7 +106,7 @@ async function normalizarUsuarios() {
 function criarSessao(usuario) {
   var sessao = {
     user: usuario,
-    token: (crypto.randomUUID ? crypto.randomUUID() : String(Date.now()) + Math.random().toString(16).slice(2)),
+    token: crypto.randomUUID ? crypto.randomUUID() : String(Date.now()) + Math.random().toString(16).slice(2),
     expiresAt: Date.now() + SESSION_TTL_MS
   };
   localStorage.setItem('authSession', JSON.stringify(sessao));

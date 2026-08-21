@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <!--
   =============================================
   html.html — Página de Aulas: Curso de HTML
@@ -11,179 +11,249 @@
 -->
 
 <html lang="pt-br">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Curso de HTML — Tech Cursos</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Curso de HTML — Tech Cursos</title>
 
-  <!-- Estilos desta página -->
-  <link rel="stylesheet" href="aulas.css" />
-  <link rel="stylesheet" href="../../css/footer.css" />
+    <!-- Estilos desta página -->
+    <link rel="stylesheet" href="aulas.css" />
+    <link rel="stylesheet" href="../../css/footer.css" />
 
-  <!-- Fontes do Google -->
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-</head>
+    <!-- Fontes do Google -->
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
 
-<body>
+  <body>
+    <!-- ==================== CABEÇALHO ==================== -->
+    <header class="cabecalho">
+      <div class="container-header">
+        <img src="../../img/LOGOO.png" alt="logo" class="logo" />
 
-  <!-- ==================== CABEÇALHO ==================== -->
-  <header class="cabecalho">
-    <div class="container-header">
-
-      <img src="../../img/LOGOO.png" alt="logo" class="logo" />
-
-      <nav class="nav">
-        <span class="saudacao" id="saudacao"></span>
-        <a href="../cursos.html">← Voltar aos Cursos</a>
-      </nav>
-
-    </div>
-  </header>
-  <!-- ==================== FIM DO CABEÇALHO ==================== -->
-
-
-  <!-- ==================== CONTEÚDO PRINCIPAL ==================== -->
-  <main class="conteudo-aulas">
-
-    <div class="aula-hero aula-html">
-      <img src="../../img/apoio/licon1.svg" alt="HTML" class="aula-icone" />
-      <div>
-        <h1 class="aula-titulo">Curso de <span class="destaque">HTML</span></h1>
-        <p class="aula-subtitulo">Estruture páginas profissionais do zero com confiança e domínio.</p>
+        <nav class="nav">
+          <span class="saudacao" id="saudacao"></span>
+          <a href="../cursos.html">← Voltar aos Cursos</a>
+        </nav>
       </div>
-    </div>
+    </header>
+    <!-- ==================== FIM DO CABEÇALHO ==================== -->
 
-    <div class="modulos-lista">
-
-      <!-- ===== MÓDULO 1 ===== -->
-      <div class="modulo-card">
-        <div class="modulo-header">
-          <span class="modulo-num">01</span>
-          <h2>Estrutura básica</h2>
-        </div>
-        <div class="videos-grid">
-
-                    <div class="video-placeholder">
-            <div class="video-wrapper js-video-trigger" role="button" tabindex="0" data-embed-url="https://www.youtube.com/embed/_-wJSM5hrsc?autoplay=1" aria-label="Reproduzir vídeo">
-              <img class="video-thumb-img" loading="lazy" src="https://img.youtube.com/vi/_-wJSM5hrsc/hqdefault.jpg" alt="Estrutura Básica do HTML" />
-              <div class="play-btn">▶</div>
-            </div>
-            <p>Estrutura Básica do HTML</p>
-          </div>
-
-                    <div class="video-placeholder">
-            <div class="video-wrapper js-video-trigger" role="button" tabindex="0" data-embed-url="https://www.youtube.com/embed/MOd8PCyEB88?autoplay=1" aria-label="Reproduzir vídeo">
-              <img class="video-thumb-img" loading="lazy" src="https://img.youtube.com/vi/MOd8PCyEB88/hqdefault.jpg" alt="Curso de HTML Completo – Estrutura Básica" />
-              <div class="play-btn">▶</div>
-            </div>
-            <p>Curso de HTML Completo – Estrutura Básica</p>
-          </div>
-
+    <!-- ==================== CONTEÚDO PRINCIPAL ==================== -->
+    <main class="conteudo-aulas">
+      <div class="aula-hero aula-html">
+        <img src="../../img/apoio/licon1.svg" alt="HTML" class="aula-icone" />
+        <div>
+          <h1 class="aula-titulo">Curso de <span class="destaque">HTML</span></h1>
+          <p class="aula-subtitulo">Estruture páginas profissionais do zero com confiança e domínio.</p>
         </div>
       </div>
-      <!-- ===== FIM MÓDULO 1 ===== -->
 
-
-      <!-- ===== MÓDULO 2 ===== -->
-      <div class="modulo-card">
-        <div class="modulo-header">
-          <span class="modulo-num">02</span>
-          <h2>Tags semânticas</h2>
-        </div>
-        <div class="videos-grid">
-
-                    <div class="video-placeholder">
-            <div class="video-wrapper js-video-trigger" role="button" tabindex="0" data-embed-url="https://www.youtube.com/embed/FGLslGWyZoU?autoplay=1" aria-label="Reproduzir vídeo">
-              <img class="video-thumb-img" loading="lazy" src="https://img.youtube.com/vi/FGLslGWyZoU/hqdefault.jpg" alt="Tags Semânticas – Iniciantes" />
-              <div class="play-btn">▶</div>
-            </div>
-            <p>Tags Semânticas – Iniciantes</p>
+      <div class="modulos-lista">
+        <!-- ===== MÓDULO 1 ===== -->
+        <div class="modulo-card">
+          <div class="modulo-header">
+            <span class="modulo-num">01</span>
+            <h2>Estrutura básica</h2>
           </div>
-
-                    <div class="video-placeholder">
-            <div class="video-wrapper js-video-trigger" role="button" tabindex="0" data-embed-url="https://www.youtube.com/embed/Ci2ZUZGMpgQ?autoplay=1" aria-label="Reproduzir vídeo">
-              <img class="video-thumb-img" loading="lazy" src="https://img.youtube.com/vi/Ci2ZUZGMpgQ/hqdefault.jpg" alt="Tags Semânticas HTML5 – Guanabara" />
-              <div class="play-btn">▶</div>
+          <div class="videos-grid">
+            <div class="video-placeholder">
+              <div
+                class="video-wrapper js-video-trigger"
+                role="button"
+                tabindex="0"
+                data-embed-url="https://www.youtube.com/embed/_-wJSM5hrsc?autoplay=1"
+                aria-label="Reproduzir vídeo"
+              >
+                <img
+                  class="video-thumb-img"
+                  loading="lazy"
+                  src="https://img.youtube.com/vi/_-wJSM5hrsc/hqdefault.jpg"
+                  alt="Estrutura Básica do HTML"
+                />
+                <div class="play-btn">▶</div>
+              </div>
+              <p>Estrutura Básica do HTML</p>
             </div>
-            <p>Tags Semânticas HTML5 – Guanabara</p>
-          </div>
 
+            <div class="video-placeholder">
+              <div
+                class="video-wrapper js-video-trigger"
+                role="button"
+                tabindex="0"
+                data-embed-url="https://www.youtube.com/embed/MOd8PCyEB88?autoplay=1"
+                aria-label="Reproduzir vídeo"
+              >
+                <img
+                  class="video-thumb-img"
+                  loading="lazy"
+                  src="https://img.youtube.com/vi/MOd8PCyEB88/hqdefault.jpg"
+                  alt="Curso de HTML Completo – Estrutura Básica"
+                />
+                <div class="play-btn">▶</div>
+              </div>
+              <p>Curso de HTML Completo – Estrutura Básica</p>
+            </div>
+          </div>
         </div>
+        <!-- ===== FIM MÓDULO 1 ===== -->
+
+        <!-- ===== MÓDULO 2 ===== -->
+        <div class="modulo-card">
+          <div class="modulo-header">
+            <span class="modulo-num">02</span>
+            <h2>Tags semânticas</h2>
+          </div>
+          <div class="videos-grid">
+            <div class="video-placeholder">
+              <div
+                class="video-wrapper js-video-trigger"
+                role="button"
+                tabindex="0"
+                data-embed-url="https://www.youtube.com/embed/FGLslGWyZoU?autoplay=1"
+                aria-label="Reproduzir vídeo"
+              >
+                <img
+                  class="video-thumb-img"
+                  loading="lazy"
+                  src="https://img.youtube.com/vi/FGLslGWyZoU/hqdefault.jpg"
+                  alt="Tags Semânticas – Iniciantes"
+                />
+                <div class="play-btn">▶</div>
+              </div>
+              <p>Tags Semânticas – Iniciantes</p>
+            </div>
+
+            <div class="video-placeholder">
+              <div
+                class="video-wrapper js-video-trigger"
+                role="button"
+                tabindex="0"
+                data-embed-url="https://www.youtube.com/embed/Ci2ZUZGMpgQ?autoplay=1"
+                aria-label="Reproduzir vídeo"
+              >
+                <img
+                  class="video-thumb-img"
+                  loading="lazy"
+                  src="https://img.youtube.com/vi/Ci2ZUZGMpgQ/hqdefault.jpg"
+                  alt="Tags Semânticas HTML5 – Guanabara"
+                />
+                <div class="play-btn">▶</div>
+              </div>
+              <p>Tags Semânticas HTML5 – Guanabara</p>
+            </div>
+          </div>
+        </div>
+        <!-- ===== FIM MÓDULO 2 ===== -->
+
+        <!-- ===== MÓDULO 3 ===== -->
+        <div class="modulo-card">
+          <div class="modulo-header">
+            <span class="modulo-num">03</span>
+            <h2>Formulários</h2>
+          </div>
+          <div class="videos-grid">
+            <div class="video-placeholder">
+              <div
+                class="video-wrapper js-video-trigger"
+                role="button"
+                tabindex="0"
+                data-embed-url="https://www.youtube.com/embed/Cc50PtXk-e4?autoplay=1"
+                aria-label="Reproduzir vídeo"
+              >
+                <img
+                  class="video-thumb-img"
+                  loading="lazy"
+                  src="https://img.youtube.com/vi/Cc50PtXk-e4/hqdefault.jpg"
+                  alt="Formulários HTML – form, input e button"
+                />
+                <div class="play-btn">▶</div>
+              </div>
+              <p>Formulários HTML – form, input e button</p>
+            </div>
+
+            <div class="video-placeholder">
+              <div
+                class="video-wrapper js-video-trigger"
+                role="button"
+                tabindex="0"
+                data-embed-url="https://www.youtube.com/embed/metoFY-x_yg?autoplay=1"
+                aria-label="Reproduzir vídeo"
+              >
+                <img
+                  class="video-thumb-img"
+                  loading="lazy"
+                  src="https://img.youtube.com/vi/metoFY-x_yg/hqdefault.jpg"
+                  alt="Formulários em HTML5 – Guanabara"
+                />
+                <div class="play-btn">▶</div>
+              </div>
+              <p>Formulários em HTML5 – Guanabara</p>
+            </div>
+          </div>
+        </div>
+        <!-- ===== FIM MÓDULO 3 ===== -->
+
+        <!-- ===== MÓDULO 4 ===== -->
+        <div class="modulo-card">
+          <div class="modulo-header">
+            <span class="modulo-num">04</span>
+            <h2>Acessibilidade</h2>
+          </div>
+          <div class="videos-grid">
+            <div class="video-placeholder">
+              <div
+                class="video-wrapper js-video-trigger"
+                role="button"
+                tabindex="0"
+                data-embed-url="https://www.youtube.com/embed/sCHO4A-EIkc?autoplay=1"
+                aria-label="Reproduzir vídeo"
+              >
+                <img
+                  class="video-thumb-img"
+                  loading="lazy"
+                  src="https://img.youtube.com/vi/sCHO4A-EIkc/hqdefault.jpg"
+                  alt="HTML Acessibilidade – role e aria"
+                />
+                <div class="play-btn">▶</div>
+              </div>
+              <p>HTML Acessibilidade – role e aria</p>
+            </div>
+
+            <div class="video-placeholder">
+              <div
+                class="video-wrapper js-video-trigger"
+                role="button"
+                tabindex="0"
+                data-embed-url="https://www.youtube.com/embed/pKOp7pQQzNM?autoplay=1"
+                aria-label="Reproduzir vídeo"
+              >
+                <img
+                  class="video-thumb-img"
+                  loading="lazy"
+                  src="https://img.youtube.com/vi/pKOp7pQQzNM/hqdefault.jpg"
+                  alt="Tags Semânticas e Acessibilidade"
+                />
+                <div class="play-btn">▶</div>
+              </div>
+              <p>Tags Semânticas e Acessibilidade</p>
+            </div>
+          </div>
+        </div>
+        <!-- ===== FIM MÓDULO 4 ===== -->
       </div>
-      <!-- ===== FIM MÓDULO 2 ===== -->
+    </main>
+    <!-- ==================== FIM DO CONTEÚDO ==================== -->
 
+    <!-- ==================== RODAPÉ ==================== -->
+    <div data-site-footer data-base="../.."></div>
 
-      <!-- ===== MÓDULO 3 ===== -->
-      <div class="modulo-card">
-        <div class="modulo-header">
-          <span class="modulo-num">03</span>
-          <h2>Formulários</h2>
-        </div>
-        <div class="videos-grid">
-
-                    <div class="video-placeholder">
-            <div class="video-wrapper js-video-trigger" role="button" tabindex="0" data-embed-url="https://www.youtube.com/embed/Cc50PtXk-e4?autoplay=1" aria-label="Reproduzir vídeo">
-              <img class="video-thumb-img" loading="lazy" src="https://img.youtube.com/vi/Cc50PtXk-e4/hqdefault.jpg" alt="Formulários HTML – form, input e button" />
-              <div class="play-btn">▶</div>
-            </div>
-            <p>Formulários HTML – form, input e button</p>
-          </div>
-
-                    <div class="video-placeholder">
-            <div class="video-wrapper js-video-trigger" role="button" tabindex="0" data-embed-url="https://www.youtube.com/embed/metoFY-x_yg?autoplay=1" aria-label="Reproduzir vídeo">
-              <img class="video-thumb-img" loading="lazy" src="https://img.youtube.com/vi/metoFY-x_yg/hqdefault.jpg" alt="Formulários em HTML5 – Guanabara" />
-              <div class="play-btn">▶</div>
-            </div>
-            <p>Formulários em HTML5 – Guanabara</p>
-          </div>
-
-        </div>
-      </div>
-      <!-- ===== FIM MÓDULO 3 ===== -->
-
-
-      <!-- ===== MÓDULO 4 ===== -->
-      <div class="modulo-card">
-        <div class="modulo-header">
-          <span class="modulo-num">04</span>
-          <h2>Acessibilidade</h2>
-        </div>
-        <div class="videos-grid">
-
-                    <div class="video-placeholder">
-            <div class="video-wrapper js-video-trigger" role="button" tabindex="0" data-embed-url="https://www.youtube.com/embed/sCHO4A-EIkc?autoplay=1" aria-label="Reproduzir vídeo">
-              <img class="video-thumb-img" loading="lazy" src="https://img.youtube.com/vi/sCHO4A-EIkc/hqdefault.jpg" alt="HTML Acessibilidade – role e aria" />
-              <div class="play-btn">▶</div>
-            </div>
-            <p>HTML Acessibilidade – role e aria</p>
-          </div>
-
-                    <div class="video-placeholder">
-            <div class="video-wrapper js-video-trigger" role="button" tabindex="0" data-embed-url="https://www.youtube.com/embed/pKOp7pQQzNM?autoplay=1" aria-label="Reproduzir vídeo">
-              <img class="video-thumb-img" loading="lazy" src="https://img.youtube.com/vi/pKOp7pQQzNM/hqdefault.jpg" alt="Tags Semânticas e Acessibilidade" />
-              <div class="play-btn">▶</div>
-            </div>
-            <p>Tags Semânticas e Acessibilidade</p>
-          </div>
-
-        </div>
-      </div>
-      <!-- ===== FIM MÓDULO 4 ===== -->
-
-    </div>
-
-  </main>
-  <!-- ==================== FIM DO CONTEÚDO ==================== -->
-
-
-  <!-- ==================== RODAPÉ ==================== -->
-  <div data-site-footer data-base="../.."></div>
-
-
-  <!-- ==================== SCRIPTS ==================== -->
-  <script src="../../inscricao/auth.js" defer></script>
-  <script src="../../js/footer.js" defer></script>
-  <script src="aulas.js" defer></script>
-</body>
+    <!-- ==================== SCRIPTS ==================== -->
+    <script src="../../inscricao/auth.js" defer></script>
+    <script src="../../js/footer.js" defer></script>
+    <script src="aulas.js" defer></script>
+  </body>
 </html>

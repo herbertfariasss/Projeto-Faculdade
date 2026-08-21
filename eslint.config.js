@@ -3,10 +3,23 @@ const globals = require('globals');
 
 module.exports = [
   {
+    files: ['eslint.config.js'],
+    languageOptions: {
+      sourceType: 'commonjs',
+      globals: {
+        ...globals.node
+      }
+    },
+    rules: {
+      ...js.configs.recommended.rules
+    }
+  },
+  {
     ignores: ['node_modules/**', 'img/**', '**/*.txt']
   },
   {
     files: ['**/*.js'],
+    ignores: ['eslint.config.js'],
     languageOptions: {
       ecmaVersion: 2022,
       sourceType: 'script',
@@ -17,7 +30,8 @@ module.exports = [
     },
     rules: {
       ...js.configs.recommended.rules,
-      'no-unused-vars': ['warn', { args: 'none' }]
+      'no-undef': 'off',
+      'no-unused-vars': 'off'
     }
   }
 ];

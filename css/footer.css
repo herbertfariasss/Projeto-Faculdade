@@ -8,7 +8,7 @@
 }
 
 .rod-contato-titulo .contato {
-  font-family: "Syne", sans-serif;
+  font-family: 'Syne', sans-serif;
   font-size: clamp(2rem, 5vw, 3rem);
   color: #c8d6e5;
   letter-spacing: 0.08em;
@@ -21,7 +21,7 @@ footer {
   color: #c8d6e5;
   width: 100%;
   margin-top: 60px;
-  font-family: "Syne", sans-serif;
+  font-family: 'Syne', sans-serif;
   box-sizing: border-box;
 }
 
@@ -64,14 +64,17 @@ footer strong {
 }
 
 /* Títulos das colunas Soluções / Legal / Empresa */
-.rod1 h3, .rod2 h3, .rodDados h3 {
+.rod1 h3,
+.rod2 h3,
+.rodDados h3 {
   color: #c8d6e5;
   margin: 0 0 14px 0;
   font-size: 1rem;
 }
 
 /* Listas de links das colunas */
-.rod1 ul, .rod2 ul {
+.rod1 ul,
+.rod2 ul {
   list-style: none;
   padding: 0;
   margin: 0;
@@ -80,14 +83,16 @@ footer strong {
   gap: 10px;
 }
 
-.rod1 ul li a, .rod2 ul li a {
+.rod1 ul li a,
+.rod2 ul li a {
   color: #7a8fa6;
   text-decoration: none;
   font-size: 0.9rem;
   transition: color 0.2s;
 }
 
-.rod1 ul li a:hover, .rod2 ul li a:hover {
+.rod1 ul li a:hover,
+.rod2 ul li a:hover {
   color: #c8d6e5;
 }
 
@@ -96,7 +101,9 @@ footer strong {
   color: #7c5cfc;
   text-decoration: none;
 }
-.rodDados a:hover { color: #a78bfa; }
+.rodDados a:hover {
+  color: #a78bfa;
+}
 
 /* Linha final © Tech Cursos */
 .rodFinal {
@@ -123,5 +130,7 @@ footer strong {
     padding: 28px 20px 24px;
     gap: 20px;
   }
-  .rodFinal { padding: 16px 20px; }
+  .rodFinal {
+    padding: 16px 20px;
+  }
 }

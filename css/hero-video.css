@@ -14,7 +14,9 @@
   height: 100%;
   object-fit: cover;
   display: block;
-  transition: transform 0.3s ease, opacity 0.3s;
+  transition:
+    transform 0.3s ease,
+    opacity 0.3s;
 }
 
 .vid-wrapper:hover .vid-thumb,
@@ -38,7 +40,9 @@
   font-size: 1.6rem;
   color: #fff;
   pointer-events: none;
-  transition: background 0.2s, transform 0.2s;
+  transition:
+    background 0.2s,
+    transform 0.2s;
 }
 
 .vid-wrapper:hover .vid-play-btn,

@@ -38,7 +38,6 @@
   left: auto !important;
   margin-top: 0 !important;
 }
- 
 
 /* Evita rolagem horizontal */
 html {
@@ -57,26 +56,44 @@ body {
 * {
   box-sizing: border-box !important;
 }
- 
 
- 
 /* ========== ORDEM DAS SEÇÕES NO BODY (flex column) ========== */
 /* body é flex column — order define a sequência visual em telas pequenas */
 header,
-.cabecalho    { order: 0 !important; }
-.hero         { order: 1 !important; }
+.cabecalho {
+  order: 0 !important;
+}
+.hero {
+  order: 1 !important;
+}
 hr#Cursos,
-.linha-curso  { order: 2 !important; }
-.O_Curso      { order: 3 !important; }
-.aprender     { order: 4 !important; }
-.cursos-cards  { order: 5 !important; }
+.linha-curso {
+  order: 2 !important;
+}
+.O_Curso {
+  order: 3 !important;
+}
+.aprender {
+  order: 4 !important;
+}
+.cursos-cards {
+  order: 5 !important;
+}
 .cursos-cards .html-box,
 .cursos-cards .css-box,
 .cursos-cards .js-box,
-.cursos-cards .py-box { order: unset !important; }
-.secao-sobre  { order: 6 !important; }
-.contato      { order: 7 !important; }
-footer        { order: 8 !important; }
+.cursos-cards .py-box {
+  order: unset !important;
+}
+.secao-sobre {
+  order: 6 !important;
+}
+.contato {
+  order: 7 !important;
+}
+footer {
+  order: 8 !important;
+}
 
 /* ========== HERO — textos à esquerda, vídeo à direita ========== */
 .hero {
@@ -98,7 +115,6 @@ footer        { order: 8 !important; }
   align-items: flex-start !important;
   text-align: left !important;
 }
- 
 
 .textoIntro,
 .textoIntro2,
@@ -106,26 +122,25 @@ footer        { order: 8 !important; }
   width: 100% !important;
   display: block !important;
 }
- 
 
 /* Tamanhos dos títulos do hero */
 .textoIntro {
   font-size: clamp(1.8rem, 5vw, 2.5rem) !important;
   margin: 0 !important;
 }
- 
+
 .textoIntro2 {
   font-size: clamp(1.2rem, 2.8vw, 1.85rem) !important;
   text-align: left !important;
   margin: 16px 0 0 !important;
 }
- 
+
 .textoIntro3 {
   font-size: clamp(0.85rem, 2vw, 1rem) !important;
   text-align: center !important;
   margin: 0 !important;
 }
- 
+
 /* Vídeo responsivo dentro do hero */
 .hero .vid {
   width: 100% !important;
@@ -148,20 +163,20 @@ footer        { order: 8 !important; }
   margin-top: 28px !important;
   width: 100% !important;
 }
- 
+
 /* Títulos "O CURSO" e "O que você irá aprender?" */
 .O_Curso {
   margin: 40px 0 4px !important;
   text-align: center !important;
 }
- 
+
 .aprender {
   margin: 0 0 24px !important;
   text-align: center !important;
   font-size: clamp(1.2rem, 3vw, 1.8rem) !important;
   font-family: 'Syne';
 }
- 
+
 .linha-curso,
 .linha-sobre,
 .linha-contato {
@@ -171,7 +186,7 @@ footer        { order: 8 !important; }
   margin: 32px auto !important;
   display: block !important;
 }
- 
+
 /* Container dos 4 cards na index */
 .cursos-cards {
   display: flex !important;
@@ -179,7 +194,7 @@ footer        { order: 8 !important; }
   align-items: center !important;
   width: 100% !important;
   max-width: 900px !important;
-  margin: 0 auto 48px ;
+  margin: 0 auto 48px;
   gap: 8px !important;
 }
 
@@ -194,19 +209,27 @@ footer        { order: 8 !important; }
 .py-box {
   width: 280px !important;
   height: auto !important;
-  margin: 12px 0 !important;   /* espaço vertical entre cards */
+  margin: 12px 0 !important; /* espaço vertical entre cards */
 }
- 
+
 /* Zig-zag: desloca alternadamente para esquerda e direita */
 .cursos-cards .html-box,
-.html-box { transform: translateX(-80px) !important; }
+.html-box {
+  transform: translateX(-80px) !important;
+}
 .cursos-cards .css-box,
-.css-box  { transform: translateX( 80px) !important; }
+.css-box {
+  transform: translateX(80px) !important;
+}
 .cursos-cards .js-box,
-.js-box   { transform: translateX(-80px) !important; }
+.js-box {
+  transform: translateX(-80px) !important;
+}
 .cursos-cards .py-box,
-.py-box   { transform: translateX( 80px) !important; }
- 
+.py-box {
+  transform: translateX(80px) !important;
+}
+
 /* Seção Sobre Nós — margem abaixo dos cards */
 .secao-sobre {
   width: 100% !important;
@@ -232,18 +255,18 @@ footer        { order: 8 !important; }
   margin: 0 !important;
   padding: 0 16px !important;
 }
- 
+
 /* Rodapé — remove margin-top antigo */
 footer {
   margin-top: 0 !important;
   width: 100% !important;
   padding: 20px !important;
 }
- 
+
 /* ──────────────────────────────────────────
    10. MEDIA QUERIES
    ────────────────────────────────────────── */
- 
+
 /* ========== DESKTOP — acima de 1024px ========== */
 @media (min-width: 1025px) {
   .hero {
@@ -261,7 +284,7 @@ footer {
     text-align: left !important;
   }
 }
- 
+
 /* ── TABLET (768px – 1024px) ── */
 @media (max-width: 1024px) and (min-width: 768px) {
   .hero {
@@ -277,25 +300,24 @@ footer {
     padding: 12px 48px !important;
   }
 }
- 
+
 /* ========== MOBILE — abaixo de 767px (hero em coluna, cards menores) ========== */
 @media (max-width: 767px) {
- 
   /* Header empilha em coluna */
   .container-header {
     flex-direction: column !important;
     gap: 12px !important;
     padding: 8px 16px !important;
   }
- 
+
   .linha-cabecalho {
     display: none !important; /* esconde a linha vertical do header no mobile */
   }
- 
+
   .logo {
     width: 120px !important;
   }
- 
+
   .nav {
     flex-direction: row !important;
     flex-wrap: wrap !important;
@@ -303,11 +325,11 @@ footer {
     gap: 8px 16px !important;
     margin-right: 0 !important;
   }
- 
+
   .nav a {
     font-size: 0.95rem !important;
   }
- 
+
   .hero {
     padding: 8px 16px 32px !important;
   }
@@ -332,7 +354,7 @@ footer {
     align-items: center !important;
     justify-content: center !important;
   }
- 
+
   .btn-roxo,
   .btn-contorno {
     width: 100% !important;
@@ -340,7 +362,7 @@ footer {
     padding: 12px 24px !important;
     text-align: center !important;
   }
- 
+
   /* Cards de curso em coluna única, zig-zag menor no mobile */
   .html-box,
   .css-box,
@@ -349,34 +371,74 @@ footer {
     width: 85% !important;
     max-width: 360px !important;
   }
- 
-  .html-box { transform: translateX(-16px) !important; }
-  .css-box  { transform: translateX( 16px) !important; }
-  .js-box   { transform: translateX(-16px) !important; }
-  .py-box   { transform: translateX( 16px) !important; }
+
+  .html-box {
+    transform: translateX(-16px) !important;
+  }
+  .css-box {
+    transform: translateX(16px) !important;
+  }
+  .js-box {
+    transform: translateX(-16px) !important;
+  }
+  .py-box {
+    transform: translateX(16px) !important;
+  }
 }
- 
+
 /* ── MOBILE PEQUENO (abaixo de 480px) ── */
 @media (max-width: 480px) {
-  .textoIntro  { font-size: 1.6rem !important; }
-  .textoIntro2 { font-size: 1.2rem !important; }
-  .textoIntro3 { font-size: 0.82rem !important; }
- 
-  .nav a { font-size: 0.85rem !important; }
+  .textoIntro {
+    font-size: 1.6rem !important;
+  }
+  .textoIntro2 {
+    font-size: 1.2rem !important;
+  }
+  .textoIntro3 {
+    font-size: 0.82rem !important;
+  }
+
+  .nav a {
+    font-size: 0.85rem !important;
+  }
 }
- 
+
 /* ── HOVER dos cards — mantém zig-zag + animação ── */
-.html-box:hover { transform: translateX(-80px) scale(1.05) !important; filter: brightness(1.1) !important; }
-.css-box:hover  { transform: translateX( 80px) scale(1.05) !important; filter: brightness(1.1) !important; }
-.js-box:hover   { transform: translateX(-80px) scale(1.05) !important; filter: brightness(1.1) !important; }
-.py-box:hover   { transform: translateX( 80px) scale(1.05) !important; filter: brightness(1.1) !important; }
- 
+.html-box:hover {
+  transform: translateX(-80px) scale(1.05) !important;
+  filter: brightness(1.1) !important;
+}
+.css-box:hover {
+  transform: translateX(80px) scale(1.05) !important;
+  filter: brightness(1.1) !important;
+}
+.js-box:hover {
+  transform: translateX(-80px) scale(1.05) !important;
+  filter: brightness(1.1) !important;
+}
+.py-box:hover {
+  transform: translateX(80px) scale(1.05) !important;
+  filter: brightness(1.1) !important;
+}
+
 /* Mobile: hover sem deslocamento lateral */
 @media (max-width: 767px) {
-  .html-box:hover { transform: translateX(-16px) scale(1.05) !important; filter: brightness(1.1) !important; }
-  .css-box:hover  { transform: translateX( 16px) scale(1.05) !important; filter: brightness(1.1) !important; }
-  .js-box:hover   { transform: translateX(-16px) scale(1.05) !important; filter: brightness(1.1) !important; }
-  .py-box:hover   { transform: translateX( 16px) scale(1.05) !important; filter: brightness(1.1) !important; }
+  .html-box:hover {
+    transform: translateX(-16px) scale(1.05) !important;
+    filter: brightness(1.1) !important;
+  }
+  .css-box:hover {
+    transform: translateX(16px) scale(1.05) !important;
+    filter: brightness(1.1) !important;
+  }
+  .js-box:hover {
+    transform: translateX(-16px) scale(1.05) !important;
+    filter: brightness(1.1) !important;
+  }
+  .py-box:hover {
+    transform: translateX(16px) scale(1.05) !important;
+    filter: brightness(1.1) !important;
+  }
 }
 
 @media (max-width: 740px) and (min-width: 360px) {
@@ -387,8 +449,8 @@ footer {
   .py-box {
     width: 80% !important;
     max-width: 180px !important;
-    }
-  
+  }
+
   .html-box,
   .css-box,
   .js-box,
@@ -398,5 +460,5 @@ footer {
     height: auto !important;
     margin: 0px 0 !important;
     padding: 0 10px 0 10px;
-    }
   }
+}

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <!--
   =============================================
   perfil.html — Página de Perfil do Usuário
@@ -10,152 +10,150 @@
 -->
 
 <html lang="pt-br">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Meu Perfil — Tech Cursos</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Meu Perfil — Tech Cursos</title>
 
-  <link rel="stylesheet" href="../css/footer.css" />
-  <link rel="stylesheet" href="css/cabecalho.css" />
-  <link rel="stylesheet" href="css/fundo.css" />
-  <link rel="stylesheet" href="css/cadastronavs.css" />
-  <link rel="stylesheet" href="css/perfil.css" />
+    <link rel="stylesheet" href="../css/footer.css" />
+    <link rel="stylesheet" href="css/cabecalho.css" />
+    <link rel="stylesheet" href="css/fundo.css" />
+    <link rel="stylesheet" href="css/cadastronavs.css" />
+    <link rel="stylesheet" href="css/perfil.css" />
 
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
 
-</head>
+  <body>
+    <!-- ==================== CABEÇALHO ==================== -->
+    <header class="cabecalho">
+      <div class="container-header">
+        <img src="../img/LOGOO.png" alt="logo da marca" class="logo" />
+        <nav class="nav">
+          <a href="../index.html">← Início</a>
+        </nav>
+      </div>
+    </header>
 
-<body>
+    <!-- ==================== CONTEÚDO ==================== -->
+    <main class="conteudo-perfil">
+      <div class="perfil-card">
+        <h1 class="perfil-titulo">👤 Meu Perfil</h1>
 
-  <!-- ==================== CABEÇALHO ==================== -->
-  <header class="cabecalho">
-    <div class="container-header">
-      <img src="../img/LOGOO.png" alt="logo da marca" class="logo" />
-      <nav class="nav">
-        <a href="../index.html">← Início</a>
-      </nav>
+        <!-- ===== SEÇÃO: DADOS DE ACESSO ===== -->
+        <div class="secao">
+          <p class="secao-titulo">Dados de acesso</p>
+
+          <div class="campo">
+            <label for="p-usuario">Nome de Usuário</label>
+            <input type="text" id="p-usuario" placeholder="Nome de usuário" autocomplete="username" />
+          </div>
+
+          <div class="campo">
+            <label for="p-senha-atual">Senha atual</label>
+            <input type="password" id="p-senha-atual" placeholder="Digite sua senha atual para confirmar" />
+          </div>
+
+          <div class="campo">
+            <label for="p-nova-senha"
+              >Nova senha <span style="opacity: 0.5; font-weight: 400">(deixe em branco para não alterar)</span></label
+            >
+            <input type="password" id="p-nova-senha" placeholder="Nova senha" autocomplete="new-password" />
+          </div>
+
+          <div class="campo">
+            <label for="p-confirmar-senha">Confirmar nova senha</label>
+            <input
+              type="password"
+              id="p-confirmar-senha"
+              placeholder="Repita a nova senha"
+              autocomplete="new-password"
+            />
+          </div>
+        </div>
+
+        <!-- ===== SEÇÃO: ENDEREÇO ===== -->
+        <div class="secao">
+          <p class="secao-titulo">Endereço</p>
+
+          <div class="campo">
+            <label for="p-cep">CEP</label>
+            <input type="text" id="p-cep" placeholder="00000-000" maxlength="9" />
+          </div>
+
+          <div class="campo">
+            <label for="p-rua">Rua / Logradouro</label>
+            <input type="text" id="p-rua" placeholder="Preenchido automaticamente" />
+          </div>
+
+          <div class="campos-linha">
+            <div class="campo">
+              <label for="p-numero">Número</label>
+              <input type="text" id="p-numero" placeholder="Nº" />
+            </div>
+            <div class="campo">
+              <label for="p-complemento">Complemento</label>
+              <input type="text" id="p-complemento" placeholder="Apto, bloco..." />
+            </div>
+          </div>
+
+          <div class="campo">
+            <label for="p-bairro">Bairro</label>
+            <input type="text" id="p-bairro" placeholder="Bairro" />
+          </div>
+
+          <div class="campos-linha">
+            <div class="campo">
+              <label for="p-cidade">Cidade</label>
+              <input type="text" id="p-cidade" placeholder="Cidade" />
+            </div>
+            <div class="campo">
+              <label for="p-uf">UF</label>
+              <input type="text" id="p-uf" placeholder="UF" maxlength="2" />
+            </div>
+          </div>
+        </div>
+
+        <!-- ===== MENSAGENS ===== -->
+        <p id="msg-perfil-erro" class="msg-erro" hidden></p>
+        <p id="msg-perfil-sucesso" class="msg-sucesso" hidden></p>
+
+        <!-- ===== BOTÃO SALVAR ===== -->
+        <div class="secao" style="border-top: none; padding-top: 8px; margin-top: 0">
+          <button class="btn-salvar" id="btn-salvar-perfil" type="button">Salvar alterações</button>
+        </div>
+
+        <!-- ===== SEÇÃO: ZONA DE PERIGO ===== -->
+        <div class="secao">
+          <p class="secao-titulo" style="color: rgba(248, 113, 113, 0.6)">Zona de perigo</p>
+          <button class="btn-excluir" id="btn-abrir-modal-excluir" type="button">🗑️ Excluir minha conta</button>
+        </div>
+      </div>
+    </main>
+
+    <!-- ==================== MODAL: CONFIRMAR EXCLUSÃO ==================== -->
+    <div class="modal-overlay" id="modal-excluir" hidden>
+      <div class="modal-box">
+        <div class="modal-icon">⚠️</div>
+        <p class="modal-titulo">Excluir conta?</p>
+        <p class="modal-texto">Essa ação é permanente e não pode ser desfeita. Todos os seus dados serão removidos.</p>
+        <div class="modal-acoes">
+          <button class="btn-cancelar" id="btn-cancelar-excluir" type="button">Cancelar</button>
+          <button class="btn-confirmar-excluir" id="btn-confirmar-excluir" type="button">Sim, excluir</button>
+        </div>
+      </div>
     </div>
-  </header>
 
+    <!-- ==================== RODAPÉ ==================== -->
+    <div data-site-footer data-base=".."></div>
 
-  <!-- ==================== CONTEÚDO ==================== -->
-  <main class="conteudo-perfil">
-
-    <div class="perfil-card">
-      <h1 class="perfil-titulo">👤 Meu Perfil</h1>
-
-      <!-- ===== SEÇÃO: DADOS DE ACESSO ===== -->
-      <div class="secao">
-        <p class="secao-titulo">Dados de acesso</p>
-
-        <div class="campo">
-          <label for="p-usuario">Nome de Usuário</label>
-          <input type="text" id="p-usuario" placeholder="Nome de usuário" autocomplete="username" />
-        </div>
-
-        <div class="campo">
-          <label for="p-senha-atual">Senha atual</label>
-          <input type="password" id="p-senha-atual" placeholder="Digite sua senha atual para confirmar" />
-        </div>
-
-        <div class="campo">
-          <label for="p-nova-senha">Nova senha <span style="opacity:0.5;font-weight:400">(deixe em branco para não alterar)</span></label>
-          <input type="password" id="p-nova-senha" placeholder="Nova senha" autocomplete="new-password" />
-        </div>
-
-        <div class="campo">
-          <label for="p-confirmar-senha">Confirmar nova senha</label>
-          <input type="password" id="p-confirmar-senha" placeholder="Repita a nova senha" autocomplete="new-password" />
-        </div>
-      </div>
-
-      <!-- ===== SEÇÃO: ENDEREÇO ===== -->
-      <div class="secao">
-        <p class="secao-titulo">Endereço</p>
-
-        <div class="campo">
-          <label for="p-cep">CEP</label>
-          <input type="text" id="p-cep" placeholder="00000-000" maxlength="9" />
-        </div>
-
-        <div class="campo">
-          <label for="p-rua">Rua / Logradouro</label>
-          <input type="text" id="p-rua" placeholder="Preenchido automaticamente" />
-        </div>
-
-        <div class="campos-linha">
-          <div class="campo">
-            <label for="p-numero">Número</label>
-            <input type="text" id="p-numero" placeholder="Nº" />
-          </div>
-          <div class="campo">
-            <label for="p-complemento">Complemento</label>
-            <input type="text" id="p-complemento" placeholder="Apto, bloco..." />
-          </div>
-        </div>
-
-        <div class="campo">
-          <label for="p-bairro">Bairro</label>
-          <input type="text" id="p-bairro" placeholder="Bairro" />
-        </div>
-
-        <div class="campos-linha">
-          <div class="campo">
-            <label for="p-cidade">Cidade</label>
-            <input type="text" id="p-cidade" placeholder="Cidade" />
-          </div>
-          <div class="campo">
-            <label for="p-uf">UF</label>
-            <input type="text" id="p-uf" placeholder="UF" maxlength="2" />
-          </div>
-        </div>
-      </div>
-
-      <!-- ===== MENSAGENS ===== -->
-      <p id="msg-perfil-erro"   class="msg-erro"    hidden></p>
-      <p id="msg-perfil-sucesso" class="msg-sucesso" hidden></p>
-
-      <!-- ===== BOTÃO SALVAR ===== -->
-      <div class="secao" style="border-top: none; padding-top: 8px; margin-top: 0;">
-        <button class="btn-salvar" id="btn-salvar-perfil" type="button">Salvar alterações</button>
-      </div>
-
-      <!-- ===== SEÇÃO: ZONA DE PERIGO ===== -->
-      <div class="secao">
-        <p class="secao-titulo" style="color: rgba(248,113,113,0.6);">Zona de perigo</p>
-        <button class="btn-excluir" id="btn-abrir-modal-excluir" type="button">🗑️ Excluir minha conta</button>
-      </div>
-
-    </div>
-  </main>
-
-
-  <!-- ==================== MODAL: CONFIRMAR EXCLUSÃO ==================== -->
-  <div class="modal-overlay" id="modal-excluir" hidden>
-    <div class="modal-box">
-      <div class="modal-icon">⚠️</div>
-      <p class="modal-titulo">Excluir conta?</p>
-      <p class="modal-texto">
-        Essa ação é permanente e não pode ser desfeita.
-        Todos os seus dados serão removidos.
-      </p>
-      <div class="modal-acoes">
-        <button class="btn-cancelar" id="btn-cancelar-excluir" type="button">Cancelar</button>
-        <button class="btn-confirmar-excluir" id="btn-confirmar-excluir" type="button">Sim, excluir</button>
-      </div>
-    </div>
-  </div>
-
-
-  <!-- ==================== RODAPÉ ==================== -->
-  <div data-site-footer data-base=".."></div>
-
-
-  <!-- ==================== SCRIPTS ==================== -->
-  <script src="../js/footer.js" defer></script>
-  <script src="auth.js" defer></script>
-  <script src="perfil.js" defer></script>
-
-</body>
+    <!-- ==================== SCRIPTS ==================== -->
+    <script src="../js/footer.js" defer></script>
+    <script src="auth.js" defer></script>
+    <script src="perfil.js" defer></script>
+  </body>
 </html>

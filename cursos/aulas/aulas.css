@@ -1,7 +1,15 @@
 /* aulas.css — páginas cursos/aulas/*.html (HTML, CSS, JS, Python) */
 
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+html {
+  scroll-behavior: smooth;
+}
 
 /* Fundo e layout em coluna */
 body {
@@ -10,7 +18,7 @@ body {
     radial-gradient(circle at 20% 30%, rgba(91, 33, 244, 0.15) 0%, transparent 50%),
     radial-gradient(circle at 80% 70%, rgba(26, 108, 246, 0.15) 0%, transparent 50%);
   color: #fff;
-  font-family: "Space Grotesk", "Segoe UI", system-ui, sans-serif;
+  font-family: 'Space Grotesk', 'Segoe UI', system-ui, sans-serif;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
@@ -18,7 +26,7 @@ body {
 
 /* Cabeçalho fixo (igual cursos.html) */
 .cabecalho {
-  background: linear-gradient(90deg, rgba(91,33,244,0.35), rgba(26,108,246,0.28));
+  background: linear-gradient(90deg, rgba(91, 33, 244, 0.35), rgba(26, 108, 246, 0.28));
   padding: 1rem 0;
   width: 100%;
   position: sticky;
@@ -26,7 +34,7 @@ body {
   z-index: 1000;
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  box-shadow: 0 4px 20px rgba(0,0,0,0.35);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
   flex-shrink: 0;
   box-sizing: border-box;
 }
@@ -43,53 +51,75 @@ body {
   box-sizing: border-box;
 }
 
-.logo { width: 110px; height: auto; object-fit: contain; flex-shrink: 0; }
+.logo {
+  width: 110px;
+  height: auto;
+  object-fit: contain;
+  flex-shrink: 0;
+}
 
 .linha-cabecalho {
   border: none;
-  border-left: 1px solid rgba(255,255,255,0.2);
+  border-left: 1px solid rgba(255, 255, 255, 0.2);
   height: 32px;
   margin: 0 4px;
   flex-shrink: 0;
 }
 
-.nav { display: flex; align-items: center; gap: 14px; margin-left: auto; }
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-left: auto;
+}
 
 .nav a {
-  font-family: "Syne", sans-serif;
+  font-family: 'Syne', sans-serif;
   color: #fff;
   text-decoration: none;
   font-size: 0.95rem;
-  background: rgb(57,2,145);
+  background: rgb(57, 2, 145);
   padding: 8px 18px;
   border-radius: 8px;
   transition: background 0.2s;
   white-space: nowrap;
 }
-.nav a:hover { background: rgb(85,3,179); }
+.nav a:hover {
+  background: rgb(85, 3, 179);
+}
 
-.menu-usuario { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
+.menu-usuario {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
 
 .saudacao {
-  font-family: "Syne", sans-serif;
+  font-family: 'Syne', sans-serif;
   font-size: 0.9rem;
-  color: rgba(255,255,255,0.7);
+  color: rgba(255, 255, 255, 0.7);
   white-space: nowrap;
 }
 
 .btn-logout {
   background: transparent;
-  border: 1px solid rgba(124,92,252,0.6);
+  border: 1px solid rgba(124, 92, 252, 0.6);
   color: #a78bfa;
-  font-family: "Syne", sans-serif;
+  font-family: 'Syne', sans-serif;
   font-size: 0.88rem;
   padding: 6px 14px;
   border-radius: 8px;
   cursor: pointer;
-  transition: background 0.2s, color 0.2s;
+  transition:
+    background 0.2s,
+    color 0.2s;
   white-space: nowrap;
 }
-.btn-logout:hover { background: rgba(124,92,252,0.15); color: #fff; }
+.btn-logout:hover {
+  background: rgba(124, 92, 252, 0.15);
+  color: #fff;
+}
 
 /* Área principal da aula */
 .conteudo-aulas {
@@ -111,24 +141,43 @@ body {
 }
 
 /* Cor do banner por linguagem */
-.aula-html { background: linear-gradient(135deg, rgba(228,77,38,0.3), rgba(228,77,38,0.05)); border: 1px solid rgba(228,77,38,0.2); }
-.aula-css  { background: linear-gradient(135deg, rgba(38,77,228,0.3), rgba(38,77,228,0.05)); border: 1px solid rgba(38,77,228,0.2); }
-.aula-js   { background: linear-gradient(135deg, rgba(247,223,30,0.2), rgba(247,223,30,0.03)); border: 1px solid rgba(247,223,30,0.15); }
-.aula-py   { background: linear-gradient(135deg, rgba(55,118,171,0.3), rgba(55,118,171,0.05)); border: 1px solid rgba(55,118,171,0.2); }
+.aula-html {
+  background: linear-gradient(135deg, rgba(228, 77, 38, 0.3), rgba(228, 77, 38, 0.05));
+  border: 1px solid rgba(228, 77, 38, 0.2);
+}
+.aula-css {
+  background: linear-gradient(135deg, rgba(38, 77, 228, 0.3), rgba(38, 77, 228, 0.05));
+  border: 1px solid rgba(38, 77, 228, 0.2);
+}
+.aula-js {
+  background: linear-gradient(135deg, rgba(247, 223, 30, 0.2), rgba(247, 223, 30, 0.03));
+  border: 1px solid rgba(247, 223, 30, 0.15);
+}
+.aula-py {
+  background: linear-gradient(135deg, rgba(55, 118, 171, 0.3), rgba(55, 118, 171, 0.05));
+  border: 1px solid rgba(55, 118, 171, 0.2);
+}
 
-.aula-icone { width: 72px; height: 72px; object-fit: contain; flex-shrink: 0; }
+.aula-icone {
+  width: 72px;
+  height: 72px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
 
 .aula-titulo {
-  font-family: "Syne", sans-serif;
+  font-family: 'Syne', sans-serif;
   font-size: clamp(1.6rem, 4vw, 2.4rem);
   margin-bottom: 8px;
 }
 
-.destaque { color: #7c5cfc; }
+.destaque {
+  color: #7c5cfc;
+}
 
 .aula-subtitulo {
   font-size: 1rem;
-  color: rgba(255,255,255,0.6);
+  color: rgba(255, 255, 255, 0.6);
   line-height: 1.5;
 }
 
@@ -141,8 +190,8 @@ body {
 
 /* Card de cada módulo (Módulo 1, 2, 3…) */
 .modulo-card {
-  background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(255,255,255,0.08);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 16px;
   overflow: hidden;
 }
@@ -152,12 +201,12 @@ body {
   align-items: center;
   gap: 16px;
   padding: 18px 24px;
-  border-bottom: 1px solid rgba(255,255,255,0.07);
-  background: rgba(124,92,252,0.08);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  background: rgba(124, 92, 252, 0.08);
 }
 
 .modulo-num {
-  font-family: "Syne", sans-serif;
+  font-family: 'Syne', sans-serif;
   font-size: 1.4rem;
   font-weight: 700;
   color: #7c5cfc;
@@ -165,7 +214,7 @@ body {
 }
 
 .modulo-header h2 {
-  font-family: "Syne", sans-serif;
+  font-family: 'Syne', sans-serif;
   font-size: 1.1rem;
   font-weight: 600;
   color: #e2e8f0;
@@ -191,27 +240,29 @@ body {
 .video-thumb {
   width: 100%;
   aspect-ratio: 16/9;
-  background: rgba(124,92,252,0.1);
-  border: 1px dashed rgba(124,92,252,0.35);
+  background: rgba(124, 92, 252, 0.1);
+  border: 1px dashed rgba(124, 92, 252, 0.35);
   border-radius: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: background 0.2s, border-color 0.2s;
+  transition:
+    background 0.2s,
+    border-color 0.2s;
 }
 .video-placeholder:hover .video-thumb {
-  background: rgba(124,92,252,0.2);
-  border-color: rgba(124,92,252,0.6);
+  background: rgba(124, 92, 252, 0.2);
+  border-color: rgba(124, 92, 252, 0.6);
 }
 
 .play-icon {
   font-size: 1.6rem;
-  color: rgba(124,92,252,0.5);
+  color: rgba(124, 92, 252, 0.5);
 }
 
 .video-placeholder p {
   font-size: 0.82rem;
-  color: rgba(255,255,255,0.4);
+  color: rgba(255, 255, 255, 0.4);
   text-align: center;
 }
 
@@ -223,7 +274,7 @@ body {
   border-radius: 10px;
   overflow: hidden;
   cursor: pointer;
-  border: 1px solid rgba(124,92,252,0.35);
+  border: 1px solid rgba(124, 92, 252, 0.35);
   background: #000;
 }
 
@@ -233,7 +284,9 @@ body {
   height: 100%;
   object-fit: cover;
   display: block;
-  transition: transform 0.3s ease, opacity 0.3s;
+  transition:
+    transform 0.3s ease,
+    opacity 0.3s;
 }
 .video-wrapper:hover img.video-thumb-img {
   transform: scale(1.04);
@@ -248,18 +301,20 @@ body {
   transform: translate(-50%, -50%);
   width: 56px;
   height: 56px;
-  background: rgba(124,92,252,0.85);
+  background: rgba(124, 92, 252, 0.85);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 1.4rem;
   color: #fff;
-  transition: background 0.2s, transform 0.2s;
+  transition:
+    background 0.2s,
+    transform 0.2s;
   pointer-events: none;
 }
 .video-wrapper:hover .play-btn {
-  background: rgba(124,92,252,1);
+  background: rgba(124, 92, 252, 1);
   transform: translate(-50%, -50%) scale(1.1);
 }
 
@@ -271,7 +326,8 @@ body {
 /* Iframe que aparece após o clique */
 .video-wrapper iframe {
   position: absolute;
-  top: 0; left: 0;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
   border: none;
@@ -279,28 +335,55 @@ body {
 }
 
 footer {
-  background: linear-gradient(90deg, rgba(91,33,244,0.28), rgba(26,108,246,0.22));
+  background: linear-gradient(90deg, rgba(91, 33, 244, 0.28), rgba(26, 108, 246, 0.22));
   color: #fff;
   padding: 16px 0 12px;
   text-align: center;
   width: 100%;
   flex-shrink: 0;
-  font-family: "Syne", sans-serif;
+  font-family: 'Syne', sans-serif;
 }
-.copyright { color: grey; font-size: 0.85rem; }
+.copyright {
+  color: grey;
+  font-size: 0.85rem;
+}
 
 @media (max-width: 768px) {
-  .linha-cabecalho { display: none; }
-  .aula-hero { padding: 24px 20px; gap: 16px; }
-  .aula-icone { width: 52px; height: 52px; }
-  .logo { width: 90px; }
-  .nav a { padding: 7px 12px; font-size: 0.85rem; }
+  .linha-cabecalho {
+    display: none;
+  }
+  .aula-hero {
+    padding: 24px 20px;
+    gap: 16px;
+  }
+  .aula-icone {
+    width: 52px;
+    height: 52px;
+  }
+  .logo {
+    width: 90px;
+  }
+  .nav a {
+    padding: 7px 12px;
+    font-size: 0.85rem;
+  }
 }
 
 @media (max-width: 500px) {
-  .container-header { padding: 0 14px; }
-  .conteudo-aulas { padding: 24px 14px 48px; }
-  .aula-hero { flex-direction: column; align-items: flex-start; }
-  .videos-grid { grid-template-columns: 1fr 1fr; }
-  .logo { width: 75px; }
+  .container-header {
+    padding: 0 14px;
+  }
+  .conteudo-aulas {
+    padding: 24px 14px 48px;
+  }
+  .aula-hero {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .videos-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .logo {
+    width: 75px;
+  }
 }
