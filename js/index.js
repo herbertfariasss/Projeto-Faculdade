@@ -1,13 +1,27 @@
 (function () {
+  function getSafeEmbedUrl(rawUrl) {
+    try {
+      var url = new URL(rawUrl, window.location.origin);
+      if (url.protocol !== 'https:') return null;
+      if (url.hostname !== 'www.youtube.com') return null;
+      if (!url.pathname.startsWith('/embed/')) return null;
+      return url.toString();
+    } catch (_error) {
+      return null;
+    }
+  }
+
   function loadHeroVideo(wrapper) {
-    var embedUrl = wrapper.getAttribute('data-embed-url');
+    var embedUrl = getSafeEmbedUrl(wrapper.getAttribute('data-embed-url'));
     if (!embedUrl) return;
 
     var iframe = document.createElement('iframe');
     iframe.src = embedUrl;
     iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
     iframe.allowFullscreen = true;
-    wrapper.innerHTML = '';
+    while (wrapper.firstChild) {
+      wrapper.removeChild(wrapper.firstChild);
+    }
     wrapper.appendChild(iframe);
   }
 
