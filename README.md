@@ -4,66 +4,62 @@ Projeto desenvolvido durante o primeiro semestre de Análise e Desenvolvimento d
 
 O objetivo deste projeto foi praticar conceitos de desenvolvimento web utilizando HTML, CSS e JavaScript, aplicando estruturação de páginas, estilização e interatividade.
 
-## Mapa do projeto (onde cada arquivo se liga)
-
-| Arquivo | Função |
-|---------|--------|
-| `index.html` | Página principal — hero, cursos, sobre, contato |
-| `css/styles.css` | Estilos base (fundo, header, hero, textos) |
-| `css/button.css` | Botões do hero e Login no menu |
-| `css/html-box.css` … `py-box.css` | Cards HTML, CSS, JS, Python |
-| `css/menu.css` | Linhas e títulos de seção |
-| `css/resp.css` | Responsivo — carregar **por último** no HTML |
-| `js/script.js` | Rolagem suave dos links `#Home`, `#Cursos`… |
-| `inscricao/inscricao.html` | Tela de login e cadastro |
-| `inscricao/auth.js` | Login com `localStorage` (admin/admin padrão) |
-| `inscricao/cabecalho.js` | Menu hambúrguer no mobile |
-| `inscricao/css/fundo.css` | Fundo + card centralizado |
-| `inscricao/css/cabecalho.css` | Header da página de login |
-| `inscricao/css/rodape.css` | Rodapé fixo no fim da tela |
-| `inscricao/css/cadastronavs.css` | Mensagens de erro/sucesso e links de aba |
-
----
-
 ## 🚀 Tecnologias utilizadas
 
 - HTML5
 - CSS3
-- JavaScript
+- JavaScript (Vanilla)
 - Git e GitHub
 
----
+## 🧭 Arquitetura atual
 
-## 💻 Funcionalidades
+- `/index.html`: landing page, menu e entrada para cursos.
+- `/inscricao/*.html`: autenticação e perfil do usuário.
+- `/cursos/*.html` e `/cursos/aulas/*.html`: trilhas e páginas de aulas.
+- `/css`: estilos globais da home e componentes visuais.
+- `/js`: scripts globais (rolagem, interação da home e footer reutilizável).
+- `/inscricao/auth.js`: autenticação e sessão local para fins didáticos.
+- `/legal`: páginas de Termos de Uso e Política de Privacidade.
 
-- Interface responsiva
-- Estruturação semântica em HTML
-- Estilização com CSS
-- Interações utilizando JavaScript
-- Formulários e validações
-- Organização de layout
+## 🔐 Segurança e privacidade
 
----
+> **Importante:** este projeto ainda é estático e client-side para aprendizado.
 
-## 📸 Preview do projeto
+Melhorias aplicadas:
 
-<img width="100%" src="img/preview.png">
+- Senhas não ficam mais em texto puro: são armazenadas com hash SHA-256.
+- Sessão passou a usar objeto com expiração (`authSession`) em vez de token simples.
+- CPF é validado no cadastro, mas não é persistido no armazenamento local.
+- Cadastro exige aceite de Termos de Uso e Política de Privacidade.
 
+Para ambiente real, ainda é necessário migrar autenticação para backend com banco de dados e sessão/token no servidor.
 
+## ♻️ Reuso e manutenção
 
----
+- O rodapé foi centralizado no script `js/footer.js` e injetado nas páginas.
+- Scripts inline foram removidos em favor de arquivos dedicados.
+- Interações com clique foram migradas de `onclick` inline para `addEventListener`.
+
+## ✅ Qualidade de código
+
+Comandos de validação:
+
+```bash
+npm install
+npm run lint
+npm run format:check
+```
+
+## 🔄 Fluxo sugerido de manutenção
+
+1. Criar branch para cada melhoria.
+2. Fazer alterações pequenas e testáveis.
+3. Rodar lint e validação de formatação.
+4. Revisar acessibilidade básica (teclado/foco/labels).
+5. Abrir PR com resumo técnico da mudança.
 
 ## 🌐 Site publicado (GitHub Pages)
 
 **URL correta:** https://herbertfariasss.github.io/Projeto-Faculdade/
 
 > Use sempre o link com `/Projeto-Faculdade/` no final. Abrir só `herbertfariasss.github.io` (sem o nome do repositório) gera erro 404.
-
----
-
-## 📂 Como executar o projeto
-
-```bash
-# Clone o repositório
-git clone https://github.com/herbertfariasss/Projeto-Faculdade.git
-```

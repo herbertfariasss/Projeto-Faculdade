@@ -48,3 +48,11 @@ function validarCpf(cpf) {
 
   return true;
 }
+
+document.addEventListener('DOMContentLoaded', function () {
+  const campoCpf = document.getElementById('cpf');
+  if (!campoCpf) return;
+  campoCpf.addEventListener('input', function () {
+    mascaraCpf(campoCpf);
+  });
+});

@@ -2,45 +2,24 @@
   =============================================
   auth.js — Sistema de Login e Cadastro
   =============================================
-  Este arquivo cuida de TUDO relacionado ao login:
-  - Criar conta
-  - Entrar com usuário e senha
-  - Verificar se está logado
-  - Fazer logout (sair)
-
-  Como os dados são salvos?
-  → Usamos o localStorage do navegador (funciona como um "banco de dados" local)
-  → localStorage.usuarios  = lista com todos os usuários cadastrados
-  → localStorage.authToken = nome do usuário que está logado no momento
-
-  ATENÇÃO: Em projetos reais, o login é feito com servidor + banco de dados.
-  Aqui usamos localStorage apenas para fins de estudo/demonstração.
+  Armazenamento local apenas para estudos. Em produção, use backend.
 */
 
-
-// ============================================================
-// CONFIGURAÇÕES INICIAIS
-// ============================================================
-
-// Usuário padrão criado automaticamente na primeira vez que o site abre
 var USUARIOS_PADRAO = [
-  { usuario: 'admin', senha: 'admin' }
+  { usuario: 'admin', senhaHash: null }
 ];
 
-// Descobre a URL do auth.js (funciona localmente e no GitHub Pages /Projeto-Faculdade/)
+var SESSION_TTL_MS = 1000 * 60 * 60 * 6; // 6 horas
+
 function getAuthScriptUrl() {
   var scripts = document.querySelectorAll('script[src*="auth.js"]');
-  if (scripts.length) {
-    return scripts[scripts.length - 1].src;
-  }
+  if (scripts.length) return scripts[scripts.length - 1].src;
   return null;
 }
 
 function getInscricaoBaseUrl() {
   var scriptUrl = getAuthScriptUrl();
-  if (scriptUrl) {
-    return scriptUrl.replace(/auth\.js(\?.*)?$/, '');
-  }
+  if (scriptUrl) return scriptUrl.replace(/auth\.js(\?.*)?$/, '');
   return new URL('inscricao/', window.location.href).href;
 }
 
@@ -56,76 +35,129 @@ function getIndexUrl() {
   return new URL('index.html', getSiteRootUrl()).href;
 }
 
-// Converte caminhos relativos (ex.: cursos/cursos.html) em URL completa
 function resolverUrl(destino) {
   if (!destino) return getIndexUrl();
   if (/^https?:\/\//i.test(destino)) return destino;
   return new URL(destino, getSiteRootUrl()).href;
 }
 
-
-// ============================================================
-// FUNÇÕES DE GERENCIAMENTO DE USUÁRIOS
-// ============================================================
-
-// Carrega a lista de usuários do localStorage
-// Se ainda não existir nenhum, cria a lista com o usuário padrão
 function carregarUsuarios() {
   var salvos = localStorage.getItem('usuarios');
-
-  if (salvos) {
-    // JSON.parse converte o texto salvo de volta para um array JavaScript
-    return JSON.parse(salvos);
-  } else {
-    // Primeira vez: salva o usuário padrão e retorna a lista
+  if (!salvos) {
     localStorage.setItem('usuarios', JSON.stringify(USUARIOS_PADRAO));
-    return USUARIOS_PADRAO;
+    return USUARIOS_PADRAO.slice();
   }
+
+  var usuarios = JSON.parse(salvos);
+  if (!Array.isArray(usuarios)) {
+    localStorage.setItem('usuarios', JSON.stringify(USUARIOS_PADRAO));
+    return USUARIOS_PADRAO.slice();
+  }
+
+  return usuarios;
 }
 
-// Salva a lista completa de usuários no localStorage
-// JSON.stringify converte o array JavaScript em texto para poder salvar
 function salvarUsuarios(lista) {
   localStorage.setItem('usuarios', JSON.stringify(lista));
 }
 
-
-// ============================================================
-// FUNÇÕES DE VERIFICAÇÃO DE LOGIN
-// ============================================================
-
-// Verifica se o usuário está logado
-// Retorna true (logado) ou false (não logado)
-function isLoggedIn() {
-  return localStorage.getItem('authToken') !== null;
+function isHashSeguro(valor) {
+  return typeof valor === 'string' && /^[a-f0-9]{64}$/i.test(valor);
 }
 
-// Retorna o nome do usuário que está logado
-function getUsuarioLogado() {
-  return localStorage.getItem('authToken');
+async function hashSenha(senha) {
+  var texto = new TextEncoder().encode(senha);
+  var digest = await crypto.subtle.digest('SHA-256', texto);
+  return Array.from(new Uint8Array(digest))
+    .map(function (byte) {
+      return byte.toString(16).padStart(2, '0');
+    })
+    .join('');
 }
 
+async function garantirSenhaHash(usuario) {
+  if (isHashSeguro(usuario.senhaHash)) return false;
+  if (typeof usuario.senha === 'string' && usuario.senha) {
+    usuario.senhaHash = await hashSenha(usuario.senha);
+    delete usuario.senha;
+    return true;
+  }
+  if (!usuario.senhaHash) {
+    usuario.senhaHash = await hashSenha('admin');
+    return true;
+  }
+  return false;
+}
 
-// ============================================================
-// FUNÇÕES DE NAVEGAÇÃO E PROTEÇÃO DE PÁGINAS
-// ============================================================
+async function normalizarUsuarios() {
+  var usuarios = carregarUsuarios();
+  var mudou = false;
 
-// Tenta acessar uma página protegida
-// Se não estiver logado, salva o destino e manda para o login
-// Depois do login, o sistema redireciona de volta para onde o usuário queria ir
-function acessarConteudo(urlDestino) {
-  if (isLoggedIn()) {
-    window.location.href = resolverUrl(urlDestino);
-  } else {
-    // Usuário não logado: guarda o destino e vai para o login
-    sessionStorage.setItem('redirectAfterLogin', resolverUrl(urlDestino));
-    window.location.href = getPaginaLogin();
+  for (var i = 0; i < usuarios.length; i++) {
+    if (await garantirSenhaHash(usuarios[i])) mudou = true;
+    if (usuarios[i].cpf) {
+      delete usuarios[i].cpf;
+      mudou = true;
+    }
+  }
+
+  if (mudou) salvarUsuarios(usuarios);
+  return usuarios;
+}
+
+function criarSessao(usuario) {
+  var sessao = {
+    user: usuario,
+    token: (crypto.randomUUID ? crypto.randomUUID() : String(Date.now()) + Math.random().toString(16).slice(2)),
+    expiresAt: Date.now() + SESSION_TTL_MS
+  };
+  localStorage.setItem('authSession', JSON.stringify(sessao));
+  localStorage.removeItem('authToken');
+}
+
+function getSessao() {
+  var sessaoRaw = localStorage.getItem('authSession');
+  var tokenAntigo = localStorage.getItem('authToken');
+
+  if (!sessaoRaw && tokenAntigo) {
+    criarSessao(tokenAntigo);
+    sessaoRaw = localStorage.getItem('authSession');
+  }
+
+  if (!sessaoRaw) return null;
+
+  try {
+    var sessao = JSON.parse(sessaoRaw);
+    if (!sessao || !sessao.user || !sessao.expiresAt) return null;
+    if (Date.now() > sessao.expiresAt) {
+      localStorage.removeItem('authSession');
+      return null;
+    }
+    return sessao;
+  } catch (_e) {
+    localStorage.removeItem('authSession');
+    return null;
   }
 }
 
-// Protege uma página: se o usuário tentar acessar sem estar logado,
-// é redirecionado para o login automaticamente
-// Use esta função no início de páginas restritas
+function isLoggedIn() {
+  return !!getSessao();
+}
+
+function getUsuarioLogado() {
+  var sessao = getSessao();
+  return sessao ? sessao.user : null;
+}
+
+function acessarConteudo(urlDestino) {
+  if (isLoggedIn()) {
+    window.location.href = resolverUrl(urlDestino);
+    return;
+  }
+  sessionStorage.setItem('redirectAfterLogin', resolverUrl(urlDestino));
+  window.location.href = getPaginaLogin();
+}
+
 function exigirLogin() {
   if (!isLoggedIn()) {
     sessionStorage.setItem('redirectAfterLogin', window.location.href);
@@ -133,95 +165,98 @@ function exigirLogin() {
   }
 }
 
-// Faz o logout: remove o token de sessão e volta para o login
 function fazerLogout() {
-  localStorage.removeItem('authToken'); // apaga a sessão
-  window.location.href = getPaginaLogin(); // redireciona para o login
+  localStorage.removeItem('authSession');
+  localStorage.removeItem('authToken');
+  window.location.href = getPaginaLogin();
 }
 
-
-// ============================================================
-// FUNÇÕES DE INTERFACE (MENSAGENS NA TELA)
-// ============================================================
-
-// Mostra ou esconde uma mensagem de erro/sucesso na tela
-// el      = o elemento HTML da mensagem
-// texto   = o texto a mostrar
-// visivel = true para mostrar, false para esconder
 function mostrarMensagem(el, texto, visivel) {
-  if (!el) return; // se o elemento não existe, não faz nada
-
+  if (!el) return;
   if (visivel) {
     el.textContent = texto;
-    el.hidden = false; // mostra o elemento
+    el.hidden = false;
   } else {
     el.textContent = '';
-    el.hidden = true; // esconde o elemento
+    el.hidden = true;
   }
 }
 
+async function validarCredenciaisUsuario(usuarioObj, senhaDigitada) {
+  if (!usuarioObj || !senhaDigitada) return false;
 
-// ============================================================
-// FUNÇÃO DE LOGIN
-// ============================================================
+  if (isHashSeguro(usuarioObj.senhaHash)) {
+    var hashDigitado = await hashSenha(senhaDigitada);
+    return hashDigitado === usuarioObj.senhaHash;
+  }
 
-// Executada quando o usuário clica em "Entrar"
-// Lê os campos do formulário, valida e verifica no localStorage
-function fazerLogin() {
-  // Pega o que o usuário digitou (trim remove espaços em branco)
+  if (usuarioObj.senha && usuarioObj.senha === senhaDigitada) {
+    usuarioObj.senhaHash = await hashSenha(senhaDigitada);
+    delete usuarioObj.senha;
+    return true;
+  }
+
+  return false;
+}
+
+async function fazerLogin() {
   var usuario = document.getElementById('usuario').value.trim();
-  var senha   = document.getElementById('senha').value.trim();
+  var senha = document.getElementById('senha').value.trim();
   var msgErro = document.getElementById('erro-msg');
 
-  // Esconde qualquer mensagem de erro anterior
   mostrarMensagem(msgErro, '', false);
 
-  // Validação: campos não podem estar vazios
   if (!usuario || !senha) {
     mostrarMensagem(msgErro, 'Preencha todos os campos.', true);
-    return; // para aqui, não continua
+    return;
   }
 
-  // Procura o usuário na lista salva no localStorage
-  var usuarios  = carregarUsuarios();
-  var encontrado = usuarios.find(function(u) {
-    return u.usuario === usuario && u.senha === senha;
-  });
+  var usuarios = await normalizarUsuarios();
+  var encontrado = null;
 
-  if (encontrado) {
-    // Login correto: salva o nome como token de sessão
-    localStorage.setItem('authToken', usuario);
+  for (var i = 0; i < usuarios.length; i++) {
+    if (usuarios[i].usuario === usuario && (await validarCredenciaisUsuario(usuarios[i], senha))) {
+      encontrado = usuarios[i];
+      break;
+    }
+  }
 
-    // Verifica se tem uma página para redirecionar após o login
-    var destino = resolverUrl(sessionStorage.getItem('redirectAfterLogin'));
-    sessionStorage.removeItem('redirectAfterLogin'); // limpa o destino salvo
-    window.location.href = destino; // redireciona
-
-  } else {
-    // Login incorreto: mostra mensagem de erro
+  if (!encontrado) {
     mostrarMensagem(msgErro, 'Usuário ou senha incorretos.', true);
+    return;
   }
+
+  salvarUsuarios(usuarios);
+  criarSessao(usuario);
+
+  var destino = resolverUrl(sessionStorage.getItem('redirectAfterLogin'));
+  sessionStorage.removeItem('redirectAfterLogin');
+  window.location.href = destino;
 }
 
+function obterDadosEndereco(prefixo) {
+  return {
+    cep: (document.getElementById(prefixo + 'cep') || { value: '' }).value.replace(/\D/g, ''),
+    rua: (document.getElementById(prefixo + 'rua') || { value: '' }).value.trim(),
+    numero: (document.getElementById(prefixo + 'numero') || { value: '' }).value.trim(),
+    complemento: (document.getElementById(prefixo + 'complemento') || { value: '' }).value.trim(),
+    bairro: (document.getElementById(prefixo + 'bairro') || { value: '' }).value.trim(),
+    cidade: (document.getElementById(prefixo + 'cidade') || { value: '' }).value.trim(),
+    uf: (document.getElementById(prefixo + 'uf') || { value: '' }).value.trim()
+  };
+}
 
-// ============================================================
-// FUNÇÃO DE CADASTRO
-// ============================================================
-
-// Executada quando o usuário clica em "Cadastrar"
-// Valida os campos e cria uma nova conta no localStorage
-function registrarUsuario() {
-  var usuario   = document.getElementById('novo-usuario').value.trim();
-  var senha     = document.getElementById('nova-senha').value.trim();
+async function registrarUsuario() {
+  var usuario = document.getElementById('novo-usuario').value.trim();
+  var senha = document.getElementById('nova-senha').value.trim();
   var confirmar = document.getElementById('confirmar-senha').value.trim();
-  var msgErro   = document.getElementById('erro-registro');
-  var msgOk     = document.getElementById('sucesso-registro');
+  var consentimento = document.getElementById('consentimento-dados');
+  var msgErro = document.getElementById('erro-registro');
+  var msgOk = document.getElementById('sucesso-registro');
 
-  // Esconde mensagens anteriores
   mostrarMensagem(msgErro, '', false);
-  mostrarMensagem(msgOk,   '', false);
+  mostrarMensagem(msgOk, '', false);
 
-  // Validações (cada uma para antes de ir para a próxima)
   if (!usuario || !senha || !confirmar) {
     mostrarMensagem(msgErro, 'Preencha todos os campos.', true);
     return;
@@ -230,16 +265,19 @@ function registrarUsuario() {
     mostrarMensagem(msgErro, 'Usuário deve ter pelo menos 3 caracteres.', true);
     return;
   }
-  if (senha.length < 4) {
-    mostrarMensagem(msgErro, 'Senha deve ter pelo menos 4 caracteres.', true);
+  if (senha.length < 8) {
+    mostrarMensagem(msgErro, 'Senha deve ter pelo menos 8 caracteres.', true);
     return;
   }
   if (senha !== confirmar) {
     mostrarMensagem(msgErro, 'As senhas não coincidem.', true);
     return;
   }
+  if (!consentimento || !consentimento.checked) {
+    mostrarMensagem(msgErro, 'Você precisa aceitar os Termos e a Política de Privacidade.', true);
+    return;
+  }
 
-    // Validação do CPF
   var cpf = document.getElementById('cpf').value.replace(/\D/g, '');
   if (!cpf) {
     mostrarMensagem(msgErro, 'Preencha o CPF.', true);
@@ -250,88 +288,115 @@ function registrarUsuario() {
     return;
   }
 
-  // Validação do CEP
-  var cep = document.getElementById('cep').value.replace(/\D/g, '');
-  var rua = document.getElementById('rua').value.trim();
-  if (!cep || cep.length !== 8) {
+  var endereco = obterDadosEndereco('');
+  if (!endereco.cep || endereco.cep.length !== 8) {
     mostrarMensagem(msgErro, 'Preencha o CEP.', true);
     return;
   }
-  if (!rua) {
+  if (!endereco.rua) {
     mostrarMensagem(msgErro, 'CEP não foi buscado. Aguarde ou verifique o CEP.', true);
     return;
   }
-  var numero = document.getElementById('numero').value.trim();
-  if (!numero) {
+  if (!endereco.numero) {
     mostrarMensagem(msgErro, 'Preencha o número da residência.', true);
     return;
   }
 
-  // Verifica se o nome de usuário já está em uso
-  var usuarios = carregarUsuarios();
-  var jaExiste = usuarios.find(function(u) { return u.usuario === usuario; });
+  var usuarios = await normalizarUsuarios();
+  var jaExiste = usuarios.find(function (u) {
+    return u.usuario === usuario;
+  });
 
   if (jaExiste) {
     mostrarMensagem(msgErro, 'Esse usuário já existe.', true);
     return;
   }
 
-  // Tudo certo: adiciona o novo usuário à lista e salva
-  usuarios.push({ usuario: usuario, senha: senha, cpf: cpf, cep: cep, numero: numero });
-  salvarUsuarios(usuarios);
+  usuarios.push({
+    usuario: usuario,
+    senhaHash: await hashSenha(senha),
+    consentimentoDadosAt: new Date().toISOString(),
+    cep: endereco.cep,
+    rua: endereco.rua,
+    numero: endereco.numero,
+    complemento: endereco.complemento,
+    bairro: endereco.bairro,
+    cidade: endereco.cidade,
+    uf: endereco.uf
+  });
 
-  // Mostra mensagem de sucesso e redireciona após 1,5 segundos
+  salvarUsuarios(usuarios);
   mostrarMensagem(msgOk, 'Conta criada! Redirecionando...', true);
 
-  setTimeout(function() {
-    localStorage.setItem('authToken', usuario); // loga automaticamente
+  setTimeout(function () {
+    criarSessao(usuario);
     var destino = resolverUrl(sessionStorage.getItem('redirectAfterLogin'));
     sessionStorage.removeItem('redirectAfterLogin');
     window.location.href = destino;
   }, 1500);
 }
 
-
-// ============================================================
-// FUNÇÃO DE ABAS (LOGIN / CADASTRO)
-// ============================================================
-
-// Alterna entre a aba de Login e a aba de Criar Conta na tela
-// aba = 'login' ou 'registro'
 function mostrarAba(aba) {
-  var abaLogin    = document.getElementById('aba-login');
+  var abaLogin = document.getElementById('aba-login');
   var abaRegistro = document.getElementById('aba-registro');
 
   if (aba === 'login') {
-    abaLogin.hidden    = false; // mostra o formulário de login
-    abaRegistro.hidden = true;  // esconde o formulário de cadastro
+    abaLogin.hidden = false;
+    abaRegistro.hidden = true;
   } else {
-    abaLogin.hidden    = true;  // esconde o formulário de login
-    abaRegistro.hidden = false; // mostra o formulário de cadastro
+    abaLogin.hidden = true;
+    abaRegistro.hidden = false;
   }
 }
 
-// Verifica qual aba está visível no momento
 function abaLoginVisivel() {
   var abaLogin = document.getElementById('aba-login');
   return abaLogin && !abaLogin.hidden;
 }
 
+document.addEventListener('DOMContentLoaded', function () {
+  normalizarUsuarios();
 
-// ============================================================
-// ATALHO DE TECLADO: ENTER
-// ============================================================
+  var btnLogin = document.getElementById('btn-login');
+  var btnRegistro = document.getElementById('btn-registro');
+  var linkAbaRegistro = document.getElementById('link-aba-registro');
+  var linkAbaLogin = document.getElementById('link-aba-login');
 
-// Quando o usuário aperta Enter, envia o formulário que está visível
-document.addEventListener('DOMContentLoaded', function() {
-  document.addEventListener('keydown', function(evento) {
-    if (evento.key !== 'Enter') return; // ignora qualquer tecla que não seja Enter
+  if (btnLogin) {
+    btnLogin.addEventListener('click', function () {
+      fazerLogin();
+    });
+  }
+
+  if (btnRegistro) {
+    btnRegistro.addEventListener('click', function () {
+      registrarUsuario();
+    });
+  }
+
+  if (linkAbaRegistro) {
+    linkAbaRegistro.addEventListener('click', function (event) {
+      event.preventDefault();
+      mostrarAba('registro');
+    });
+  }
+
+  if (linkAbaLogin) {
+    linkAbaLogin.addEventListener('click', function (event) {
+      event.preventDefault();
+      mostrarAba('login');
+    });
+  }
+
+  document.addEventListener('keydown', function (evento) {
+    if (evento.key !== 'Enter') return;
+    if (!document.getElementById('aba-login') && !document.getElementById('aba-registro')) return;
+
     evento.preventDefault();
-
     if (abaLoginVisivel()) {
-      fazerLogin();     // aba de login visível → faz login
+      fazerLogin();
     } else {
-      registrarUsuario(); // aba de cadastro visível → cria conta
+      registrarUsuario();
     }
   });
 });

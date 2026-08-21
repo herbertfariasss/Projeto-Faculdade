@@ -12,3 +12,9 @@ function toggleMenu() {
   // Alterna a classe "open" — CSS .mobile-menu.open { display: flex; }
   menu.classList.toggle('open');
 }
+
+document.addEventListener('DOMContentLoaded', function () {
+  const hamburger = document.getElementById('hamburger');
+  if (!hamburger) return;
+  hamburger.addEventListener('click', toggleMenu);
+});

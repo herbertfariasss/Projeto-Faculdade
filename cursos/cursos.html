@@ -194,56 +194,15 @@
 
 
   <!-- ==================== RODAPÉ ==================== -->
-  <footer>
-    <div class="rodTopo">
-      <div class="rod-logo">
-        <h3 class="rod-nome">Tech <strong>Cursos</strong></h3>
-        <p>Todo tipo de linguagem na palma da sua mão!</p>
-      </div>
-      <div class="rod1">
-        <h3>Soluções</h3>
-        <ul>
-          <li><a href="#">Trilhas de Aprendizado</a></li>
-          <li><a href="#">Projetos Práticos</a></li>
-          <li><a href="#">Certificados</a></li>
-        </ul>
-      </div>
-      <div class="rod2">
-        <h3>Legal</h3>
-        <ul>
-          <li><a href="#">Termos de Uso</a></li>
-          <li><a href="#">Política de Privacidade</a></li>
-        </ul>
-      </div>
-      <div class="rodDados">
-        <h3>Empresa</h3>
-        <p><strong>CNPJ:</strong> 00.000.000/0000-00</p>
-        <p>Rio de Janeiro, RJ — Brasil</p>
-        <p>suporte <a href="#">@TechCursos.com</a></p>
-      </div>
-    </div>
-    <div class="rodFinal">
-      <p>© Tech Cursos — Devs: Herbert, João, Giovanni, Matheus e Caique.</p>
-    </div>
-  </footer>
+  <div data-site-footer data-base=".."></div>
   <!-- ==================== FIM DO RODAPÉ ==================== -->
 
 
   <!-- ==================== SCRIPTS ==================== -->
   <!-- Sistema de login (deve vir antes do script abaixo) -->
-  <script src="../inscricao/auth.js"></script>
-
-  <script>
-    // PROTEÇÃO DA PÁGINA:
-    // Se o usuário não estiver logado, salva esta URL e manda para o login
-    if (!isLoggedIn()) {
-      sessionStorage.setItem('redirectAfterLogin', window.location.href);
-      window.location.href = '../inscricao/inscricao.html';
-    }
-
-    // Mostra "Olá, [nome do usuário]" no cabeçalho
-    document.getElementById('saudacao').textContent = 'Olá, ' + getUsuarioLogado();
-  </script>
+  <script src="../inscricao/auth.js" defer></script>
+  <script src="../js/footer.js" defer></script>
+  <script src="cursos.js" defer></script>
 
 </body>
 </html>

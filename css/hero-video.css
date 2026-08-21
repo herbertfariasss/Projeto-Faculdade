@@ -1,0 +1,63 @@
+.vid-wrapper {
+  width: 100%;
+  aspect-ratio: 16/9;
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  cursor: pointer;
+  background: #000;
+  border: 1px solid rgba(124, 92, 252, 0.4);
+}
+
+.vid-thumb {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.3s ease, opacity 0.3s;
+}
+
+.vid-wrapper:hover .vid-thumb,
+.vid-wrapper:focus-visible .vid-thumb {
+  transform: scale(1.04);
+  opacity: 0.85;
+}
+
+.vid-play-btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 64px;
+  height: 64px;
+  background: rgba(124, 92, 252, 0.88);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+  color: #fff;
+  pointer-events: none;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.vid-wrapper:hover .vid-play-btn,
+.vid-wrapper:focus-visible .vid-play-btn {
+  background: rgba(124, 92, 252, 1);
+  transform: translate(-50%, -50%) scale(1.1);
+}
+
+.vid-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: 16px;
+}
+
+.vid-wrapper:focus-visible {
+  outline: 2px solid #a78bfa;
+  outline-offset: 3px;
+}

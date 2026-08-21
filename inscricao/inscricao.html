@@ -30,7 +30,7 @@
       <nav class="nav">
         <a href="../index.html">Início</a>
       </nav>
-      <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Abrir menu">&#9776;</button>
+      <button class="hamburger" id="hamburger" aria-label="Abrir menu" type="button">&#9776;</button>
     </div>
     <div class="mobile-menu" id="mobile-menu">
       <a href="../index.html">Início</a>
@@ -63,11 +63,11 @@
 
         </div>
 
-        <button type="button" id="btn-login" onclick="fazerLogin()">Entrar</button>
+        <button type="button" id="btn-login">Entrar</button>
 
         <p class="trocar-aba">
           Não tem conta?
-          <a href="#" onclick="mostrarAba('registro'); return false;">Criar conta</a>
+          <a href="#" id="link-aba-registro">Criar conta</a>
         </p>
       </div>
       <!-- ==================== FIM DA ABA LOGIN ==================== -->
@@ -96,13 +96,13 @@
 
           <div class="campo">
             <label for="cpf">CPF</label>
-            <input type="text" id="cpf" placeholder="000.000.000-00" maxlength="14" autocomplete="off" oninput="mascaraCpf(this)" />
+            <input type="text" id="cpf" placeholder="000.000.000-00" maxlength="14" autocomplete="off" />
             <p id="erro-cpf" class="msg-erro" hidden></p>
           </div>
 
           <div class="campo">
             <label for="cep">CEP</label>
-            <input type="text" id="cep" placeholder="00000-000" maxlength="9" autocomplete="postal-code" oninput="mascaraCep(this)" />
+            <input type="text" id="cep" placeholder="00000-000" maxlength="9" autocomplete="postal-code" />
             <p id="erro-cep" class="msg-erro" hidden></p>
           </div>
 
@@ -143,11 +143,11 @@
 
         </div>
 
-        <button type="button" id="btn-registro" onclick="registrarUsuario()">Cadastrar</button>
+        <button type="button" id="btn-registro">Cadastrar</button>
 
         <p class="trocar-aba">
           Já tem conta?
-          <a href="#" onclick="mostrarAba('login'); return false;">Entrar</a>
+          <a href="#" id="link-aba-login">Entrar</a>
         </p>
       </div>
       <!-- ==================== FIM DA ABA CADASTRO ==================== -->
@@ -157,45 +157,22 @@
 
 
   <!-- ==================== RODAPÉ ==================== -->
-  <footer>
-    <div class="rodTopo">
-      <div class="rod-logo">
-        <h3 class="rod-nome">Tech <strong>Cursos</strong></h3>
-        <p>Todo tipo de linguagem na palma da sua mão!</p>
-      </div>
-      <div class="rod1">
-        <h3>Soluções</h3>
-        <ul>
-          <li><a href="#">Trilhas de Aprendizado</a></li>
-          <li><a href="#">Projetos Práticos</a></li>
-          <li><a href="#">Certificados</a></li>
-        </ul>
-      </div>
-      <div class="rod2">
-        <h3>Legal</h3>
-        <ul>
-          <li><a href="#">Termos de Uso</a></li>
-          <li><a href="#">Política de Privacidade</a></li>
-        </ul>
-      </div>
-      <div class="rodDados">
-        <h3>Empresa</h3>
-        <p><strong>CNPJ:</strong> 00.000.000/0000-00</p>
-        <p>Rio de Janeiro, RJ — Brasil</p>
-        <p>suporte <a href="#">@TechCursos.com</a></p>
-      </div>
-    </div>
-    <div class="rodFinal">
-      <p>© Tech Cursos — Devs: Herbert, João, Giovanni, Matheus e Caique.</p>
-    </div>
-  </footer>
+  <div data-site-footer data-base=".."></div>
 
 
   <!-- ==================== SCRIPTS ==================== -->
-  <script src="cabecalho.js"></script>
-  <script src="auth.js"></script>
-  <script src="cep.js"></script>
-  <script src="cpf.js"></script>
+  <script src="../js/footer.js" defer></script>
+  <script src="cabecalho.js" defer></script>
+  <script src="auth.js" defer></script>
+  <script src="cep.js" defer></script>
+  <script src="cpf.js" defer></script>
 
 </body>
 </html>
+          <div class="campo">
+            <label>
+              <input type="checkbox" id="consentimento-dados" />
+              Li e aceito os <a href="../legal/termos.html" target="_blank" rel="noopener noreferrer">Termos de Uso</a> e a
+              <a href="../legal/privacidade.html" target="_blank" rel="noopener noreferrer">Política de Privacidade</a>.
+            </label>
+          </div>

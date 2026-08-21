@@ -1,0 +1,25 @@
+{
+  "name": "projeto-faculdade",
+  "version": "1.0.0",
+  "description": "Projeto desenvolvido durante o primeiro semestre de Análise e Desenvolvimento de Sistemas na UNISUAM.",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint .",
+    "format": "prettier --write \"**/*.{js,css,html,md,json,yml,yaml}\"",
+    "format:check": "prettier --check \"**/*.{js,css,html,md,json,yml,yaml}\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://localhost:26831/herbertfariasss/Projeto-Faculdade"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "eslint": "^10.8.1",
+    "globals": "^17.11.0",
+    "prettier": "^3.9.6"
+  },
+  "private": true
+}

@@ -51,3 +51,11 @@ function limparCamposEndereco() {
   document.getElementById("cidade").value = "";
   document.getElementById("uf").value     = "";
 }
+
+document.addEventListener('DOMContentLoaded', function () {
+  var campoCep = document.getElementById('cep');
+  if (!campoCep) return;
+  campoCep.addEventListener('input', function () {
+    mascaraCep(campoCep);
+  });
+});

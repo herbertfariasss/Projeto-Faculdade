@@ -263,6 +263,11 @@ body {
   transform: translate(-50%, -50%) scale(1.1);
 }
 
+.video-wrapper:focus-visible {
+  outline: 2px solid #a78bfa;
+  outline-offset: 2px;
+}
+
 /* Iframe que aparece após o clique */
 .video-wrapper iframe {
   position: absolute;
