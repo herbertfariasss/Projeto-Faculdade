@@ -16,7 +16,7 @@
 /* Pseudo-elementos fixos — não clicáveis, ficam atrás do conteúdo (z-index: 0) */
 body::before,
 body::after {
-  content: "";
+  content: '';
   position: fixed;
   border-radius: 50%;
   pointer-events: none;
@@ -29,11 +29,7 @@ body::before {
   left: -10%;
   width: 65vw;
   height: 65vw;
-  background: radial-gradient(
-    ellipse,
-    rgba(91, 33, 244, 0.28) 0%,
-    transparent 65%
-  );
+  background: radial-gradient(ellipse, rgba(91, 33, 244, 0.28) 0%, transparent 65%);
   animation: flutua1 14s ease-in-out infinite alternate;
 }
 
@@ -43,29 +39,33 @@ body::after {
   right: -10%;
   width: 55vw;
   height: 55vw;
-  background: radial-gradient(
-    ellipse,
-    rgba(26, 108, 246, 0.22) 0%,
-    transparent 65%
-  );
+  background: radial-gradient(ellipse, rgba(26, 108, 246, 0.22) 0%, transparent 65%);
   animation: flutua2 18s ease-in-out infinite alternate;
 }
 
 @keyframes flutua1 {
-  from { transform: translate(0, 0); }
-  to { transform: translate(5%, 8%); }
+  from {
+    transform: translate(0, 0);
+  }
+  to {
+    transform: translate(5%, 8%);
+  }
 }
 
 @keyframes flutua2 {
-  from { transform: translate(0, 0); }
-  to { transform: translate(-6%, -5%); }
+  from {
+    transform: translate(0, 0);
+  }
+  to {
+    transform: translate(-6%, -5%);
+  }
 }
 
 /* ========== BODY — layout em coluna (filhos empilhados verticalmente) ========== */
 body {
   background-color: #080810;
   color: #ffffff;
-  font-family: "Segoe UI", system-ui, sans-serif;
+  font-family: 'Segoe UI', system-ui, sans-serif;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -82,11 +82,7 @@ body {
 /* ========== CABEÇALHO — index.html <header class="cabecalho"> ========== */
 /* sticky: gruda no topo ao rolar; z-index alto para ficar sobre o conteúdo */
 .cabecalho {
-  background: linear-gradient(
-    90deg,
-    rgba(91, 33, 244, 0.35),
-    rgba(26, 108, 246, 0.28)
-  );
+  background: linear-gradient(90deg, rgba(91, 33, 244, 0.35), rgba(26, 108, 246, 0.28));
   padding: 1.2rem 0;
   width: 100%;
   position: sticky;
@@ -145,7 +141,7 @@ body {
   font-size: 1.1em;
   text-decoration: none;
   color: white;
-  font-family: "Syne";
+  font-family: 'Syne';
 }
 
 /* Container interno do header: logo | linha | nav | botão login */
@@ -163,7 +159,7 @@ body {
 /* ========== TEXTOS DO HERO ========== */
 /* Título principal "TECNOLOGIA PARA TODOS" */
 .textoIntro {
-  font-family: "Syne";
+  font-family: 'Syne';
   font-size: clamp(1.8rem, 4vw, 2.5rem);
   margin: 0;
   color: #ffffff;
@@ -173,7 +169,7 @@ body {
 
 /* Subtítulo abaixo — margem de 16px separa do título */
 .textoIntro2 {
-  font-family: "Syne";
+  font-family: 'Syne';
   font-size: clamp(1.2rem, 2.8vw, 1.85rem);
   text-align: left;
   margin: 16px 0 0;
@@ -202,7 +198,7 @@ body {
 
 /* Parágrafo institucional na seção sobre */
 .textoIntro3 {
-  font-family: "Syne";
+  font-family: 'Syne';
   font-size: 1.1em;
   text-align: center;
   margin: 0;
@@ -226,7 +222,7 @@ body {
 .aprender {
   margin: 8px 0 24px;
   text-align: center;
-  font-family: "Syne";
+  font-family: 'Syne';
 }
 
 /* Título "O CURSO" em roxo */
@@ -234,7 +230,7 @@ body {
   margin: 40px 0 4px;
   text-align: center;
   color: #7c5cfc;
-  font-family: "Syne";
+  font-family: 'Syne';
 }
 
 /* ========== ROLAGEM SUAVE E ÂNCORAS ========== */

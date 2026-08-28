@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <!--
   =============================================
   TECH CURSOS — Página Principal (index.html)
@@ -22,356 +22,229 @@
 -->
 
 <html lang="pt-br">
+  <head>
+    <!-- Define que o site usa letras acentuadas (português) -->
+    <meta charset="UTF-8" />
 
-<head>
-  <!-- Define que o site usa letras acentuadas (português) -->
-  <meta charset="UTF-8" />
+    <!-- Faz o site funcionar bem no celular e tablet -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- Faz o site funcionar bem no celular e tablet -->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Arquivos CSS: cada um cuida de uma parte visual diferente -->
+    <link rel="stylesheet" href="css/styles.css" />
+    <!-- Estilo geral da página -->
+    <link rel="stylesheet" href="css/button.css" />
+    <!-- Estilo dos botões -->
+    <link rel="stylesheet" href="css/html-box.css" />
+    <!-- Card do curso de HTML -->
+    <link rel="stylesheet" href="css/css-box.css" />
+    <!-- Card do curso de CSS -->
+    <link rel="stylesheet" href="css/py-box.css" />
+    <!-- Card do curso de Python -->
+    <link rel="stylesheet" href="css/js-box.css" />
+    <!-- Card do curso de JavaScript -->
+    <link rel="stylesheet" href="css/resp.css" />
+    <!-- Responsividade (celular/tablet) -->
+    <link rel="stylesheet" href="css/menu.css" />
+    <!-- Menu e divisores -->
+    <link rel="stylesheet" href="css/footer.css" />
+    <!-- Rodapé -->
+    <link rel="stylesheet" href="css/hero-video.css" />
+    <!-- Vídeo da home -->
 
-  <!-- Arquivos CSS: cada um cuida de uma parte visual diferente -->
-  <link rel="stylesheet" href="css/styles.css" />      <!-- Estilo geral da página -->
-  <link rel="stylesheet" href="css/button.css" />      <!-- Estilo dos botões -->
-  <link rel="stylesheet" href="css/html-box.css" />    <!-- Card do curso de HTML -->
-  <link rel="stylesheet" href="css/css-box.css" />     <!-- Card do curso de CSS -->
-  <link rel="stylesheet" href="css/py-box.css" />      <!-- Card do curso de Python -->
-  <link rel="stylesheet" href="css/js-box.css" />      <!-- Card do curso de JavaScript -->
-  <link rel="stylesheet" href="css/resp.css" />        <!-- Responsividade (celular/tablet) -->
-  <link rel="stylesheet" href="css/menu.css" />        <!-- Menu e divisores -->
-  <link rel="stylesheet" href="css/footer.css" />      <!-- Rodapé -->
+    <!-- Fontes do Google: baixa as letras personalizadas do site -->
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
 
-  <!-- Fontes do Google: baixa as letras personalizadas do site -->
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <title>TECH CURSOS</title>
+  </head>
 
-  <title>TECH CURSOS</title>
-</head>
+  <body>
+    <!-- ==================== CABEÇALHO ==================== -->
+    <!-- O <header> fica fixo no topo da tela enquanto o usuário rola a página -->
+    <header class="cabecalho">
+      <div class="container-header">
+        <!-- Logo da empresa -->
+        <img src="img/LOGOO.png" alt="logo da marca" class="logo" />
 
-<body>
+        <!-- Linha vertical decorativa entre o logo e o menu -->
+        <hr class="linha-cabecalho" />
 
-  <!-- ==================== CABEÇALHO ==================== -->
-  <!-- O <header> fica fixo no topo da tela enquanto o usuário rola a página -->
-  <header class="cabecalho">
-    <div class="container-header">
+        <!-- Menu de navegação: os links "#" levam para seções da mesma página -->
+        <nav class="nav">
+          <a href="#Home">Video</a>
 
-      <!-- Logo da empresa -->
-      <img src="img/LOGOO.png" alt="logo da marca" class="logo" />
+          <!-- "Cursos" verifica se o usuário está logado antes de ir para a página -->
+          <a href="cursos/cursos.html" data-require-auth="true">Cursos</a>
 
-      <!-- Linha vertical decorativa entre o logo e o menu -->
-      <hr class="linha-cabecalho" />
+          <a href="#Sobre">Sobre</a>
+          <a href="#Contato">Contato</a>
+        </nav>
 
-      <!-- Menu de navegação: os links "#" levam para seções da mesma página -->
-      <nav class="nav">
-        <a href="#Home">Video</a>
+        <!-- Área do botão de Login / menu do usuário -->
+        <section class="menu">
+          <!-- DESLOGADO: mostra o botão simples de Login -->
+          <a class="btn-inscricao" id="btn-login-header" href="inscricao/inscricao.html">Login</a>
 
-        <!-- "Cursos" verifica se o usuário está logado antes de ir para a página -->
-        <a href="#Cursos" onclick="event.preventDefault(); acessarConteudo('cursos/cursos.html')">Cursos</a>
+          <!-- LOGADO: mostra o nome do usuário com um menu dropdown -->
+          <!-- "hidden" = escondido por padrão, o JS mostra quando necessário -->
+          <div class="user-dropdown" id="user-dropdown" hidden>
+            <!-- Botão que mostra o nome do usuário e o símbolo ▾ (seta para baixo) -->
+            <button class="btn-inscricao btn-usuario" id="btn-usuario-nome" type="button">
+              <span id="nome-usuario-header"></span> ▾
+            </button>
 
-        <a href="#Sobre">Sobre</a>
-        <a href="#Contato">Contato</a>
-      </nav>
-
-      <!-- Área do botão de Login / menu do usuário -->
-      <section class="menu">
-
-        <!-- DESLOGADO: mostra o botão simples de Login -->
-        <a class="btn-inscricao" id="btn-login-header" href="inscricao/inscricao.html">Login</a>
-
-        <!-- LOGADO: mostra o nome do usuário com um menu dropdown -->
-        <!-- "hidden" = escondido por padrão, o JS mostra quando necessário -->
-        <div class="user-dropdown" id="user-dropdown" hidden>
-
-          <!-- Botão que mostra o nome do usuário e o símbolo ▾ (seta para baixo) -->
-          <button class="btn-inscricao btn-usuario" id="btn-usuario-nome" onclick="toggleDropdown()">
-            <span id="nome-usuario-header"></span> ▾
-          </button>
-
-          <!-- Menu que aparece ao clicar no nome do usuário -->
-          <div class="dropdown-menu" id="dropdown-menu" hidden>
-            <button onclick="window.location.href='inscricao/perfil.html'">Meu Perfil</button>
-            <button onclick="fazerLogout()">Sair</button>
+            <!-- Menu que aparece ao clicar no nome do usuário -->
+            <div class="dropdown-menu" id="dropdown-menu" hidden>
+              <button id="btn-perfil" type="button">Meu Perfil</button>
+              <button id="btn-logout" type="button">Sair</button>
+            </div>
           </div>
+        </section>
+      </div>
+    </header>
+    <!-- ==================== FIM DO CABEÇALHO ==================== -->
 
+    <!-- ==================== SEÇÃO HERO (INÍCIO) ==================== -->
+    <!-- id="Home" é o alvo do link "Video" no menu (rolagem suave) -->
+    <section class="hero" id="Home">
+      <div class="hero-inner">
+        <!-- Textos do lado esquerdo -->
+        <div class="hero-textos">
+          <h1 class="textoIntro">TECNOLOGIA PARA <span class="destaque-todos">TODOS</span></h1>
+
+          <h2 class="textoIntro2">
+            Aprenda programação<br />
+            do zero ao avançado. <br />
+            Domine
+            <span class="Dev">HTML, CSS, JS<br />e Python</span>
+            e se torne um <span class="Dev"><br />Desenvolvedor!</span>
+          </h2>
+
+          <!-- Botões de ação -->
+          <div class="botoesinicial">
+            <!-- Verifica login antes de ir para a página de cursos -->
+            <a href="cursos/cursos.html" data-require-auth="true" class="btn-roxo"> Cursos Gratuitos </a>
+            <!-- Rola a página até a seção de cursos -->
+            <a href="#Cursos" class="btn-contorno">Trilha de Cursos</a>
+          </div>
         </div>
-      </section>
 
-    </div>
-  </header>
-  <!-- ==================== FIM DO CABEÇALHO ==================== -->
-
-
-  <!-- ==================== SEÇÃO HERO (INÍCIO) ==================== -->
-  <!-- id="Home" é o alvo do link "Video" no menu (rolagem suave) -->
-  <section class="hero" id="Home">
-    <div class="hero-inner">
-
-      <!-- Textos do lado esquerdo -->
-      <div class="hero-textos">
-        <h1 class="textoIntro">
-          TECNOLOGIA PARA <span class="destaque-todos">TODOS</span>
-        </h1>
-
-        <h2 class="textoIntro2">
-          Aprenda programação<br />
-          do zero ao avançado. <br />
-          Domine
-          <span class="Dev">HTML, CSS, JS<br />e Python</span>
-          e se torne um <span class="Dev"><br />Desenvolvedor!</span>
-        </h2>
-
-        <!-- Botões de ação -->
-        <div class="botoesinicial">
-          <!-- Verifica login antes de ir para a página de cursos -->
-          <a href="#" onclick="event.preventDefault(); acessarConteudo('cursos/cursos.html')" class="btn-roxo">
-            Cursos Gratuitos
-          </a>
-          <!-- Rola a página até a seção de cursos -->
-          <a href="#Cursos" class="btn-contorno">Trilha de Cursos</a>
+        <!-- Vídeo do lado direito com thumbnail clicável -->
+        <div class="vid">
+          <div
+            class="vid-wrapper js-video-trigger"
+            role="button"
+            tabindex="0"
+            data-embed-url="https://www.youtube.com/embed/Fhy-5CtVkiM?autoplay=1"
+            aria-label="Reproduzir vídeo de apresentação do curso"
+          >
+            <img
+              class="vid-thumb"
+              src="https://img.youtube.com/vi/Fhy-5CtVkiM/hqdefault.jpg"
+              alt="Curso completo de HTML – seu primeiro site do zero"
+              loading="lazy"
+            />
+            <div class="vid-play-btn">▶</div>
+          </div>
         </div>
       </div>
+    </section>
+    <!-- ==================== FIM DO HERO ==================== -->
 
-      <!-- Vídeo do lado direito com thumbnail clicável -->
-      <div class="vid">
-        <div class="vid-wrapper" onclick="loadHeroVideo(this)">
-          <img
-            class="vid-thumb"
-            src="https://img.youtube.com/vi/Fhy-5CtVkiM/hqdefault.jpg"
-            alt="Curso completo de HTML – seu primeiro site do zero"
-          />
-          <div class="vid-play-btn">▶</div>
+    <!-- ==================== SEÇÃO DE CURSOS ==================== -->
+    <!-- id="Cursos" é o alvo do link "Cursos" no menu -->
+    <hr id="Cursos" class="linha-curso" />
+    <h1 class="O_Curso">O CURSO</h1>
+    <h2 class="aprender">O que você irá aprender?</h2>
+
+    <!-- Grade com os 4 cards de linguagem -->
+    <div class="cursos-cards">
+      <!-- Card: HTML -->
+      <div class="html-box">
+        <div class="cabecalho-html">
+          <img src="img/apoio/licon1.svg" alt="imagem HTML" loading="lazy" />
+          <h4>HTML</h4>
         </div>
+        <p class="textoHTML">
+          Estruture páginas profissionais do zero<br />
+          com confiança e domínio do HTML.
+        </p>
       </div>
 
-    </div>
-  </section>
-  <!-- ==================== FIM DO HERO ==================== -->
-
-
-  <!-- ==================== SEÇÃO DE CURSOS ==================== -->
-  <!-- id="Cursos" é o alvo do link "Cursos" no menu -->
-  <hr id="Cursos" class="linha-curso" />
-  <h1 class="O_Curso">O CURSO</h1>
-  <h2 class="aprender">O que você irá aprender?</h2>
-
-  <!-- Grade com os 4 cards de linguagem -->
-  <div class="cursos-cards">
-
-    <!-- Card: HTML -->
-    <div class="html-box">
-      <div class="cabecalho-html">
-        <img src="img/apoio/licon1.svg" alt="imagem HTML" />
-        <h4>HTML</h4>
+      <!-- Card: CSS -->
+      <div class="css-box">
+        <div class="cabecalho-css">
+          <img src="img/apoio/licon2.svg" alt="imagem CSS" loading="lazy" />
+          <h4>CSS</h4>
+        </div>
+        <p class="textoCSS">
+          Crie designs modernos e responsivos<br />
+          com estilo e profissionalismo.
+        </p>
       </div>
-      <p class="textoHTML">
-        Estruture páginas profissionais do zero<br />
-        com confiança e domínio do HTML.
-      </p>
-    </div>
 
-    <!-- Card: CSS -->
-    <div class="css-box">
-      <div class="cabecalho-css">
-        <img src="img/apoio/licon2.svg" alt="imagem CSS" />
-        <h4>CSS</h4>
+      <!-- Card: JavaScript -->
+      <div class="js-box">
+        <div class="cabecalho-js">
+          <img src="img/apoio/licon3.svg" alt="imagem JavaScript" loading="lazy" />
+          <h4>JavaScript</h4>
+        </div>
+        <p class="textoJS">
+          Dê vida às suas páginas<br />
+          com interatividade e dinamismo usando JavaScript.
+        </p>
       </div>
-      <p class="textoCSS">
-        Crie designs modernos e responsivos<br />
-        com estilo e profissionalismo.
-      </p>
-    </div>
 
-    <!-- Card: JavaScript -->
-    <div class="js-box">
-      <div class="cabecalho-js">
-        <img src="img/apoio/licon3.svg" alt="imagem JavaScript" />
-        <h4>JavaScript</h4>
+      <!-- Card: Python -->
+      <div class="py-box">
+        <div class="cabecalho-py">
+          <img src="img/apoio/licon4.svg" alt="imagem Python" loading="lazy" />
+          <h4>Python</h4>
+        </div>
+        <p class="textoPY">
+          Aprenda uma das linguagens mais poderosas do mercado<br />
+          e desenvolva aplicações do zero.
+        </p>
       </div>
-      <p class="textoJS">
-        Dê vida às suas páginas<br />
-        com interatividade e dinamismo usando JavaScript.
-      </p>
     </div>
+    <!-- ==================== FIM DOS CURSOS ==================== -->
 
-    <!-- Card: Python -->
-    <div class="py-box">
-      <div class="cabecalho-py">
-        <img src="img/apoio/licon4.svg" alt="imagem Python" />
-        <h4>Python</h4>
-      </div>
-      <p class="textoPY">
-        Aprenda uma das linguagens mais poderosas do mercado<br />
-        e desenvolva aplicações do zero.
-      </p>
-    </div>
+    <!-- ==================== SEÇÃO SOBRE NÓS ==================== -->
+    <!-- id="Sobre" é o alvo do link "Sobre" no menu -->
+    <section class="secao-sobre">
+      <hr id="Sobre" class="linha-sobre" />
+      <h1 class="sobre">SOBRE NÓS</h1>
+      <h2 class="textoIntro3">
+        Educação de TI gratuita para quem mais precisa. Entrar no mercado de tecnologia não pode ser um privilégio de
+        poucos. Se você não tem dinheiro para investir, mas tem vontade de aprender, nossos cursos são para você,
+        aprenda a criar sites incríveis e mude seu futuro sem se preocupar com mensalidades.
+      </h2>
+      <hr class="linha-contato" />
+    </section>
+    <!-- ==================== FIM DO SOBRE ==================== -->
 
-  </div>
-  <!-- ==================== FIM DOS CURSOS ==================== -->
-
-
-  <!-- ==================== SEÇÃO SOBRE NÓS ==================== -->
-  <!-- id="Sobre" é o alvo do link "Sobre" no menu -->
-  <section class="secao-sobre">
-    <hr id="Sobre" class="linha-sobre" />
-    <h1 class="sobre">SOBRE NÓS</h1>
-    <h2 class="textoIntro3">
-      Educação de TI gratuita para quem mais precisa.
-      Entrar no mercado de tecnologia não pode ser um
-      privilégio de poucos. Se você não tem dinheiro para
-      investir, mas tem vontade de aprender, nossos cursos
-      são para você, aprenda a criar sites incríveis e mude
-      seu futuro sem se preocupar com mensalidades.
-    </h2>
-    <hr class="linha-contato" />
-  </section>
-  <!-- ==================== FIM DO SOBRE ==================== -->
-
-
-  <!-- ==================== RODAPÉ ==================== -->
-  <!-- id="Contato" é o alvo do link "Contato" no menu -->
-  <footer>
-
-    <!-- Título da seção de contato dentro do rodapé -->
+    <!-- ==================== RODAPÉ ==================== -->
+    <!-- id="Contato" é o alvo do link "Contato" no menu -->
     <div class="rod-contato-titulo" id="Contato">
       <h1 class="contato">CONTATO</h1>
     </div>
+    <div data-site-footer data-base="."></div>
+    <!-- ==================== FIM DO RODAPÉ ==================== -->
 
-    <!-- Grade com as colunas de informação do rodapé -->
-    <div class="rodTopo">
+    <!-- ==================== SCRIPTS JAVASCRIPT ==================== -->
+    <!-- Os scripts ficam no FINAL do body para a página carregar mais rápido -->
 
-      <!-- Coluna 1: nome e descrição do site -->
-      <div class="rod-logo">
-        <h3 class="rod-nome">Tech <strong>Cursos</strong></h3>
-        <p>Todo tipo de linguagem na palma da sua mão!</p>
-      </div>
+    <!-- Rolagem suave ao clicar nos links do menu -->
+    <script src="js/script.js" defer></script>
 
-      <!-- Coluna 2: links de soluções -->
-      <div class="rod1">
-        <h3>Soluções</h3>
-        <ul>
-          <li><a href="#">Trilhas de Aprendizado</a></li>
-          <li><a href="#">Projetos Práticos</a></li>
-          <li><a href="#">Certificados</a></li>
-        </ul>
-      </div>
-
-      <!-- Coluna 3: links legais -->
-      <div class="rod2">
-        <h3>Legal</h3>
-        <ul>
-          <li><a href="#">Termos de Uso</a></li>
-          <li><a href="#">Política de Privacidade</a></li>
-        </ul>
-      </div>
-
-      <!-- Coluna 4: dados da empresa -->
-      <div class="rodDados">
-        <h3>Empresa</h3>
-        <p><strong>CNPJ:</strong> 00.000.000/0000-00</p>
-        <p>Rio de Janeiro, RJ — Brasil</p>
-        <p>suporte <a href="#">@TechCursos.com</a></p>
-      </div>
-
-    </div>
-
-    <!-- Linha final de copyright -->
-    <div class="rodFinal">
-      <p>© Tech Cursos — Devs: Herbert, João, Giovanni, Matheus e Caique.</p>
-    </div>
-
-  </footer>
-  <!-- ==================== FIM DO RODAPÉ ==================== -->
-
-
-  <!-- ==================== SCRIPTS JAVASCRIPT ==================== -->
-  <!-- Os scripts ficam no FINAL do body para a página carregar mais rápido -->
-
-  <!-- Estilos e script do vídeo hero com thumbnail clicável -->
-  <style>
-    .vid-wrapper {
-      width: 100%;
-      aspect-ratio: 16/9;
-      position: relative;
-      border-radius: 16px;
-      overflow: hidden;
-      cursor: pointer;
-      background: #000;
-    }
-    .vid-thumb {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-      transition: transform 0.3s ease, opacity 0.3s;
-    }
-    .vid-wrapper:hover .vid-thumb { transform: scale(1.04); opacity: 0.85; }
-    .vid-play-btn {
-      position: absolute;
-      top: 50%; left: 50%;
-      transform: translate(-50%, -50%);
-      width: 64px; height: 64px;
-      background: rgba(124,92,252,0.88);
-      border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1.6rem; color: #fff;
-      pointer-events: none;
-      transition: background 0.2s, transform 0.2s;
-    }
-    .vid-wrapper:hover .vid-play-btn { background: rgba(124,92,252,1); transform: translate(-50%, -50%) scale(1.1); }
-    .vid-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; border-radius: 16px; }
-  </style>
-  <script>
-    function loadHeroVideo(wrapper) {
-      var iframe = document.createElement('iframe');
-      iframe.src = 'https://www.youtube.com/embed/Fhy-5CtVkiM?autoplay=1';
-      iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
-      iframe.allowFullscreen = true;
-      wrapper.innerHTML = '';
-      wrapper.appendChild(iframe);
-    }
-  </script>
-
-  <!-- Rolagem suave ao clicar nos links do menu -->
-  <script src="js/script.js"></script>
-
-  <!-- Sistema de login/cadastro (localStorage) -->
-  <script src="inscricao/auth.js"></script>
-
-  <!-- Lógica do botão de Login/Usuário no cabeçalho -->
-  <script>
-    // Usamos uma função imediata (IIFE) para não poluir o escopo global
-    (function () {
-
-      // Pega os elementos HTML pelo ID
-      var btnLogin  = document.getElementById('btn-login-header');  // botão "Login"
-      var dropdown  = document.getElementById('user-dropdown');     // menu do usuário logado
-      var nomeSpan  = document.getElementById('nome-usuario-header'); // onde vai o nome
-      var dropMenu  = document.getElementById('dropdown-menu');     // lista "Sair"
-
-      // Se o usuário já está logado, esconde o botão "Login" e mostra o menu com o nome
-      if (isLoggedIn()) {
-        btnLogin.style.display = 'none';      // esconde o botão de Login
-        dropdown.hidden        = false;       // mostra o dropdown com o nome
-        nomeSpan.textContent   = getUsuarioLogado(); // coloca o nome do usuário
-      }
-
-      // Função que abre/fecha o menu ao clicar no nome do usuário
-      window.toggleDropdown = function () {
-        dropMenu.hidden = !dropMenu.hidden; // inverte: se aberto fecha, se fechado abre
-      };
-
-      // Fecha o menu se o usuário clicar em qualquer lugar fora dele
-      document.addEventListener('click', function (evento) {
-        if (!dropdown.contains(evento.target)) {
-          dropMenu.hidden = true;
-        }
-      });
-
-    })();
-  </script>
-
-</body>
+    <!-- Sistema de login/cadastro (localStorage) -->
+    <script src="inscricao/auth.js" defer></script>
+    <script src="js/footer.js" defer></script>
+    <script src="js/index.js" defer></script>
+  </body>
 </html>
-
 
 <!--Fim-->

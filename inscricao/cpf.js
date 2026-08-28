@@ -1,20 +1,20 @@
 // Aplica a máscara "000.000.000-00" enquanto digita
 function mascaraCpf(input) {
-  let v = input.value.replace(/\D/g, "");
+  let v = input.value.replace(/\D/g, '');
 
-  if (v.length > 3)  v = v.slice(0, 3) + "." + v.slice(3);
-  if (v.length > 7)  v = v.slice(0, 7) + "." + v.slice(7);
-  if (v.length > 11) v = v.slice(0, 11) + "-" + v.slice(11, 13);
+  if (v.length > 3) v = v.slice(0, 3) + '.' + v.slice(3);
+  if (v.length > 7) v = v.slice(0, 7) + '.' + v.slice(7);
+  if (v.length > 11) v = v.slice(0, 11) + '-' + v.slice(11, 13);
 
   input.value = v;
 
   // Valida quando terminar de digitar os 11 dígitos
-  const erroMsg = document.getElementById("erro-cpf");
-  const digits  = input.value.replace(/\D/g, "");
+  const erroMsg = document.getElementById('erro-cpf');
+  const digits = input.value.replace(/\D/g, '');
 
   if (digits.length === 11) {
     if (!validarCpf(digits)) {
-      erroMsg.textContent = "CPF inválido.";
+      erroMsg.textContent = 'CPF inválido.';
       erroMsg.hidden = false;
     } else {
       erroMsg.hidden = true;
@@ -48,3 +48,11 @@ function validarCpf(cpf) {
 
   return true;
 }
+
+document.addEventListener('DOMContentLoaded', function () {
+  const campoCpf = document.getElementById('cpf');
+  if (!campoCpf) return;
+  campoCpf.addEventListener('input', function () {
+    mascaraCpf(campoCpf);
+  });
+});

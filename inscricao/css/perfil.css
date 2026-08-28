@@ -1,0 +1,241 @@
+.conteudo-perfil {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 20px 64px;
+  gap: 28px;
+}
+
+.perfil-card {
+  font-family: 'Syne', sans-serif;
+  color: #ffffff;
+  background: rgb(22, 2, 78);
+  border-radius: 32px;
+  box-shadow: 0 8px 32px rgba(22, 0, 56, 0.6);
+  padding: 40px 48px;
+  width: 90%;
+  max-width: 480px;
+}
+
+.perfil-titulo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 28px;
+  text-align: center;
+  color: #c4b5fd;
+}
+
+.secao {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 24px;
+  margin-top: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.secao-titulo {
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: rgba(255, 255, 255, 0.4);
+  margin-bottom: 4px;
+}
+
+.campo {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.campo label {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.campo input {
+  width: 100%;
+  padding: 11px 14px;
+  border: 1px solid rgba(124, 92, 252, 0.25);
+  border-radius: 10px;
+  background: rgba(95, 95, 95, 0.5);
+  color: #fff;
+  font-family: 'Syne', sans-serif;
+  font-size: 0.92rem;
+  outline: none;
+  box-sizing: border-box;
+  transition:
+    border-color 0.2s,
+    background 0.2s;
+}
+
+.campo input:focus {
+  border-color: rgba(124, 92, 252, 0.7);
+  background: rgba(95, 95, 95, 0.75);
+}
+
+.campos-linha {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.btn-salvar {
+  width: 100%;
+  padding: 13px;
+  margin-top: 8px;
+  background: #5b21f4;
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  font-family: 'Syne', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    background 0.2s,
+    transform 0.15s;
+}
+
+.btn-salvar:hover {
+  background: #7c3aed;
+  transform: scale(1.02);
+}
+
+.btn-excluir {
+  width: 100%;
+  padding: 13px;
+  background: transparent;
+  color: #f87171;
+  border: 1.5px solid rgba(248, 113, 113, 0.4);
+  border-radius: 12px;
+  font-family: 'Syne', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    background 0.2s,
+    border-color 0.2s,
+    transform 0.15s;
+}
+
+.btn-excluir:hover {
+  background: rgba(248, 113, 113, 0.1);
+  border-color: rgba(248, 113, 113, 0.8);
+  transform: scale(1.02);
+}
+
+.msg-sucesso {
+  color: #86efac;
+  font-size: 0.88rem;
+  font-weight: 600;
+  text-align: center;
+  padding: 10px;
+  background: rgba(134, 239, 172, 0.1);
+  border-radius: 8px;
+}
+
+.msg-erro {
+  color: #f87171;
+  font-size: 0.88rem;
+  font-weight: 600;
+  text-align: center;
+  padding: 10px;
+  background: rgba(248, 113, 113, 0.1);
+  border-radius: 8px;
+}
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.65);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  backdrop-filter: blur(4px);
+}
+
+.modal-overlay[hidden] {
+  display: none;
+}
+
+.modal-box {
+  background: rgb(22, 2, 78);
+  border: 1px solid rgba(248, 113, 113, 0.3);
+  border-radius: 24px;
+  padding: 40px 36px;
+  max-width: 360px;
+  width: 90%;
+  text-align: center;
+  font-family: 'Syne', sans-serif;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.5);
+}
+
+.modal-icon {
+  font-size: 2.5rem;
+}
+
+.modal-titulo {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #f87171;
+}
+
+.modal-texto {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.65);
+  line-height: 1.5;
+}
+
+.modal-acoes {
+  display: flex;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.modal-acoes button {
+  flex: 1;
+  padding: 12px;
+  border-radius: 10px;
+  font-family: 'Syne', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  transition:
+    opacity 0.2s,
+    transform 0.15s;
+}
+
+.modal-acoes button:hover {
+  opacity: 0.85;
+  transform: scale(1.02);
+}
+
+.btn-cancelar {
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+}
+
+.btn-confirmar-excluir {
+  background: #dc2626;
+  color: #fff;
+}
+
+@media (max-width: 480px) {
+  .perfil-card {
+    padding: 28px 20px;
+    border-radius: 24px;
+  }
+
+  .campos-linha {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <!--
   =============================================
   css.html — Página de Aulas: Curso de CSS
@@ -6,204 +6,234 @@
 -->
 
 <html lang="pt-br">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Curso de CSS — Tech Cursos</title>
-  <link rel="stylesheet" href="aulas.css" />
-  <link rel="stylesheet" href="../../css/footer.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-</head>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Curso de CSS — Tech Cursos</title>
+    <link rel="stylesheet" href="aulas.css" />
+    <link rel="stylesheet" href="../../css/footer.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
 
-<body>
-
-  <header class="cabecalho">
-    <div class="container-header">
-      <img src="../../img/LOGOO.png" alt="logo" class="logo" />
-      <nav class="nav">
-        <span class="saudacao" id="saudacao"></span>
-        <a href="../cursos.html">← Voltar aos Cursos</a>
-      </nav>
-    </div>
-  </header>
-
-  <main class="conteudo-aulas">
-
-    <div class="aula-hero aula-css">
-      <img src="../../img/apoio/licon2.svg" alt="CSS" class="aula-icone" />
-      <div>
-        <h1 class="aula-titulo">Curso de <span class="destaque">CSS</span></h1>
-        <p class="aula-subtitulo">Crie layouts modernos, responsivos e animações profissionais.</p>
+  <body>
+    <header class="cabecalho">
+      <div class="container-header">
+        <img src="../../img/LOGOO.png" alt="logo" class="logo" />
+        <nav class="nav">
+          <span class="saudacao" id="saudacao"></span>
+          <a href="../cursos.html">← Voltar aos Cursos</a>
+        </nav>
       </div>
-    </div>
+    </header>
 
-    <div class="modulos-lista">
-
-      <!-- ===== MÓDULO 1 ===== -->
-      <div class="modulo-card">
-        <div class="modulo-header">
-          <span class="modulo-num">01</span>
-          <h2>Seletores e propriedades</h2>
-        </div>
-        <div class="videos-grid">
-
-                    <div class="video-placeholder">
-            <div class="video-wrapper" onclick="loadVideo(this, 'https://www.youtube.com/embed/sbyQQlIou0c?autoplay=1')">
-              <img class="video-thumb-img" src="https://img.youtube.com/vi/sbyQQlIou0c/hqdefault.jpg" alt="Seletores, Propriedades e Valores CSS" />
-              <div class="play-btn">▶</div>
-            </div>
-            <p>Seletores, Propriedades e Valores CSS</p>
-          </div>
-
-                    <div class="video-placeholder">
-            <div class="video-wrapper" onclick="loadVideo(this, 'https://www.youtube.com/embed/35vhcPZtlO8?autoplay=1')">
-              <img class="video-thumb-img" src="https://img.youtube.com/vi/35vhcPZtlO8/hqdefault.jpg" alt="Seletores, Divs e Classes em CSS" />
-              <div class="play-btn">▶</div>
-            </div>
-            <p>Seletores, Divs e Classes em CSS</p>
-          </div>
-
+    <main class="conteudo-aulas">
+      <div class="aula-hero aula-css">
+        <img src="../../img/apoio/licon2.svg" alt="CSS" class="aula-icone" />
+        <div>
+          <h1 class="aula-titulo">Curso de <span class="destaque">CSS</span></h1>
+          <p class="aula-subtitulo">Crie layouts modernos, responsivos e animações profissionais.</p>
         </div>
       </div>
 
-      <!-- ===== MÓDULO 2 ===== -->
-      <div class="modulo-card">
-        <div class="modulo-header">
-          <span class="modulo-num">02</span>
-          <h2>Flexbox e Grid</h2>
-        </div>
-        <div class="videos-grid">
-
-                    <div class="video-placeholder">
-            <div class="video-wrapper" onclick="loadVideo(this, 'https://www.youtube.com/embed/YeGn9nGies0?autoplay=1')">
-              <img class="video-thumb-img" src="https://img.youtube.com/vi/YeGn9nGies0/hqdefault.jpg" alt="Primeiros passos com Flexbox – Guanabara" />
-              <div class="play-btn">▶</div>
-            </div>
-            <p>Primeiros passos com Flexbox – Guanabara</p>
+      <div class="modulos-lista">
+        <!-- ===== MÓDULO 1 ===== -->
+        <div class="modulo-card">
+          <div class="modulo-header">
+            <span class="modulo-num">01</span>
+            <h2>Seletores e propriedades</h2>
           </div>
-
-                    <div class="video-placeholder">
-            <div class="video-wrapper" onclick="loadVideo(this, 'https://www.youtube.com/embed/Tqw63vHuAAw?autoplay=1')">
-              <img class="video-thumb-img" src="https://img.youtube.com/vi/Tqw63vHuAAw/hqdefault.jpg" alt="Sua Primeira Grid CSS" />
-              <div class="play-btn">▶</div>
+          <div class="videos-grid">
+            <div class="video-placeholder">
+              <div
+                class="video-wrapper js-video-trigger"
+                role="button"
+                tabindex="0"
+                data-embed-url="https://www.youtube.com/embed/sbyQQlIou0c?autoplay=1"
+                aria-label="Reproduzir vídeo"
+              >
+                <img
+                  class="video-thumb-img"
+                  loading="lazy"
+                  src="https://img.youtube.com/vi/sbyQQlIou0c/hqdefault.jpg"
+                  alt="Seletores, Propriedades e Valores CSS"
+                />
+                <div class="play-btn">▶</div>
+              </div>
+              <p>Seletores, Propriedades e Valores CSS</p>
             </div>
-            <p>Sua Primeira Grid CSS</p>
-          </div>
 
+            <div class="video-placeholder">
+              <div
+                class="video-wrapper js-video-trigger"
+                role="button"
+                tabindex="0"
+                data-embed-url="https://www.youtube.com/embed/35vhcPZtlO8?autoplay=1"
+                aria-label="Reproduzir vídeo"
+              >
+                <img
+                  class="video-thumb-img"
+                  loading="lazy"
+                  src="https://img.youtube.com/vi/35vhcPZtlO8/hqdefault.jpg"
+                  alt="Seletores, Divs e Classes em CSS"
+                />
+                <div class="play-btn">▶</div>
+              </div>
+              <p>Seletores, Divs e Classes em CSS</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- ===== MÓDULO 2 ===== -->
+        <div class="modulo-card">
+          <div class="modulo-header">
+            <span class="modulo-num">02</span>
+            <h2>Flexbox e Grid</h2>
+          </div>
+          <div class="videos-grid">
+            <div class="video-placeholder">
+              <div
+                class="video-wrapper js-video-trigger"
+                role="button"
+                tabindex="0"
+                data-embed-url="https://www.youtube.com/embed/YeGn9nGies0?autoplay=1"
+                aria-label="Reproduzir vídeo"
+              >
+                <img
+                  class="video-thumb-img"
+                  loading="lazy"
+                  src="https://img.youtube.com/vi/YeGn9nGies0/hqdefault.jpg"
+                  alt="Primeiros passos com Flexbox – Guanabara"
+                />
+                <div class="play-btn">▶</div>
+              </div>
+              <p>Primeiros passos com Flexbox – Guanabara</p>
+            </div>
+
+            <div class="video-placeholder">
+              <div
+                class="video-wrapper js-video-trigger"
+                role="button"
+                tabindex="0"
+                data-embed-url="https://www.youtube.com/embed/Tqw63vHuAAw?autoplay=1"
+                aria-label="Reproduzir vídeo"
+              >
+                <img
+                  class="video-thumb-img"
+                  loading="lazy"
+                  src="https://img.youtube.com/vi/Tqw63vHuAAw/hqdefault.jpg"
+                  alt="Sua Primeira Grid CSS"
+                />
+                <div class="play-btn">▶</div>
+              </div>
+              <p>Sua Primeira Grid CSS</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- ===== MÓDULO 3 ===== -->
+        <div class="modulo-card">
+          <div class="modulo-header">
+            <span class="modulo-num">03</span>
+            <h2>Responsividade</h2>
+          </div>
+          <div class="videos-grid">
+            <div class="video-placeholder">
+              <div
+                class="video-wrapper js-video-trigger"
+                role="button"
+                tabindex="0"
+                data-embed-url="https://www.youtube.com/embed/4yS3We2NivI?autoplay=1"
+                aria-label="Reproduzir vídeo"
+              >
+                <img
+                  class="video-thumb-img"
+                  loading="lazy"
+                  src="https://img.youtube.com/vi/4yS3We2NivI/hqdefault.jpg"
+                  alt="Position CSS – Responsividade"
+                />
+                <div class="play-btn">▶</div>
+              </div>
+              <p>Position CSS – Responsividade</p>
+            </div>
+
+            <div class="video-placeholder">
+              <div
+                class="video-wrapper js-video-trigger"
+                role="button"
+                tabindex="0"
+                data-embed-url="https://www.youtube.com/embed/QdX3JDom3dQ?autoplay=1"
+                aria-label="Reproduzir vídeo"
+              >
+                <img
+                  class="video-thumb-img"
+                  loading="lazy"
+                  src="https://img.youtube.com/vi/QdX3JDom3dQ/hqdefault.jpg"
+                  alt="Seletores de Filhos e Responsividade"
+                />
+                <div class="play-btn">▶</div>
+              </div>
+              <p>Seletores de Filhos e Responsividade</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- ===== MÓDULO 4 ===== -->
+        <div class="modulo-card">
+          <div class="modulo-header">
+            <span class="modulo-num">04</span>
+            <h2>Animações e transições</h2>
+          </div>
+          <div class="videos-grid">
+            <div class="video-placeholder">
+              <div
+                class="video-wrapper js-video-trigger"
+                role="button"
+                tabindex="0"
+                data-embed-url="https://www.youtube.com/embed/cNe_RVJoA4U?autoplay=1"
+                aria-label="Reproduzir vídeo"
+              >
+                <img
+                  class="video-thumb-img"
+                  loading="lazy"
+                  src="https://img.youtube.com/vi/cNe_RVJoA4U/hqdefault.jpg"
+                  alt="Introdução ao CSS – Cores e Animações"
+                />
+                <div class="play-btn">▶</div>
+              </div>
+              <p>Introdução ao CSS – Cores e Animações</p>
+            </div>
+
+            <div class="video-placeholder">
+              <div
+                class="video-wrapper js-video-trigger"
+                role="button"
+                tabindex="0"
+                data-embed-url="https://www.youtube.com/embed/KIKekNqq3so?autoplay=1"
+                aria-label="Reproduzir vídeo"
+              >
+                <img
+                  class="video-thumb-img"
+                  loading="lazy"
+                  src="https://img.youtube.com/vi/KIKekNqq3so/hqdefault.jpg"
+                  alt="Curso de Flexbox – Introdução"
+                />
+                <div class="play-btn">▶</div>
+              </div>
+              <p>Curso de Flexbox – Introdução</p>
+            </div>
+          </div>
         </div>
       </div>
+    </main>
 
-      <!-- ===== MÓDULO 3 ===== -->
-      <div class="modulo-card">
-        <div class="modulo-header">
-          <span class="modulo-num">03</span>
-          <h2>Responsividade</h2>
-        </div>
-        <div class="videos-grid">
+    <div data-site-footer data-base="../.."></div>
 
-                    <div class="video-placeholder">
-            <div class="video-wrapper" onclick="loadVideo(this, 'https://www.youtube.com/embed/4yS3We2NivI?autoplay=1')">
-              <img class="video-thumb-img" src="https://img.youtube.com/vi/4yS3We2NivI/hqdefault.jpg" alt="Position CSS – Responsividade" />
-              <div class="play-btn">▶</div>
-            </div>
-            <p>Position CSS – Responsividade</p>
-          </div>
-
-                    <div class="video-placeholder">
-            <div class="video-wrapper" onclick="loadVideo(this, 'https://www.youtube.com/embed/QdX3JDom3dQ?autoplay=1')">
-              <img class="video-thumb-img" src="https://img.youtube.com/vi/QdX3JDom3dQ/hqdefault.jpg" alt="Seletores de Filhos e Responsividade" />
-              <div class="play-btn">▶</div>
-            </div>
-            <p>Seletores de Filhos e Responsividade</p>
-          </div>
-
-        </div>
-      </div>
-
-      <!-- ===== MÓDULO 4 ===== -->
-      <div class="modulo-card">
-        <div class="modulo-header">
-          <span class="modulo-num">04</span>
-          <h2>Animações e transições</h2>
-        </div>
-        <div class="videos-grid">
-
-                    <div class="video-placeholder">
-            <div class="video-wrapper" onclick="loadVideo(this, 'https://www.youtube.com/embed/cNe_RVJoA4U?autoplay=1')">
-              <img class="video-thumb-img" src="https://img.youtube.com/vi/cNe_RVJoA4U/hqdefault.jpg" alt="Introdução ao CSS – Cores e Animações" />
-              <div class="play-btn">▶</div>
-            </div>
-            <p>Introdução ao CSS – Cores e Animações</p>
-          </div>
-
-                    <div class="video-placeholder">
-            <div class="video-wrapper" onclick="loadVideo(this, 'https://www.youtube.com/embed/KIKekNqq3so?autoplay=1')">
-              <img class="video-thumb-img" src="https://img.youtube.com/vi/KIKekNqq3so/hqdefault.jpg" alt="Curso de Flexbox – Introdução" />
-              <div class="play-btn">▶</div>
-            </div>
-            <p>Curso de Flexbox – Introdução</p>
-          </div>
-
-        </div>
-      </div>
-
-    </div>
-
-  </main>
-
-  <footer>
-    <div class="rodTopo">
-      <div class="rod-logo">
-        <h3 class="rod-nome">Tech <strong>Cursos</strong></h3>
-        <p>Todo tipo de linguagem na palma da sua mão!</p>
-      </div>
-      <div class="rod1">
-        <h3>Soluções</h3>
-        <ul>
-          <li><a href="#">Trilhas de Aprendizado</a></li>
-          <li><a href="#">Projetos Práticos</a></li>
-          <li><a href="#">Certificados</a></li>
-        </ul>
-      </div>
-      <div class="rod2">
-        <h3>Legal</h3>
-        <ul>
-          <li><a href="#">Termos de Uso</a></li>
-          <li><a href="#">Política de Privacidade</a></li>
-        </ul>
-      </div>
-      <div class="rodDados">
-        <h3>Empresa</h3>
-        <p><strong>CNPJ:</strong> 00.000.000/0000-00</p>
-        <p>Rio de Janeiro, RJ — Brasil</p>
-        <p>suporte <a href="#">@TechCursos.com</a></p>
-      </div>
-    </div>
-    <div class="rodFinal">
-      <p>© Tech Cursos — Devs: Herbert, João, Giovanni, Matheus e Caique.</p>
-    </div>
-  </footer>
-
-  <script src="../../inscricao/auth.js"></script>
-  <script>
-    if (!isLoggedIn()) {
-      sessionStorage.setItem('redirectAfterLogin', window.location.href);
-      window.location.href = '../../inscricao/inscricao.html';
-    }
-    document.getElementById('saudacao').textContent = 'Olá, ' + getUsuarioLogado();
-  </script>
-
-
-  <script>
-    function loadVideo(wrapper, embedUrl) {
-      var iframe = document.createElement('iframe');
-      iframe.src = embedUrl;
-      iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
-      iframe.allowFullscreen = true;
-      wrapper.innerHTML = '';
-      wrapper.appendChild(iframe);
-    }
-  </script>
-</body>
+    <script src="../../inscricao/auth.js" defer></script>
+    <script src="../../js/footer.js" defer></script>
+    <script src="aulas.js" defer></script>
+  </body>
 </html>

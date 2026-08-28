@@ -37,9 +37,9 @@ html {
 
 /* Botão preenchido roxo translúcido */
 .btn-roxo {
-  background-color: #5B21F447;
+  background-color: #5b21f447;
   color: #fff;
-  border: 2px solid #5B21F447;
+  border: 2px solid #5b21f447;
 }
 
 /* Botão só com borda — leva à seção #Cursos */
@@ -70,9 +70,9 @@ html {
   text-decoration: none;
   transition: all 0.3s ease;
   cursor: pointer;
-  background-color: #5B21F447;
+  background-color: #5b21f447;
   color: #fff;
-  border: 2px solid #5B21F447;
+  border: 2px solid #5b21f447;
 }
 
 .btn-inscricao:hover {
@@ -99,7 +99,9 @@ html {
 body {
   background-color: var(--bg-color);
   color: var(--text-color);
-  transition: background-color 0.4s ease, color 0.4s ease;
+  transition:
+    background-color 0.4s ease,
+    color 0.4s ease;
 }
 
 header,
