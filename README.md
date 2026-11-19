@@ -1,69 +1,27 @@
-# 📚 Projeto Faculdade
+# Projeto Faculdade
 
-Projeto desenvolvido durante o primeiro semestre de Análise e Desenvolvimento de Sistemas na UNISUAM.
+Site acadêmico desenvolvido no primeiro semestre de Análise e Desenvolvimento de Sistemas na UNISUAM. O projeto usa HTML, CSS e JavaScript para apresentar um catálogo de cursos e praticar a navegação entre páginas, layouts responsivos e validação de formulários.
 
-O objetivo deste projeto foi praticar conceitos de desenvolvimento web utilizando HTML, CSS e JavaScript, aplicando estruturação de páginas, estilização e interatividade.
+[Abrir o site no GitHub Pages](https://herbertfariasss.github.io/Projeto-Faculdade/)
 
-## Mapa do projeto (onde cada arquivo se liga)
+![Captura de tela da página inicial](img/preview.png)
 
-| Arquivo | Função |
-|---------|--------|
-| `index.html` | Página principal — hero, cursos, sobre, contato |
-| `css/styles.css` | Estilos base (fundo, header, hero, textos) |
-| `css/button.css` | Botões do hero e Login no menu |
-| `css/html-box.css` … `py-box.css` | Cards HTML, CSS, JS, Python |
-| `css/menu.css` | Linhas e títulos de seção |
-| `css/resp.css` | Responsivo — carregar **por último** no HTML |
-| `js/script.js` | Rolagem suave dos links `#Home`, `#Cursos`… |
-| `inscricao/inscricao.html` | Tela de login e cadastro |
-| `inscricao/auth.js` | Login com `localStorage` (admin/admin padrão) |
-| `inscricao/cabecalho.js` | Menu hambúrguer no mobile |
-| `inscricao/css/fundo.css` | Fundo + card centralizado |
-| `inscricao/css/cabecalho.css` | Header da página de login |
-| `inscricao/css/rodape.css` | Rodapé fixo no fim da tela |
-| `inscricao/css/cadastronavs.css` | Mensagens de erro/sucesso e links de aba |
-
----
-
-## 🚀 Tecnologias utilizadas
-
-- HTML5
-- CSS3
-- JavaScript
-- Git e GitHub
-
----
-
-## 💻 Funcionalidades
-
-- Interface responsiva
-- Estruturação semântica em HTML
-- Estilização com CSS
-- Interações utilizando JavaScript
-- Formulários e validações
-- Organização de layout
-
----
-
-## 📸 Preview do projeto
-
-<img width="100%" src="img/preview.png">
-
-
-
----
-
-## 🌐 Site publicado (GitHub Pages)
-
-**URL correta:** https://herbertfariasss.github.io/Projeto-Faculdade/
-
-> Use sempre o link com `/Projeto-Faculdade/` no final. Abrir só `herbertfariasss.github.io` (sem o nome do repositório) gera erro 404.
-
----
-
-## 📂 Como executar o projeto
+## Como executar
 
 ```bash
-# Clone o repositório
 git clone https://github.com/herbertfariasss/Projeto-Faculdade.git
+cd Projeto-Faculdade
+python -m http.server 8000
 ```
+
+Abra [localhost:8000](http://localhost:8000) no navegador. Para explorar o fluxo de cadastro, use dados e uma senha fictícios. O login é uma demonstração e usa o armazenamento local do navegador. A consulta de CEP usa o ViaCEP e requer conexão com a internet.
+
+## Estrutura do projeto
+
+| Caminho | Conteúdo |
+| --- | --- |
+| [`index.html`](index.html) | Página inicial com apresentação, cursos, sobre e contato |
+| [`cursos/`](cursos/) | Catálogo e páginas de aulas de HTML, CSS, JavaScript e Python |
+| [`inscricao/`](inscricao/) | Telas de login, cadastro e perfil, com validação de CPF e consulta de CEP |
+| [`css/`](css/) | Estilos da página inicial, dos cards e da navegação responsiva |
+| [`js/script.js`](js/script.js) | Rolagem suave entre seções |
